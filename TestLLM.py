@@ -1,0 +1,504 @@
+import requests
+import random
+import time
+import os
+import string
+import csv
+import tiktoken
+from typing import Dict, Any
+
+# 导入adaptive提示词模块
+try:
+    from adaptive_prompts import ADAPTIVE_SYSTEM_PROMPTS, get_adaptive_messages
+    ADAPTIVE_AVAILABLE = True
+    print("✅ Adaptive prompts module loaded successfully")
+except ImportError:
+    ADAPTIVE_AVAILABLE = False
+    print("⚠️ Adaptive prompts module not found, using standard prompts")
+
+# --- CONFIGURATION ---
+# 请根据您的本地Ollama服务进行配置
+OLLAMA_API_URL = 'http://localhost:11434/api/chat'
+# 需要进行评测的模型列表
+MODELS_TO_TEST = [
+  #  'atlas/intersync-gemma-7b-instruct-function-calling:latest', # 如果您有这个模型
+    'phi4-mini-reasoning:latest',
+ #   'deepseek-r1:8b',
+    'gemma3:latest',
+  #  'mistral-nemo:latest',
+    'cogito:latest',
+  #  'yi:6b',
+  #  'deepseek-coder:6.7b-instruct',
+  #  'qwen:7b-chat'
+  # 'exaone-deep:7.8b'
+]
+MAX_CONTEXT_TOKENS = 8192 # 假设所有模型的上下文窗口为8k
+NUM_TEST_CASES = 3    # 为节省时间，先设为3个案例。可增加到5或10以获得更可靠结果
+TOTAL_TURNS_PER_CASE = 1500 # 对话总轮数，确保文本足够长
+API_TIMEOUT = 3000 # API调用超时时间（秒），对于大模型推理，可能需要设置长一点
+
+# 使用tiktoken进行精确的token计算
+try:
+    TOKENIZER = tiktoken.get_encoding("cl100k_base")
+except Exception:
+    TOKENIZER = tiktoken.encoding_for_model("gpt-4") # 备用方案
+
+# --- 1. DATA GENERATION (IMPROVED) ---
+
+def generate_god_view_script() -> Dict[str, Any]:
+    """
+    动态生成一个独立的'狼人杀'案件剧本。
+    返回包含凶手、动机、强线索和弱线索(干扰项)的字典
+    """
+    roles = list(string.ascii_uppercase)[:13] # A-M
+    killer = random.choice(roles)
+    
+    motives = {
+        "lumberjack": {
+            "motive_desc": "因木材利润纠纷而行凶",
+            "strong_clues": [
+                f"案发现场发现了稀有的松木碎屑，只有伐木工 {killer} 会接触这种木材",
+                f"{killer} 的斧头最近被异常仔细地打磨和清洗过",
+                f"有村民听到 {killer} 在案发前晚对受害者咆哮说'这是你最后一次交货'"
+            ],
+            "red_herrings": [
+                "当晚有人听到了奇怪的野兽嚎叫声",
+                "一个常在河边散步的村民看到一个模糊的黑影跳入水中",
+                "受害者最近似乎中了一笔小彩票，但很快就花光了"
+            ]
+        },
+        "baker": {
+            "motive_desc": "因商业竞争而下毒",
+            "strong_clues": [
+                f"法医在受害者的茶杯中检测到微量杏仁味毒素",
+                f"面包师 {killer} 最近从黑市购买了一批被称为'特殊发酵粉'的化学品",
+                f"在受害者的垃圾桶里发现了一张被撕碎的、写有 {killer} 字迹的配方纸条"
+            ],
+            "red_herrings": [
+                "受害者的窗户被发现是开着的",
+                f"另一位村民 {random.choice([r for r in roles if r != killer])} 前几天也和受害者发生过激烈争吵",
+                "案发现场附近的一棵树上挂着一块深色布料"
+            ]
+        }
+    }
+    motive_key = random.choice(list(motives.keys()))
+    script = motives[motive_key]
+    
+    # 统一使用red_herrings作为键名
+    return {
+        "true_killer": killer,
+        "motive": script["motive_desc"],
+        "strong_clues": script["strong_clues"],
+        "weak_clues": script["red_herrings"],
+        "all_clues": script["strong_clues"] + script["red_herrings"]
+    }
+
+def generate_dialogue(script: Dict[str, Any], total_turns: int) -> str:
+    """
+    根据剧本，生成包含大量噪音和关键线索的对话文本。
+    """
+    dialogue_lines = []
+    roles = list(string.ascii_uppercase)[:13]
+    clues_to_inject = script['all_clues'].copy()
+    random.shuffle(clues_to_inject)
+    
+    injection_points = sorted(random.sample(range(50, total_turns - 50), len(clues_to_inject)))
+    
+    common_templates = [
+        "最近村里气氛很怪。", "我会注意身边的动静。", "我觉得大家应该团结起来。",
+        "说实话，我有点害怕，昨晚根本没敢出门。", "大家都别乱猜了，咱们还是把知道的都说出来吧。",
+        "唉，这种事怎么会发生在我们村啊……", "我觉得线索太零碎了。", "要不我们轮流说说昨晚都干了啥？"
+    ]
+
+    clue_idx = 0
+    for i in range(total_turns):
+        speaker = random.choice(roles)
+        if clue_idx < len(injection_points) and i == injection_points[clue_idx]:
+            clue = clues_to_inject[clue_idx]
+            line = f"{speaker}：我好像发现了点什么…… {clue}。不过也可能是我多心了。"
+            clue_idx += 1
+        else:
+            line = f"{speaker}：{random.choice(common_templates)}"
+        dialogue_lines.append(line)
+
+    return "\n".join(dialogue_lines)
+
+
+# --- 2. PROMPT ENGINEERING ---
+
+def get_prompt(prompt_type: str, context: Dict[str, str] = {}, model: str = "") -> str:
+    # 优化系统提示词：明确、精要、逻辑缜密
+    optimized_system_prompt = (
+        "You are a logical, precise, and concise detective. "
+        "Analyze the murder case, extract key evidence, and reason step by step. "
+        "Your answers must be clear, focused, and strictly based on facts."
+    )
+    # 针对atlas/intersync-gemma模型的英文缩写格式（最高效）
+    if "atlas/intersync-gemma" in model:
+        if prompt_type == "intermediate":
+            if context.get('summary_so_far', '').strip() and context.get('summary_so_far', '').strip() != 'None':
+                summary = context['summary_so_far'][:60]
+                new_content = context['new_dialogue_chunk'][:50]
+                return f"E:{summary} N:{new_content} U:"
+            else:
+                content = context['new_dialogue_chunk'][:70]
+                return f"S:{content}"
+        elif prompt_type == "final":
+            facts = context.get('summary_so_far', '')[:150]
+            return f"E:{facts} K?"
+    # 标准提示词（其他模型）
+    if prompt_type == "intermediate":
+        if context.get('summary_so_far', '').strip() and context.get('summary_so_far', '').strip() != 'None':
+            return f"""System: {optimized_system_prompt}\n\nPrevious summary: {context['summary_so_far']}\n\nNew dialogue segment: {context['new_dialogue_chunk']}\n\nPlease provide an updated summary that combines the previous summary with new information from this dialogue segment. Focus on key facts, evidence, and clues. Be concise and logical:"""
+        else:
+            return f"""System: {optimized_system_prompt}\n\nPlease summarize this dialogue segment, focusing on key facts, evidence, and clues:\n\n{context['new_dialogue_chunk']}\n\nSummary (concise, logical):"""
+    elif prompt_type == "final":
+        return f"""System: {optimized_system_prompt}\n\nBased on all the evidence and information gathered, please analyze and determine who is the killer.\n\nComplete evidence summary: {context.get('summary_so_far', '')}\n\nPlease provide your final analysis and conclusion (concise, logical, step-by-step):"""
+    return ""
+
+
+# --- 3. EXECUTION & EVALUATION ---
+
+def call_ollama(model: str, prompt: str, use_adaptive: bool = True, test_context: str = "detective_reasoning", max_retries: int = 10) -> str:
+    """
+    Calls the Ollama API and returns the content of the response.
+    支持adaptive提示词功能和零响应重试机制，针对atlas模型进行特殊优化
+
+    Args:
+        model: 模型名称
+        prompt: 用户提示词
+        use_adaptive: 是否使用adaptive提示词
+        test_context: 测试上下文，用于选择合适的adaptive提示词
+        max_retries: 最大重试次数
+    """
+    print(f"    - Calling model: {model}...")
+
+    # 针对atlas/intersync-gemma模型的特殊处理
+    if "atlas/intersync-gemma" in model:
+        # 使用精简系统提示词（不超过80字符）
+        system_prompt = "Detective. Analyze murder case. Summarize key evidence concisely."
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": prompt}
+        ]
+        print(f"    🎯 Using optimized prompt for atlas model (total: {len(system_prompt + prompt)} chars)")
+    else:
+        # 标准模型的adaptive提示词处理
+        if use_adaptive and ADAPTIVE_AVAILABLE:
+            try:
+                # 为TestLLM创建一个虚拟的测试脚本名，基于测试上下文
+                test_script_name = f"test_pillar_{test_context}.py"
+
+                # 检查是否有针对该模型的adaptive提示词
+                if model in ADAPTIVE_SYSTEM_PROMPTS and test_script_name in ADAPTIVE_SYSTEM_PROMPTS[model]:
+                    system_prompt = ADAPTIVE_SYSTEM_PROMPTS[model][test_script_name]
+                    messages = [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": prompt}
+                    ]
+                    print(f"    📝 Using adaptive system prompt for {model}")
+                else:
+                    # 如果没有特定的adaptive提示词，使用通用的detective reasoning提示词
+                    if model in ADAPTIVE_SYSTEM_PROMPTS:
+                        # 使用该模型的任意一个adaptive提示词作为基础
+                        available_prompts = list(ADAPTIVE_SYSTEM_PROMPTS[model].keys())
+                        if available_prompts:
+                            # 修改为适合detective reasoning的提示词
+                            detective_prompt = "You are an expert detective and logical reasoning engine. Your task is to analyze evidence, identify patterns, and draw logical conclusions from the provided information. Focus on clear, step-by-step reasoning."
+                            messages = [
+                                {"role": "system", "content": detective_prompt},
+                                {"role": "user", "content": prompt}
+                            ]
+                            print(f"    📝 Using adapted detective reasoning prompt for {model}")
+                        else:
+                            messages = [{"role": "user", "content": prompt}]
+                    else:
+                        messages = [{"role": "user", "content": prompt}]
+            except Exception as e:
+                print(f"    ⚠️ Adaptive prompts failed, using standard: {e}")
+                messages = [{"role": "user", "content": prompt}]
+        else:
+            # 使用标准消息格式
+            messages = [{"role": "user", "content": prompt}]
+
+    # 零响应重试机制
+    for attempt in range(max_retries):
+        # 针对atlas模型的强化参数优化（确保零响应）
+        if "atlas/intersync-gemma" in model:
+            # 渐进式参数调整策略
+            if attempt <= 2:
+                # 前3次尝试：标准参数
+                temp = 0.6 + (attempt * 0.2)
+                top_p = 0.95
+                top_k = 60
+            elif attempt <= 5:
+                # 第4-6次：提高随机性
+                temp = 0.9 + (attempt * 0.1)
+                top_p = 0.98
+                top_k = 80
+            else:
+                # 第7-10次：最大随机性
+                temp = 1.2 + (attempt * 0.1)
+                top_p = 1.0
+                top_k = 100
+
+            options = {
+                "temperature": min(temp, 2.0),  # 限制最大温度
+                "top_p": top_p,
+                "top_k": top_k,
+                "repeat_penalty": max(1.0, 1.05 - (attempt * 0.01)),  # 逐步降低重复惩罚
+                "timeout": 40,
+                "num_ctx": max(1024, 2048 - (attempt * 100)),  # 逐步减少上下文
+                "num_predict": 100 + (attempt * 10),  # 逐步增加输出长度
+                "seed": -1,  # 随机种子
+                "mirostat": 2 if attempt > 3 else 0,  # 后期启用mirostat
+                "mirostat_tau": 5.0 if attempt > 3 else 5.0
+            }
+        else:
+            options = {
+                "temperature": 0.1 + (attempt * 0.1),  # 逐步增加温度
+                "top_p": 0.9,
+                "timeout": 30
+            }
+
+        payload = {
+            "model": model,
+            "messages": messages,
+            "stream": False,
+            "options": options
+        }
+
+        try:
+            response = requests.post(OLLAMA_API_URL, json=payload, timeout=API_TIMEOUT)
+            response.raise_for_status()
+            data = response.json()
+            content = data.get('message', {}).get('content', '')
+
+            if content and content.strip():
+                # 成功获得非空响应
+                if attempt > 0:
+                    print(f"    ✅ Success on retry {attempt + 1}: {len(content)} chars")
+                else:
+                    print(f"    ✅ Success: {len(content)} chars")
+                return content
+            else:
+                # 零响应，需要重试
+                print(f"    ⚠️ Zero response on attempt {attempt + 1}/{max_retries}")
+                if attempt < max_retries - 1:
+                    print(f"    🔄 Retrying with adjusted parameters...")
+                    time.sleep(2)  # 等待2秒后重试
+                    continue
+                else:
+                    print(f"    ❌ All retries failed - returning empty response")
+                    return ""
+
+        except requests.exceptions.Timeout:
+            print(f"    ⏰ Timeout on attempt {attempt + 1}/{max_retries}")
+            if attempt < max_retries - 1:
+                print(f"    🔄 Retrying after timeout...")
+                time.sleep(3)  # 超时后等待更长时间
+                continue
+            else:
+                return f"[API Error: Timeout after {max_retries} attempts]"
+
+        except requests.exceptions.RequestException as e:
+            print(f"    ❌ Request error on attempt {attempt + 1}/{max_retries}: {e}")
+            if attempt < max_retries - 1:
+                print(f"    🔄 Retrying after error...")
+                time.sleep(2)
+                continue
+            else:
+                return f"[API Error: {e} after {max_retries} attempts]"
+
+    return f"[API Error: All {max_retries} attempts failed]"
+
+def save_case_analysis(case_num: int, model: str, script: Dict[str, Any], final_reasoning: str):
+    """
+    保存案例分析报告，包含正确答案和评判标准
+    """
+    # 检查模型响应质量
+    if not final_reasoning or final_reasoning.strip() == "":
+        reasoning_status = "❌ 模型未提供分析 (可能是零响应问题)"
+        reasoning_content = "无响应内容"
+    elif "[API Error:" in final_reasoning:
+        reasoning_status = "❌ API调用错误"
+        reasoning_content = final_reasoning
+    else:
+        reasoning_status = "✅ 模型提供了分析"
+        reasoning_content = final_reasoning
+
+    analysis_report = f"""
+=== 案例 {case_num} 分析报告 ===
+模型: {model}
+时间: {time.strftime('%Y-%m-%d %H:%M:%S')}
+状态: {reasoning_status}
+
+--- 模型原始分析 ---
+{reasoning_content}
+
+--- 正确答案与评判标准 ---
+✅ 正确凶手: {script['true_killer']}
+✅ 作案动机: {script['motive']}
+
+✅ 关键证据 (强线索):
+{chr(10).join(f"  • {clue}" for clue in script['strong_clues'])}
+
+⚠️ 干扰信息 (弱线索):
+{chr(10).join(f"  • {clue}" for clue in script['weak_clues'])}
+
+📋 评判标准:
+1. 凶手识别 (是否正确指出 {script['true_killer']})
+2. 证据使用 (是否有效利用关键证据)
+3. 逻辑推理 (推理链是否清晰连贯)
+4. 干扰排除 (是否被弱线索误导)
+
+--- 推理要点 ---
+正确的推理应该:
+• 重点关注强线索，它们直接指向真凶
+• 识别并排除干扰信息
+• 建立清晰的因果关系链
+• 得出明确的结论
+
+--- 手动评判指南 ---
+请根据以上标准对模型分析进行评分 (1-5分):
+□ 凶手识别: ___/5 (是否正确识别出 {script['true_killer']})
+□ 证据使用: ___/5 (是否有效使用强线索)
+□ 逻辑推理: ___/5 (推理是否清晰连贯)
+□ 干扰排除: ___/5 (是否避免被弱线索误导)
+□ 总体评分: ___/5
+
+===============================
+"""
+
+    # 保存到文件，若重名则自动编号
+    base_filename = f"case_{case_num}_{model.replace('/', '_').replace(':', '_')}_analysis.txt"
+    filename = base_filename
+    file_index = 1
+    while os.path.exists(filename):
+        name_part, ext = os.path.splitext(base_filename)
+        filename = f"{name_part}_{file_index}{ext}"
+        file_index += 1
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(analysis_report)
+
+    print(f"    ✅ 分析报告已保存: {filename}")
+    return analysis_report
+
+def run_test_pipeline():
+    """
+    主测试流程函数 - 支持多种分段方案，记录原始分析报告
+    """
+    results_filepath = 'model_analysis_reports.csv'
+    all_results = []
+
+    SEGMENT_TOKEN_OPTIONS = [3000, 5000]  # 支持两种分段方案
+    for chunk_size in SEGMENT_TOKEN_OPTIONS:
+        strategy_name = f"Balanced-{chunk_size}tokens"
+        breakpoints = [chunk_size]
+        for i in range(NUM_TEST_CASES):
+            print(f"\n--- Running Test Case {i+1}/{NUM_TEST_CASES} ---")
+            script = generate_god_view_script()
+            dialogue = generate_dialogue(script, TOTAL_TURNS_PER_CASE)
+            dialogue_tokens = TOKENIZER.encode(dialogue)
+            print(f"  - Case generated. Killer: {script['true_killer']}. Total tokens: {len(dialogue_tokens)}")
+            for model in MODELS_TO_TEST:
+                print(f"\n  Testing Model: {model}, Strategy: {strategy_name}")
+                last_summary = ""
+                start_idx = 0
+                segment_count = 0
+                while start_idx < len(dialogue_tokens):
+                    end_idx = min(start_idx + chunk_size, len(dialogue_tokens))
+                    chunk_text = TOKENIZER.decode(dialogue_tokens[start_idx:end_idx])
+                    segment_count += 1
+                    print(f"    - Segment {segment_count}: Processing tokens {start_idx} to {end_idx} ({end_idx - start_idx} tokens)")
+                    prompt = get_prompt("intermediate", {
+                        "summary_so_far": last_summary,
+                        "new_dialogue_chunk": chunk_text
+                    }, model)
+                    intermediate_summary = call_ollama(model, prompt, use_adaptive=False, test_context="summary_analysis")
+                    if not intermediate_summary or intermediate_summary.strip() == "":
+                        print("    🔄 Zero response, trying fallback prompt...")
+                        if "atlas/intersync-gemma" in model:
+                            if last_summary.strip():
+                                fallback_prompt = f"Update:{last_summary[:30]}"
+                            else:
+                                fallback_prompt = f"Sum:{chunk_text[:40]}"
+                            intermediate_summary = call_ollama(model, fallback_prompt, use_adaptive=False, test_context="summary_analysis")
+                            print(f"    🆘 Fallback prompt result: {len(intermediate_summary) if intermediate_summary else 0} chars")
+                    if "[API Error:" in intermediate_summary:
+                        print("    - Halting strategy due to API error.")
+                        last_summary = intermediate_summary
+                        break
+                    if not intermediate_summary or intermediate_summary.strip() == "":
+                        print("    🆘 Using default summary to continue...")
+                        if last_summary.strip():
+                            intermediate_summary = last_summary[:100] + " [continued]"
+                        else:
+                            intermediate_summary = "Evidence found, investigation continues."
+                    if "atlas/intersync-gemma" in model and intermediate_summary:
+                        if len(intermediate_summary) > 150:
+                            intermediate_summary = intermediate_summary[:147] + "..."
+                            print(f"    📏 Truncated summary to 150 chars for atlas model")
+                    last_summary = intermediate_summary
+                    start_idx = end_idx
+                    time.sleep(2)
+                if "[API Error:" in last_summary:
+                    final_reasoning = last_summary
+                else:
+                    print("    - Generating final reasoning...")
+                    final_prompt = get_prompt("final", {"summary_so_far": last_summary}, model)
+                    final_reasoning = call_ollama(model, final_prompt, use_adaptive=False, test_context="final_reasoning")
+                    if not final_reasoning or final_reasoning.strip() == "":
+                        print("    🔄 Final reasoning zero response, trying fallback...")
+                        if "atlas/intersync-gemma" in model:
+                            fallback_final = f"Who killed? {last_summary[:50]}"
+                            final_reasoning = call_ollama(model, fallback_final, use_adaptive=False, test_context="final_reasoning")
+                            print(f"    🆘 Fallback final reasoning: {len(final_reasoning) if final_reasoning else 0} chars")
+                    if not final_reasoning or final_reasoning.strip() == "":
+                        print("    🆘 Using default final reasoning...")
+                        final_reasoning = f"Based on the evidence: {last_summary[:100]}, further investigation needed to determine the killer."
+                if "[API Error:" not in final_reasoning:
+                    print("    - Saving analysis report with correct answers...")
+                    save_case_analysis(i + 1, model, script, final_reasoning)
+                if not final_reasoning or final_reasoning.strip() == "":
+                    response_status = "zero_response"
+                elif "[API Error:" in final_reasoning:
+                    response_status = "api_error"
+                else:
+                    response_status = "success"
+                result = {
+                    "test_case": i + 1,
+                    "model": model,
+                    "strategy": strategy_name,
+                    "true_killer": script['true_killer'],
+                    "motive": script['motive'],
+                    "strong_clues": "; ".join(script['strong_clues']),
+                    "weak_clues": "; ".join(script['weak_clues']),
+                    "final_reasoning": final_reasoning,
+                    "response_status": response_status,
+                    "reasoning_length": len(final_reasoning) if final_reasoning else 0,
+                    "timestamp": time.strftime('%Y-%m-%d %H:%M:%S')
+                }
+                all_results.append(result)
+                if all_results:
+                    with open(results_filepath, 'w', newline='', encoding='utf-8') as f:
+                        writer = csv.DictWriter(f, fieldnames=all_results[0].keys())
+                        writer.writeheader()
+                        writer.writerows(all_results)
+    print(f"\n--- Test Suite Complete. Full report saved to {results_filepath} ---")
+
+if __name__ == "__main__":
+    if not os.path.exists('recursive_summary_results'):
+        os.makedirs('recursive_summary_results')
+    os.chdir('recursive_summary_results')
+    
+    run_test_pipeline()
+
+    print(f"\n--- 测试完成 ---")
+    print(f"所有分析报告已保存到当前目录")
+    print(f"CSV汇总报告: model_analysis_reports.csv")
+    print(f"每个案例的详细分析报告包含:")
+    print(f"  • 模型原始分析")
+    print(f"  • 正确答案和线索")
+    print(f"  • 评判标准")
+    print(f"  • 推理要点")

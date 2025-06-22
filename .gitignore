@@ -1,0 +1,49 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Test output directories
+recursive_summary_results/
+recursive_summary_results-*/
+results_pillar*/
+testout/
+testout_enhanced/
+
+# Test result files
+*.csv
+*.txt
+*.json
+*.html
+*.md
+
+# Specific test output patterns
+case_*_analysis.txt
+result_test_*.txt
+model_analysis_reports.csv
+*_report*.csv
+*_report*.json
+*_analysis*.txt
+*_diagnosis*.json
+
+# Configuration files that might contain sensitive data
+*.ini
+frpc-o.ini
+
+# Shell scripts (if they're environment-specific)
+*.sh
+
+# Temporary files
+*.tmp
+*.temp
+新建文件夹/
+
+# Keep only source files
+!*.py
+!README.md
+!requirements.txt
+!.gitignore
+
+# But exclude specific non-source Python files if any
+pullOllamaLLMs.py
