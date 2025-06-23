@@ -1,0 +1,41 @@
+
+--- Preparing to run: test_pillar_20_massive_consensus.py ---
+=== 测试用例1: 中等规模角色协作 ===
+开始海量角色共识测试: 20个角色, 主题: 人工智能伦理
+阶段1: 生成角色...
+    ✅ Qiniu DeepSeek success: 2442 chars
+阶段2: 协同编辑...
+    ✅ Qiniu DeepSeek success: 2705 chars
+阶段3: 投票机制...
+    ✅ Qiniu DeepSeek success: 2043 chars
+阶段4: 区块链共识...
+    ✅ Qiniu DeepSeek success: 2026 chars
+结果已保存到: D:\DAIP\testLLM\tests\..\testout\massive_consensus_case1.json
+
+=== 测试用例2: 大规模角色协作 ===
+开始海量角色共识测试: 50个角色, 主题: 量子计算
+阶段1: 生成角色...
+    ✅ Qiniu DeepSeek success: 2678 chars
+警告: 无法解析角色JSON，使用默认角色
+阶段2: 协同编辑...
+    ✅ Qiniu DeepSeek success: 1818 chars
+阶段3: 投票机制...
+    ✅ Qiniu DeepSeek success: 1831 chars
+阶段4: 区块链共识...
+    ✅ Qiniu DeepSeek success: 1858 chars
+结果已保存到: D:\DAIP\testLLM\tests\..\testout\massive_consensus_case2.json
+
+=== 测试用例3: 超大规模角色 + 区块链共识 ===
+开始海量角色共识测试: 100个角色, 主题: 元宇宙技术
+阶段1: 生成角色...
+    ✅ Qiniu DeepSeek success: 2807 chars
+警告: 无法解析角色JSON，使用默认角色
+阶段2: 协同编辑...
+    ✅ Qiniu DeepSeek success: 1579 chars
+阶段3: 投票机制...
+    ✅ Qiniu DeepSeek success: 1898 chars
+阶段4: 区块链共识...
+    ✅ Qiniu DeepSeek success: 2338 chars
+结果已保存到: D:\DAIP\testLLM\tests\..\testout\massive_consensus_case3.json
+
+=== 海量角色共识测试完成 ===

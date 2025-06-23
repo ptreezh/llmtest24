@@ -1,0 +1,696 @@
+
+--- Preparing to run: test_pillar_20_massive_consensus.py ---
+=== 测试用例1: 中等规模角色协作 ===
+开始海量角色共识测试: 20个角色, 主题: 人工智能伦理
+阶段1: 生成角色...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+请生成20个不同的角色，用于Wikipedia词条协同编辑。每个角色应该有：
+1. 姓名（虚构但真实）
+2. 专业背景
+3. 观点倾向
+4. 编辑风格
+
+请以JSON格式输出，格式如下：
+[
+  {
+    "name": "张三",
+    "background": "计算机科学教授",
+    "viewpoint": "技术乐观主义者",
+    "editing_style": "严谨学术派"
+  },
+  ...
+]
+
+要求角色多样化，包含不同领域专家、不同观点立场、不同文化背景。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.33 seconds.
+角色生成失败: Expecting value: line 1 column 2 (char 1)
+阶段2: 协同编辑...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+现在有20个角色要协同编辑Wikipedia词条："人工智能伦理"
+
+角色列表（前10个）：
+[
+  {
+    "name": "李教授1",
+    "background": "AI研究员",
+    "viewpoint": "技术中性",
+    "editing_style": "学术严谨"
+  },
+  {
+    "name": "王记者2",
+    "background": "科技记者",
+    "viewpoint": "公众利益",
+    "editing_style": "通俗易懂"
+  },
+  {
+    "name": "陈工程师3",
+    "background": "软件工程师",
+    "viewpoint": "实用主义",
+    "editing_style": "技术细节"
+  },
+  {
+    "name": "刘学生4",
+    "background": "计算机专业学生",
+    "viewpoint": "学习导向",
+    "editing_style": "全面详细"
+  },
+  {
+    "name": "赵律师5",
+    "background": "科技法律专家",
+    "viewpoint": "风险规避",
+    "editing_style": "谨慎保守"
+  },
+  {
+    "name": "李教授6",
+    "background": "AI研究员",
+    "viewpoint": "技术中性",
+    "editing_style": "学术严谨"
+  },
+  {
+    "name": "王记者7",
+    "background": "科技记者",
+    "viewpoint": "公众利益",
+    "editing_style": "通俗易懂"
+  },
+  {
+    "name": "陈工程师8",
+    "background": "软件工程师",
+    "viewpoint": "实用主义",
+    "editing_style": "技术细节"
+  },
+  {
+    "name": "刘学生9",
+    "background": "计算机专业学生",
+    "viewpoint": "学习导向",
+    "editing_style": "全面详细"
+  },
+  {
+    "name": "赵律师10",
+    "background": "科技法律专家",
+    "viewpoint": "风险规避",
+    "editing_style": "谨慎保守"
+  }
+]
+...（还有10个角色）
+
+请模拟协同编辑过程：
+1. 每个角色根据自己的背景和观点，对词条提出编辑建议
+2. 识别出现的主要分歧点
+3. 记录不同观点的支持者
+
+请以结构化格式输出：
+- 编辑建议汇总
+- 主要分歧点
+- 各分歧的支持者分布
+
+注意：要体现不同角色的专业背景差异和观点冲突。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.29 seconds.
+阶段3: 投票机制...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+基于前面的协同编辑结果，现在需要通过投票解决分歧。
+
+编辑结果摘要：
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]...
+
+请实现多数决投票共识算法：
+
+1. 设计投票规则（权重分配、投票方式）
+2. 模拟投票过程
+3. 处理投票结果
+4. 解决剩余分歧
+
+要求：
+- 考虑角色的专业权威性
+- 实现具体的共识算法逻辑
+- 确保最终能达成共识
+- 记录整个决策过程
+
+请详细描述投票过程和最终共识结果。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.35 seconds.
+阶段4: 区块链共识...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+现在需要将投票结果通过区块链共识机制最终确认。
+
+投票结果：
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]...
+
+请实现类似区块链的共识验证：
+
+1. **验证阶段**：检查投票的有效性和一致性
+2. **共识确认**：模拟网络节点对结果的确认
+3. **最终化**：生成不可篡改的最终版本
+4. **分叉处理**：如果出现分歧，如何解决
+
+要求：
+- 模拟分布式验证过程
+- 处理可能的网络分区或分歧
+- 确保最终一致性
+- 生成最终的词条版本
+
+请详细描述区块链共识过程和最终确定的词条内容。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.32 seconds.
+结果已保存到: D:\DAIP\testLLM\tests\..\testout\massive_consensus_case1.json
+
+=== 测试用例2: 大规模角色协作 ===
+开始海量角色共识测试: 50个角色, 主题: 量子计算
+阶段1: 生成角色...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+请生成50个不同的角色，用于Wikipedia词条协同编辑。每个角色应该有：
+1. 姓名（虚构但真实）
+2. 专业背景
+3. 观点倾向
+4. 编辑风格
+
+请以JSON格式输出，格式如下：
+[
+  {
+    "name": "张三",
+    "background": "计算机科学教授",
+    "viewpoint": "技术乐观主义者",
+    "editing_style": "严谨学术派"
+  },
+  ...
+]
+
+要求角色多样化，包含不同领域专家、不同观点立场、不同文化背景。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.31 seconds.
+角色生成失败: Expecting value: line 1 column 2 (char 1)
+阶段2: 协同编辑...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+现在有50个角色要协同编辑Wikipedia词条："量子计算"
+
+角色列表（前10个）：
+[
+  {
+    "name": "李教授1",
+    "background": "AI研究员",
+    "viewpoint": "技术中性",
+    "editing_style": "学术严谨"
+  },
+  {
+    "name": "王记者2",
+    "background": "科技记者",
+    "viewpoint": "公众利益",
+    "editing_style": "通俗易懂"
+  },
+  {
+    "name": "陈工程师3",
+    "background": "软件工程师",
+    "viewpoint": "实用主义",
+    "editing_style": "技术细节"
+  },
+  {
+    "name": "刘学生4",
+    "background": "计算机专业学生",
+    "viewpoint": "学习导向",
+    "editing_style": "全面详细"
+  },
+  {
+    "name": "赵律师5",
+    "background": "科技法律专家",
+    "viewpoint": "风险规避",
+    "editing_style": "谨慎保守"
+  },
+  {
+    "name": "李教授6",
+    "background": "AI研究员",
+    "viewpoint": "技术中性",
+    "editing_style": "学术严谨"
+  },
+  {
+    "name": "王记者7",
+    "background": "科技记者",
+    "viewpoint": "公众利益",
+    "editing_style": "通俗易懂"
+  },
+  {
+    "name": "陈工程师8",
+    "background": "软件工程师",
+    "viewpoint": "实用主义",
+    "editing_style": "技术细节"
+  },
+  {
+    "name": "刘学生9",
+    "background": "计算机专业学生",
+    "viewpoint": "学习导向",
+    "editing_style": "全面详细"
+  },
+  {
+    "name": "赵律师10",
+    "background": "科技法律专家",
+    "viewpoint": "风险规避",
+    "editing_style": "谨慎保守"
+  }
+]
+...（还有40个角色）
+
+请模拟协同编辑过程：
+1. 每个角色根据自己的背景和观点，对词条提出编辑建议
+2. 识别出现的主要分歧点
+3. 记录不同观点的支持者
+
+请以结构化格式输出：
+- 编辑建议汇总
+- 主要分歧点
+- 各分歧的支持者分布
+
+注意：要体现不同角色的专业背景差异和观点冲突。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.34 seconds.
+阶段3: 投票机制...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+基于前面的协同编辑结果，现在需要通过投票解决分歧。
+
+编辑结果摘要：
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]...
+
+请实现权威加权投票共识算法：
+
+1. 设计投票规则（权重分配、投票方式）
+2. 模拟投票过程
+3. 处理投票结果
+4. 解决剩余分歧
+
+要求：
+- 考虑角色的专业权威性
+- 实现具体的共识算法逻辑
+- 确保最终能达成共识
+- 记录整个决策过程
+
+请详细描述投票过程和最终共识结果。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.32 seconds.
+阶段4: 区块链共识...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+现在需要将投票结果通过区块链共识机制最终确认。
+
+投票结果：
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]...
+
+请实现类似区块链的共识验证：
+
+1. **验证阶段**：检查投票的有效性和一致性
+2. **共识确认**：模拟网络节点对结果的确认
+3. **最终化**：生成不可篡改的最终版本
+4. **分叉处理**：如果出现分歧，如何解决
+
+要求：
+- 模拟分布式验证过程
+- 处理可能的网络分区或分歧
+- 确保最终一致性
+- 生成最终的词条版本
+
+请详细描述区块链共识过程和最终确定的词条内容。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.32 seconds.
+结果已保存到: D:\DAIP\testLLM\tests\..\testout\massive_consensus_case2.json
+
+=== 测试用例3: 超大规模角色 + 区块链共识 ===
+开始海量角色共识测试: 100个角色, 主题: 元宇宙技术
+阶段1: 生成角色...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+请生成100个不同的角色，用于Wikipedia词条协同编辑。每个角色应该有：
+1. 姓名（虚构但真实）
+2. 专业背景
+3. 观点倾向
+4. 编辑风格
+
+请以JSON格式输出，格式如下：
+[
+  {
+    "name": "张三",
+    "background": "计算机科学教授",
+    "viewpoint": "技术乐观主义者",
+    "editing_style": "严谨学术派"
+  },
+  ...
+]
+
+要求角色多样化，包含不同领域专家、不同观点立场、不同文化背景。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.34 seconds.
+角色生成失败: Expecting value: line 1 column 2 (char 1)
+阶段2: 协同编辑...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+现在有100个角色要协同编辑Wikipedia词条："元宇宙技术"
+
+角色列表（前10个）：
+[
+  {
+    "name": "李教授1",
+    "background": "AI研究员",
+    "viewpoint": "技术中性",
+    "editing_style": "学术严谨"
+  },
+  {
+    "name": "王记者2",
+    "background": "科技记者",
+    "viewpoint": "公众利益",
+    "editing_style": "通俗易懂"
+  },
+  {
+    "name": "陈工程师3",
+    "background": "软件工程师",
+    "viewpoint": "实用主义",
+    "editing_style": "技术细节"
+  },
+  {
+    "name": "刘学生4",
+    "background": "计算机专业学生",
+    "viewpoint": "学习导向",
+    "editing_style": "全面详细"
+  },
+  {
+    "name": "赵律师5",
+    "background": "科技法律专家",
+    "viewpoint": "风险规避",
+    "editing_style": "谨慎保守"
+  },
+  {
+    "name": "李教授6",
+    "background": "AI研究员",
+    "viewpoint": "技术中性",
+    "editing_style": "学术严谨"
+  },
+  {
+    "name": "王记者7",
+    "background": "科技记者",
+    "viewpoint": "公众利益",
+    "editing_style": "通俗易懂"
+  },
+  {
+    "name": "陈工程师8",
+    "background": "软件工程师",
+    "viewpoint": "实用主义",
+    "editing_style": "技术细节"
+  },
+  {
+    "name": "刘学生9",
+    "background": "计算机专业学生",
+    "viewpoint": "学习导向",
+    "editing_style": "全面详细"
+  },
+  {
+    "name": "赵律师10",
+    "background": "科技法律专家",
+    "viewpoint": "风险规避",
+    "editing_style": "谨慎保守"
+  }
+]
+...（还有90个角色）
+
+请模拟协同编辑过程：
+1. 每个角色根据自己的背景和观点，对词条提出编辑建议
+2. 识别出现的主要分歧点
+3. 记录不同观点的支持者
+
+请以结构化格式输出：
+- 编辑建议汇总
+- 主要分歧点
+- 各分歧的支持者分布
+
+注意：要体现不同角色的专业背景差异和观点冲突。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.29 seconds.
+阶段3: 投票机制...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+基于前面的协同编辑结果，现在需要通过投票解决分歧。
+
+编辑结果摘要：
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]...
+
+请实现拜占庭容错共识共识算法：
+
+1. 设计投票规则（权重分配、投票方式）
+2. 模拟投票过程
+3. 处理投票结果
+4. 解决剩余分歧
+
+要求：
+- 考虑角色的专业权威性
+- 实现具体的共识算法逻辑
+- 确保最终能达成共识
+- 记录整个决策过程
+
+请详细描述投票过程和最终共识结果。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.41 seconds.
+阶段4: 区块链共识...
+
+================================================================================
+  Pillar: Pillar 20: Massive Consensus
+  Script: test_pillar_20_massive_consensus.py
+================================================================================
+
+[Prompt]
+
+现在需要将投票结果通过区块链共识机制最终确认。
+
+投票结果：
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]...
+
+请实现类似区块链的共识验证：
+
+1. **验证阶段**：检查投票的有效性和一致性
+2. **共识确认**：模拟网络节点对结果的确认
+3. **最终化**：生成不可篡改的最终版本
+4. **分叉处理**：如果出现分歧，如何解决
+
+要求：
+- 模拟分布式验证过程
+- 处理可能的网络分区或分歧
+- 确保最终一致性
+- 生成最终的词条版本
+
+请详细描述区块链共识过程和最终确定的词条内容。
+
+
+[Model: siliconflow/qwen/qwen1.5-72b-chat] [Options: {}]
+--- MODEL RESPONSE (RAW) ---
+    Routing to SiliconFlow with model: qwen/qwen1.5-72b-chat
+    ❌ SiliconFlow API HTTP error on attempt 1: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 2: 401 Unauthorized
+    Response Body: "Invalid token"
+    ❌ SiliconFlow API HTTP error on attempt 3: 401 Unauthorized
+    Response Body: "Invalid token"
+[API Error: SiliconFlow API failed for model 'qwen/qwen1.5-72b-chat' after 3 attempts]
+--- END OF RESPONSE ---
+Response generated in: 4.35 seconds.
+结果已保存到: D:\DAIP\testLLM\tests\..\testout\massive_consensus_case3.json
+
+=== 海量角色共识测试完成 ===

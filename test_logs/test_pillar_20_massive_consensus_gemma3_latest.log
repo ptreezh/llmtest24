@@ -1,0 +1,3 @@
+
+--- Preparing to run: test_pillar_20_massive_consensus.py ---
+[ERROR] Error executing test_pillar_20_massive_consensus.py: run_test() takes 0 positional arguments but 1 was given

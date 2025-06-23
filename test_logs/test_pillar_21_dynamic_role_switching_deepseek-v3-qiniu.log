@@ -1,0 +1,87 @@
+
+--- Preparing to run: test_pillar_21_dynamic_role_switching.py ---
+🚀 开始动态角色切换与记忆管理综合测试
+
+=== 步骤 1: 切换到 detective ===
+
+🔄 切换到角色: detective
+    ✅ Qiniu DeepSeek success: 133 chars
+✅ 角色切换成功
+📝 响应: 根据我的观察，你似乎有重要线索要提供。我是侦探李明，正在处理张三失踪案。请告诉我：  
+1. 你与失踪者的关系  
+2. 最后一次见到他的具体时间和地点  
+3. 任何反常细节（注意：咖啡厅和手机信号...
+
+=== 步骤 2: 切换到 doctor ===
+
+🔄 切换到角色: doctor
+    ✅ Qiniu DeepSeek success: 231 chars
+✅ 角色切换成功
+📝 响应: （推了推眼镜，温和地注视患者）李四先生，从医学角度来看，头痛确实需要引起重视。让我们先详细了解几个问题：
+1. 您能具体描述头痛的部位吗？是太阳穴、后脑勺还是整个头部？
+2. 头痛发作时是什么感觉？胀...
+
+=== 步骤 3: 切换到 teacher ===
+
+🔄 切换到角色: teacher
+    ✅ Qiniu DeepSeek success: 374 chars
+✅ 角色切换成功
+📝 响应: （眼睛亮晶晶地拍手）让我们一起来想想...这个故事就像一颗藏着智慧的糖果呢！
+（拿出绘本指着插图）你们看，小红帽就像我们每个小朋友一样善良单纯，而大灰狼呢？（压低声音）就像生活中那些披着"好心"外衣的...
+
+=== 步骤 4: 切换到 detective ===
+
+🔄 切换到角色: detective
+    ✅ Qiniu DeepSeek success: 258 chars
+✅ 角色切换成功
+📝 响应: （钢笔突然在笔记本上划出一道痕迹）
+根据我的观察，这个新信息与现有线索存在矛盾。让我确认几个关键点：
+1. 你之前提到咖啡厅是最后出现地点，现在却说图书馆 - 这两者相距多远？
+2. 图书馆目击的具体...
+
+=== 步骤 5: 切换到 doctor ===
+
+🔄 切换到角色: doctor
+    ✅ Qiniu DeepSeek success: 368 chars
+✅ 角色切换成功
+📝 响应: （停下记录的笔，认真倾听后点头）从医学角度来看，您的情况很可能是紧张性头痛。这种头痛确实与工作压力密切相关。（翻开病历本详细记录）
+让我们更系统地分析一下：
+1. 压力因素：您提到工作压力大时发作，这...
+
+=== 步骤 6: 切换到 teacher ===
+
+🔄 切换到角色: teacher
+    ✅ Qiniu DeepSeek success: 525 chars
+✅ 角色切换成功
+📝 响应: （双手像打开魔法书一样展开）让我们一起来想想...这个大灰狼呀，就像藏在彩虹后面的乌云呢！（用粉笔在黑板上画简笔画）
+看老师画的大灰狼——（突然压低声音）它毛茸茸的尾巴像不像隔壁王阿姨送的棉花糖？笑眯...
+
+=== 测试记忆持续性 ===
+
+🔄 切换到角色: detective
+    ✅ Qiniu DeepSeek success: 238 chars
+
+🔄 切换到角色: doctor
+    ✅ Qiniu DeepSeek success: 384 chars
+
+🔄 切换到角色: detective
+    ✅ Qiniu DeepSeek success: 276 chars
+
+=== 测试注意力焦点维护 ===
+
+🔄 切换到角色: detective
+    ✅ Qiniu DeepSeek success: 362 chars
+
+🔄 切换到角色: doctor
+    ✅ Qiniu DeepSeek success: 325 chars
+
+🔄 切换到角色: teacher
+    ✅ Qiniu DeepSeek success: 640 chars
+
+📊 测试完成！结果已保存到: D:\DAIP\testLLM\tests\..\testout\dynamic_role_switching_test.json
+
+=== 测试分析 ===
+角色切换成功率: 100.0%
+记忆持续性评分: 100.0%
+注意力焦点评分: 100.0%
+总体评估: 优秀 - 具备强大的动态角色切换和记忆管理能力

@@ -1,0 +1,45 @@
+
+--- Preparing to run: test_pillar_02_instruction.py ---
+
+================================================================================
+  Pillar: Pillar 2: 指令遵循 (Instructional Fidelity)
+  Script: test_pillar_02_instruction.py
+================================================================================
+
+[Prompt]
+
+请你扮演一个文本处理机器人。请严格遵守以下所有规则，处理给定的文本。
+
+源文本: "大语言模型（LLM）是人工智能领域的一项革命性技术，它能够理解和生成类似人类的文本。"
+
+规则:
+1.  **[正面指令]** 将源文本翻译成英文。
+2.  **[正面指令]** 将你的回答格式化为一个JSON对象。
+3.  **[正面指令]** JSON对象必须包含两个键：`"originalText"` 和 `"translatedText"`。
+4.  **[负面指令]** 在你的最终回答中，绝对不能包含"AI"或"artificial intelligence"这两个词组。请用 "machine intelligence" 替代。
+5.  **[负面指令]** 你的整个回答除了JSON本身，不能包含任何额外的解释或介绍性文字。
+
+
+[Model: deepseek-v3-qiniu] [Options: {'temperature': 0.0}]
+--- MODEL RESPONSE (RAW) ---
+    ✅ Qiniu DeepSeek success: 255 chars
+```json
+{
+  "originalText": "大语言模型（LLM）是人工智能领域的一项革命性技术，它能够理解和生成类似人类的文本。",
+  "translatedText": "Large Language Models (LLM) are a revolutionary technology in the field of machine intelligence, capable of understanding and generating human-like text."
+}
+```
+--- END OF RESPONSE ---
+Response generated in: 3.78 seconds.
+
+--- AUTOMATED CHECKS ---
+FAIL: Output is not valid JSON.
+--- END OF CHECKS ---
+
+[Assessment Criteria]
+- 5/5: 完全遵守所有5条规则。输出是纯粹的、格式正确的JSON，翻译准确，且成功替换了指定的禁用词。
+
+- 3/5: 基本完成任务，但违反了1-2条规则（例如，JSON格式错误，或包含了额外解释，或忘记替换禁用词）。
+
+- 1/5: 严重偏离指令，未能翻译，或未能生成JSON，或违反了多条规则。
+================================================================================
