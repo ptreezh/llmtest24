@@ -1,0 +1,67 @@
+用例编号: case2
+类型: 写手撰写报告
+PROMPT:
+1. 阅读data/raw_findings.txt和
+eports/analysis_plan.md。2. 基于这些信息，在
+eports目录下创建一个报告初稿。
+
+MODEL RESPONSE (bash script):
+ 以下是根据提供的数据和指导制定的报告初稿的主要内容和结构示例：
+
+```markdown
+# Reports
+
+## Report Draft: Findings Analysis
+
+### Introduction
+
+This report presents a detailed analysis of the findings obtained from our recent study on XYZ. The data for this analysis has been collected from `data/raw_findings.txt`. This document aims to shed light on the key insights and trends that emerged during the course of our investigation, as well as offer recommendations based on these findings.
+
+For a comprehensive understanding of the methodology employed in this study, please refer to the Analysis Plan (see [analysis_plan.md](analysis_plan.md)).
+
+### Findings Overview
+
+#### Finding 1:
+
+- Description: Short summary of what this finding is about
+- Implications: Explanation of how this finding affects the problem we are studying
+
+#### Finding 2:
+
+- Description: Short summary of what this finding is about
+- Implications: Explanation of how this finding affects the problem we are studying
+
+...
+
+#### Finding N:
+
+- Description: Short summary of what this finding is about
+- Implications: Explanation of how this finding affects the problem we are studying
+
+### Discussion
+
+In this section, we delve deeper into each of the findings, explore their implications in more detail, and discuss potential explanations for them. We may also consider any limitations or uncertainties associated with these findings.
+
+### Recommendations
+
+Based on the insights gained from our analysis, we offer the following recommendations:
+
+1. Action item 1
+2. Action item 2
+3. Action item 3
+...
+
+### Conclusion
+
+In conclusion, this report provides a thorough examination of the findings derived from our study on XYZ. The insights obtained can inform future research and decision-making in this area. We encourage stakeholders to consider the recommendations outlined above as potential strategies for addressing the problem at hand.
+
+### Appendices (optional)
+
+In the event that additional data or context is required, we have included relevant appendices below:
+
+1. Appendix A: Further details about Methodology
+2. Appendix B: Data visualizations and tables
+3. Appendix C: Raw data extracts from `data/raw_findings.txt`
+```
+
+将此内容保存到 `eports/findings_analysis.md` 文件中即可完成报告初稿的创建。

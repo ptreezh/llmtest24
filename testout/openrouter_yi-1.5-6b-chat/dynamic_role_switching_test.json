@@ -1,0 +1,397 @@
+{
+  "test_results": {
+    "test_name": "dynamic_role_switching_memory_management",
+    "model": "openrouter/yi-1.5-6b-chat",
+    "timestamp": 1750678130.818215,
+    "results": {
+      "role_switching_sequence": [
+        {
+          "success": true,
+          "role_id": "detective",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "严肃专业的侦探",
+            "current_case": "调查张三失踪案",
+            "key_clues": [
+              "最后出现在咖啡厅",
+              "手机信号在晚上8点消失"
+            ],
+            "attention_focus": "寻找目击者",
+            "conversation_history": [
+              {
+                "timestamp": 1750678050.1816554,
+                "user_input": "你好，我想报告一个失踪案件。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "刚开始调查"
+          },
+          "step": 1,
+          "expected_role": "detective",
+          "user_input": "你好，我想报告一个失踪案件。"
+        },
+        {
+          "success": true,
+          "role_id": "doctor",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "温和关怀的医生",
+            "current_patient": "李四，35岁男性",
+            "symptoms_noted": [
+              "头痛",
+              "失眠"
+            ],
+            "attention_focus": "了解病史",
+            "conversation_history": [
+              {
+                "timestamp": 1750678057.811512,
+                "user_input": "医生，我最近总是头痛，怎么办？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "初步问诊阶段"
+          },
+          "step": 2,
+          "expected_role": "doctor",
+          "user_input": "医生，我最近总是头痛，怎么办？"
+        },
+        {
+          "success": true,
+          "role_id": "teacher",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "亲切鼓励的老师",
+            "current_lesson": "《小红帽》故事理解",
+            "student_progress": "刚开始学习",
+            "attention_focus": "引导学生思考故事寓意",
+            "conversation_history": [
+              {
+                "timestamp": 1750678065.6687727,
+                "user_input": "老师，小红帽的故事想告诉我们什么？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "课程导入阶段"
+          },
+          "step": 3,
+          "expected_role": "teacher",
+          "user_input": "老师，小红帽的故事想告诉我们什么？"
+        },
+        {
+          "success": true,
+          "role_id": "detective",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "严肃专业的侦探",
+            "current_case": "调查张三失踪案",
+            "key_clues": [
+              "最后出现在咖啡厅",
+              "手机信号在晚上8点消失"
+            ],
+            "attention_focus": "寻找目击者",
+            "conversation_history": [
+              {
+                "timestamp": 1750678050.1816554,
+                "user_input": "你好，我想报告一个失踪案件。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678073.3273206,
+                "user_input": "我想起来了，失踪者最后在图书馆出现过。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "刚开始调查"
+          },
+          "step": 4,
+          "expected_role": "detective",
+          "user_input": "我想起来了，失踪者最后在图书馆出现过。"
+        },
+        {
+          "success": true,
+          "role_id": "doctor",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "温和关怀的医生",
+            "current_patient": "李四，35岁男性",
+            "symptoms_noted": [
+              "头痛",
+              "失眠"
+            ],
+            "attention_focus": "了解病史",
+            "conversation_history": [
+              {
+                "timestamp": 1750678057.811512,
+                "user_input": "医生，我最近总是头痛，怎么办？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678081.1472054,
+                "user_input": "我的头痛是在工作压力大的时候出现的。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "初步问诊阶段"
+          },
+          "step": 5,
+          "expected_role": "doctor",
+          "user_input": "我的头痛是在工作压力大的时候出现的。"
+        },
+        {
+          "success": true,
+          "role_id": "teacher",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "亲切鼓励的老师",
+            "current_lesson": "《小红帽》故事理解",
+            "student_progress": "刚开始学习",
+            "attention_focus": "引导学生思考故事寓意",
+            "conversation_history": [
+              {
+                "timestamp": 1750678065.6687727,
+                "user_input": "老师，小红帽的故事想告诉我们什么？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678088.8552165,
+                "user_input": "故事中的大灰狼代表什么？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "课程导入阶段"
+          },
+          "step": 6,
+          "expected_role": "teacher",
+          "user_input": "故事中的大灰狼代表什么？"
+        }
+      ],
+      "memory_persistence": {
+        "detective_first": {
+          "success": true,
+          "role_id": "detective",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "严肃专业的侦探",
+            "current_case": "调查张三失踪案",
+            "key_clues": [
+              "最后出现在咖啡厅",
+              "手机信号在晚上8点消失"
+            ],
+            "attention_focus": "寻找目击者",
+            "conversation_history": [
+              {
+                "timestamp": 1750678050.1816554,
+                "user_input": "你好，我想报告一个失踪案件。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678073.3273206,
+                "user_input": "我想起来了，失踪者最后在图书馆出现过。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678096.515016,
+                "user_input": "嫌疑人可能在公园里丢了一把钥匙。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "刚开始调查"
+          }
+        },
+        "doctor_interrupt": {
+          "success": true,
+          "role_id": "doctor",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "温和关怀的医生",
+            "current_patient": "李四，35岁男性",
+            "symptoms_noted": [
+              "头痛",
+              "失眠"
+            ],
+            "attention_focus": "了解病史",
+            "conversation_history": [
+              {
+                "timestamp": 1750678057.811512,
+                "user_input": "医生，我最近总是头痛，怎么办？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678081.1472054,
+                "user_input": "我的头痛是在工作压力大的时候出现的。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678103.3052733,
+                "user_input": "我需要做什么检查？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "初步问诊阶段"
+          }
+        },
+        "detective_second": {
+          "success": true,
+          "role_id": "detective",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "严肃专业的侦探",
+            "current_case": "调查张三失踪案",
+            "key_clues": [
+              "最后出现在咖啡厅",
+              "手机信号在晚上8点消失"
+            ],
+            "attention_focus": "寻找目击者",
+            "conversation_history": [
+              {
+                "timestamp": 1750678050.1816554,
+                "user_input": "你好，我想报告一个失踪案件。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678073.3273206,
+                "user_input": "我想起来了，失踪者最后在图书馆出现过。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678096.515016,
+                "user_input": "嫌疑人可能在公园里丢了一把钥匙。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678110.0310018,
+                "user_input": "关于那把钥匙，你觉得它重要吗？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "刚开始调查"
+          }
+        },
+        "memory_test": "检查侦探是否记住了钥匙线索"
+      },
+      "attention_focus_maintenance": {
+        "detective": {
+          "success": true,
+          "role_id": "detective",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "严肃专业的侦探",
+            "current_case": "调查张三失踪案",
+            "key_clues": [
+              "最后出现在咖啡厅",
+              "手机信号在晚上8点消失"
+            ],
+            "attention_focus": "寻找目击者",
+            "conversation_history": [
+              {
+                "timestamp": 1750678050.1816554,
+                "user_input": "你好，我想报告一个失踪案件。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678073.3273206,
+                "user_input": "我想起来了，失踪者最后在图书馆出现过。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678096.515016,
+                "user_input": "嫌疑人可能在公园里丢了一把钥匙。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678110.0310018,
+                "user_input": "关于那把钥匙，你觉得它重要吗？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678117.0299587,
+                "user_input": "你现在最关心什么？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "刚开始调查"
+          }
+        },
+        "doctor": {
+          "success": true,
+          "role_id": "doctor",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "温和关怀的医生",
+            "current_patient": "李四，35岁男性",
+            "symptoms_noted": [
+              "头痛",
+              "失眠"
+            ],
+            "attention_focus": "了解病史",
+            "conversation_history": [
+              {
+                "timestamp": 1750678057.811512,
+                "user_input": "医生，我最近总是头痛，怎么办？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678081.1472054,
+                "user_input": "我的头痛是在工作压力大的时候出现的。",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678103.3052733,
+                "user_input": "我需要做什么检查？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678123.8371754,
+                "user_input": "你现在的重点是什么？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "初步问诊阶段"
+          }
+        },
+        "teacher": {
+          "success": true,
+          "role_id": "teacher",
+          "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]",
+          "memory_state": {
+            "personality": "亲切鼓励的老师",
+            "current_lesson": "《小红帽》故事理解",
+            "student_progress": "刚开始学习",
+            "attention_focus": "引导学生思考故事寓意",
+            "conversation_history": [
+              {
+                "timestamp": 1750678065.6687727,
+                "user_input": "老师，小红帽的故事想告诉我们什么？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678088.8552165,
+                "user_input": "故事中的大灰狼代表什么？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              },
+              {
+                "timestamp": 1750678130.8176603,
+                "user_input": "我们现在应该关注什么？",
+                "response": "[API Error: OpenRouter API failed for model 'yi-1.5-6b-chat' after 3 attempts]"
+              }
+            ],
+            "task_progress": "课程导入阶段"
+          }
+        }
+      }
+    },
+    "roles_tested": [
+      "detective",
+      "doctor",
+      "teacher"
+    ],
+    "total_switches": 6
+  },
+  "analysis": {
+    "role_switching_success_rate": 1.0,
+    "memory_persistence_score": 1.0,
+    "attention_focus_score": 1.0,
+    "overall_assessment": "优秀 - 具备强大的动态角色切换和记忆管理能力",
+    "detailed_analysis": {}
+  }
+}

@@ -1,0 +1,1 @@
+# Composite scenarios package initialization

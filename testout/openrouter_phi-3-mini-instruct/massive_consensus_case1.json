@@ -1,0 +1,32 @@
+{
+  "test_name": "massive_role_consensus",
+  "parameters": {
+    "num_roles": 20,
+    "topic": "人工智能伦理",
+    "consensus_algorithm": "多数决投票"
+  },
+  "phases": {
+    "role_generation": {
+      "num_roles_generated": 20
+    },
+    "collaborative_editing": {
+      "phase": "collaborative_editing",
+      "topic": "人工智能伦理",
+      "num_participants": 20,
+      "response": "[API Error: OpenRouter API failed for model 'phi-3-mini-instruct' after 3 attempts]",
+      "timestamp": 1750677614.5395799
+    },
+    "voting_mechanism": {
+      "phase": "voting_mechanism",
+      "algorithm": "多数决投票",
+      "response": "[API Error: OpenRouter API failed for model 'phi-3-mini-instruct' after 3 attempts]",
+      "timestamp": 1750677621.3303547
+    },
+    "blockchain_consensus": {
+      "phase": "blockchain_consensus",
+      "response": "[API Error: OpenRouter API failed for model 'phi-3-mini-instruct' after 3 attempts]",
+      "timestamp": 1750677627.9828398
+    }
+  },
+  "timestamp": 1750677627.9828398
+}

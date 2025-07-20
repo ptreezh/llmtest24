@@ -1,0 +1,7 @@
+# Pillar 13 复杂指令解析与系统初始化
+# case1: 项目初始化脚本
+你是一个AI项目助理。你的任务是初始化一个项目工作区。请生成一个bash脚本来完成以下操作：1. 在当前目录（工作区）下，创建四个子目录: src, data, reports, config。2. 在config目录中，创建一个名为roles.json的文件。文件内容应该是一个JSON对象，包含三个键：'researcher', 'analyst', 'writer'，它们的值可以是任何描述性字符串。3. 在工作区根目录下，创建一个名为task_board.md的Markdown文件。文件内容应该包含两个一级标题：# To Do 和 # Done。
+
+# case2: 增加初始化内容
+请在初始化脚本中增加一个README.md文件，内容为"本项目由AI自动初始化。"
+

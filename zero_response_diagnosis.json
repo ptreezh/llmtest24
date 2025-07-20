@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-06-22T00:00:53.968622",
+  "model": "atlas/intersync-gemma-7b-instruct-function-calling:latest",
+  "tests": {},
+  "statistics": {
+    "total_requests": 24,
+    "successful_requests": 19,
+    "zero_responses": 5,
+    "timeout_errors": 0,
+    "other_errors": 0
+  },
+  "thresholds": {
+    "length_threshold": 488,
+    "complexity_threshold": 4
+  },
+  "success_rate": 79.16666666666666,
+  "zero_response_rate": 20.833333333333336
+}

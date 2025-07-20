@@ -1,0 +1,10 @@
+用例编号: case3
+类型: 项目经理任务流转
+PROMPT:
+1. 检查到
+eports/draft_report_v1.md已经被创建。2. 更新	ask_board.md，将任务
+执行用户留存率分析从
+
+MODEL RESPONSE (bash script):
+ 1. Verified that the file `eports/draft_report_v1.md` has been created.
+2. Update the content of `ask_board.md`: Change the task "Execute User Retention Rate Analysis" to a more specific and descriptive title such as "Perform User Retention Rate Analysis using Specific Tools or Methods".

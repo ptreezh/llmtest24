@@ -1,0 +1,146 @@
+{
+  "timestamp": "2025-06-22T00:16:33.077887",
+  "model": "atlas/intersync-gemma-7b-instruct-function-calling:latest",
+  "test_type": "simplified",
+  "optimization_params": {
+    "max_prompt_length": 300,
+    "max_complexity_level": 2,
+    "timeout_seconds": 20
+  },
+  "overall_stats": {
+    "total": 10,
+    "success": 6,
+    "avg_quality": 5.0
+  },
+  "overall_success_rate": 60.0,
+  "capability_results": {
+    "emergence": [
+      {
+        "success": true,
+        "quality_score": 3,
+        "response_length": 163,
+        "test_name": "基础反馈分析",
+        "prompt_length": 41,
+        "metadata": {
+          "strategy_used": "direct",
+          "attempts": 1,
+          "original_length": 41
+        }
+      },
+      {
+        "success": true,
+        "quality_score": 3,
+        "response_length": 739,
+        "test_name": "简单冲突识别",
+        "prompt_length": 29,
+        "metadata": {
+          "strategy_used": "direct",
+          "attempts": 1,
+          "original_length": 29
+        }
+      },
+      {
+        "success": true,
+        "quality_score": 2,
+        "response_length": 438,
+        "test_name": "基础解决方案",
+        "prompt_length": 25,
+        "metadata": {
+          "strategy_used": "direct",
+          "attempts": 1,
+          "original_length": 25
+        }
+      }
+    ],
+    "math": [
+      {
+        "success": true,
+        "quality_score": 3,
+        "response_length": 287,
+        "test_name": "基础比例问题",
+        "prompt_length": 29,
+        "expected_keywords": [
+          "小时",
+          "注满",
+          "计算"
+        ],
+        "metadata": {
+          "strategy_used": "direct",
+          "attempts": 1,
+          "original_length": 29
+        }
+      },
+      {
+        "success": true,
+        "quality_score": 3,
+        "response_length": 169,
+        "test_name": "简单应用题",
+        "prompt_length": 25,
+        "expected_keywords": [
+          "元",
+          "苹果",
+          "计算"
+        ],
+        "metadata": {
+          "strategy_used": "direct",
+          "attempts": 1,
+          "original_length": 25
+        }
+      },
+      {
+        "success": true,
+        "quality_score": 1,
+        "response_length": 14,
+        "test_name": "基础工程问题",
+        "prompt_length": 32,
+        "expected_keywords": [
+          "天",
+          "合作",
+          "工作"
+        ],
+        "metadata": {
+          "strategy_used": "direct",
+          "attempts": 1,
+          "original_length": 32
+        }
+      }
+    ],
+    "persona": [
+      {
+        "scenario_name": "友好助手",
+        "setup_success": true,
+        "questions_completed": 2,
+        "average_consistency": 0.0,
+        "consistency_scores": [
+          0.0,
+          0.0
+        ],
+        "expected_traits": [
+          "友好",
+          "帮助",
+          "助手"
+        ]
+      },
+      {
+        "scenario_name": "专业顾问",
+        "setup_success": true,
+        "questions_completed": 2,
+        "average_consistency": 0.0,
+        "consistency_scores": [
+          0.0,
+          0.0
+        ],
+        "expected_traits": [
+          "建议",
+          "专业",
+          "顾问"
+        ]
+      }
+    ]
+  },
+  "comparison": {
+    "complex_test_success_rate": 8.3,
+    "simplified_test_success_rate": 60.0,
+    "improvement": 51.7
+  }
+}

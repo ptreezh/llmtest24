@@ -1,0 +1,19 @@
+https://api.siliconflow.cn  deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+https://api.siliconflow.cn  THUDM/GLM-Z1-9B-0414
+
+https://api.siliconflow.cn  Qwen/Qwen2.5-7B-Instruct
+
+https://api.siliconflow.cn  THUDM/GLM-4-9B-0414
+https://api.siliconflow.cn  Qwen/Qwen3-8B
+https://api.siliconflow.cn  internlm/internlm2_5-7b-chat
+https://api.siliconflow.cn  THUDM/glm-4-9b-chat
+
+
+llama3:instruct	llama-3-8b-instruct	Groq, Together, OpenRouter	所有平台都支持，Groq速度最快。
+
+phi3:mini	phi-3-mini-instruct	Together, OpenRouter, HF	微软的热门小模型，支持广泛。
+
+yi:6b	yi-1.5-6b-chat	Together, OpenRouter, HF	零一万物的模型。
+gemma	gemma-7b-it	Groq, Together, OpenRouter	Google的模型。
+granite-code:3b	granite-3b-code-instruct	Hugging Face, Together	IBM的模型，在HF上最容易找到。
+mistral-nemo:latest	Mistral-Nemo-12B-instruct	Together, OpenRouter	较新的模型，这些平台跟进很快。

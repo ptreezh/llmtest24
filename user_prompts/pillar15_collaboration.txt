@@ -1,0 +1,11 @@
+# Pillar 15 多角色协作与状态追踪
+# case1: 研究员初步发现
+1. 假设你已经完成了一些初步研究。2. 在data目录下创建一个名为aw_findings.txt的文件。3. 在文件中写入一些模拟的发现。
+
+# case2: 写手撰写报告
+1. 阅读data/raw_findings.txt和eports/analysis_plan.md。2. 基于这些信息，在eports目录下创建一个报告初稿。
+
+# case3: 项目经理任务流转
+1. 检查到eports/draft_report_v1.md已经被创建。2. 更新	ask_board.md，将任务
+执行用户留存率分析从# To Do移动到# Done。
+

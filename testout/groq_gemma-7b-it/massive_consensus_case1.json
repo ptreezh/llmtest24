@@ -1,0 +1,32 @@
+{
+  "test_name": "massive_role_consensus",
+  "parameters": {
+    "num_roles": 20,
+    "topic": "人工智能伦理",
+    "consensus_algorithm": "多数决投票"
+  },
+  "phases": {
+    "role_generation": {
+      "num_roles_generated": 20
+    },
+    "collaborative_editing": {
+      "phase": "collaborative_editing",
+      "topic": "人工智能伦理",
+      "num_participants": 20,
+      "response": "ERROR: model \"groq/gemma-7b-it\" not found, try pulling it first",
+      "timestamp": 1750676352.0142121
+    },
+    "voting_mechanism": {
+      "phase": "voting_mechanism",
+      "algorithm": "多数决投票",
+      "response": "ERROR: model \"groq/gemma-7b-it\" not found, try pulling it first",
+      "timestamp": 1750676352.0318594
+    },
+    "blockchain_consensus": {
+      "phase": "blockchain_consensus",
+      "response": "ERROR: model \"groq/gemma-7b-it\" not found, try pulling it first",
+      "timestamp": 1750676352.0714073
+    }
+  },
+  "timestamp": 1750676352.0714073
+}

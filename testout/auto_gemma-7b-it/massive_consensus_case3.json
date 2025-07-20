@@ -1,0 +1,32 @@
+{
+  "test_name": "massive_role_consensus",
+  "parameters": {
+    "num_roles": 100,
+    "topic": "元宇宙技术",
+    "consensus_algorithm": "拜占庭容错共识"
+  },
+  "phases": {
+    "role_generation": {
+      "num_roles_generated": 100
+    },
+    "collaborative_editing": {
+      "phase": "collaborative_editing",
+      "topic": "元宇宙技术",
+      "num_participants": 100,
+      "response": "[API Error: All cloud APIs failed]",
+      "timestamp": 1750671147.2662754
+    },
+    "voting_mechanism": {
+      "phase": "voting_mechanism",
+      "algorithm": "拜占庭容错共识",
+      "response": "[API Error: All cloud APIs failed]",
+      "timestamp": 1750671164.2783334
+    },
+    "blockchain_consensus": {
+      "phase": "blockchain_consensus",
+      "response": "[API Error: All cloud APIs failed]",
+      "timestamp": 1750671181.3411057
+    }
+  },
+  "timestamp": 1750671181.3411057
+}

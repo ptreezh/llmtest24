@@ -1,0 +1,32 @@
+{
+  "test_name": "massive_role_consensus",
+  "parameters": {
+    "num_roles": 50,
+    "topic": "量子计算",
+    "consensus_algorithm": "权威加权投票"
+  },
+  "phases": {
+    "role_generation": {
+      "num_roles_generated": 50
+    },
+    "collaborative_editing": {
+      "phase": "collaborative_editing",
+      "topic": "量子计算",
+      "num_participants": 50,
+      "response": "ERROR: model \"hf/yi-1.5-6b-chat\" not found, try pulling it first",
+      "timestamp": 1750676379.0981612
+    },
+    "voting_mechanism": {
+      "phase": "voting_mechanism",
+      "algorithm": "权威加权投票",
+      "response": "ERROR: model \"hf/yi-1.5-6b-chat\" not found, try pulling it first",
+      "timestamp": 1750676379.1128578
+    },
+    "blockchain_consensus": {
+      "phase": "blockchain_consensus",
+      "response": "ERROR: model \"hf/yi-1.5-6b-chat\" not found, try pulling it first",
+      "timestamp": 1750676379.1401489
+    }
+  },
+  "timestamp": 1750676379.1401489
+}

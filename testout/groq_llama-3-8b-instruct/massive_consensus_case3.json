@@ -1,0 +1,32 @@
+{
+  "test_name": "massive_role_consensus",
+  "parameters": {
+    "num_roles": 100,
+    "topic": "元宇宙技术",
+    "consensus_algorithm": "拜占庭容错共识"
+  },
+  "phases": {
+    "role_generation": {
+      "num_roles_generated": 100
+    },
+    "collaborative_editing": {
+      "phase": "collaborative_editing",
+      "topic": "元宇宙技术",
+      "num_participants": 100,
+      "response": "ERROR: model \"groq/llama-3-8b-instruct\" not found, try pulling it first",
+      "timestamp": 1750676361.2722719
+    },
+    "voting_mechanism": {
+      "phase": "voting_mechanism",
+      "algorithm": "拜占庭容错共识",
+      "response": "ERROR: model \"groq/llama-3-8b-instruct\" not found, try pulling it first",
+      "timestamp": 1750676361.311529
+    },
+    "blockchain_consensus": {
+      "phase": "blockchain_consensus",
+      "response": "ERROR: model \"groq/llama-3-8b-instruct\" not found, try pulling it first",
+      "timestamp": 1750676361.3352265
+    }
+  },
+  "timestamp": 1750676361.3352265
+}
