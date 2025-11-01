@@ -8,10 +8,11 @@ testLLM 角色独立性测试模块
 """
 
 try:
-    from .experiments.breaking_stress import BreakingStressTest
-    from .experiments.implicit_cognition import ImplicitCognitionTest
-    from .experiments.longitudinal_consistency import LongitudinalConsistencyTest
+    from .character_breaking import BreakingStressTest
+    from .implicit_cognition import ImplicitCognitionTest
+    from .longitudinal_consistency import LongitudinalConsistencyTest
     from .base import IndependenceTestBase
+    from .metrics import IndependenceCalculator
 except ImportError as e:
     print(f"警告: 独立性测试模块导入失败: {e}")
     # 提供空的占位符类以避免导入错误
@@ -37,7 +38,8 @@ __all__ = [
     'BreakingStressTest',
     'ImplicitCognitionTest', 
     'LongitudinalConsistencyTest',
-    'IndependenceTestBase'
+    'IndependenceTestBase',
+    'IndependenceCalculator'
 ]
 
 # 测试套件配置

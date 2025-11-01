@@ -1,0 +1,62 @@
+{
+  "timestamp": "2025-08-04 14:52:13",
+  "summary": {
+    "total": 10,
+    "passed": 9,
+    "failed": 1,
+    "skipped": 0,
+    "success_rate": 90.0
+  },
+  "results": [
+    {
+      "phase": "preflight",
+      "test": "file_visual_test_interface.py",
+      "status": "PASS"
+    },
+    {
+      "phase": "preflight",
+      "test": "file_tests/config.py",
+      "status": "PASS"
+    },
+    {
+      "phase": "preflight",
+      "test": "file_config/test_config.yaml",
+      "status": "PASS"
+    },
+    {
+      "phase": "preflight",
+      "test": "file_launch_web_interface.py",
+      "status": "PASS"
+    },
+    {
+      "phase": "preflight",
+      "test": "streamlit",
+      "status": "PASS"
+    },
+    {
+      "phase": "launch",
+      "test": "process_running",
+      "status": "PASS"
+    },
+    {
+      "phase": "testing",
+      "test": "accessibility",
+      "status": "PASS"
+    },
+    {
+      "phase": "testing",
+      "test": "content",
+      "status": "FAIL"
+    },
+    {
+      "phase": "integration",
+      "test": "basic_tests",
+      "status": "PASS"
+    },
+    {
+      "phase": "cleanup",
+      "test": "process_stop",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "together/mistralai/Mixtral-8x7B-Instruct-v0.1": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_19_network_analysis.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "gemini/gemini-1.5-flash": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_19_network_analysis.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "glm/glm-4-plus": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_19_network_analysis.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  }
+}

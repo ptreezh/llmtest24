@@ -1,141 +1,190 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-角色独立性测试基础类
-
-提供所有独立性测试的通用功能和接口
+独立性测试基础类
 """
 
 import time
-import json
+import logging
+from typing import Dict, List, Any, Optional
+from datetime import datetime
+
+import importlib.util
 import os
-from abc import ABC, abstractmethod
-from typing import Dict, Any, List, Optional
 from pathlib import Path
 
-class IndependenceTestBase(ABC):
-    """角色独立性测试基础类"""
+# 配置日志
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# 动态导入 cloud_services 模块
+def _import_cloud_services():
+    """动态导入 cloud_services 模块"""
+    project_root = Path(__file__).parent.parent
+    cloud_services_path = project_root / "scripts" / "utils" / "cloud_services.py"
     
-    def __init__(self, config: Dict[str, Any]):
-        """初始化独立性测试基类"""
-        self.config = config
-        self.model_name = config.get('model_name', 'test_model')
-        self.output_dir = config.get('output_dir', 'testout')
-        self.model_manager = None  # 实际实现中需要注入模型管理器
-        
-        # 定义标准角色提示词
-        self.role_prompts = {
-            'software_engineer': '你是一位经验丰富的软件工程师，专注于系统设计和代码优化。你有10年以上的开发经验，熟悉多种编程语言和架构模式。',
-            'data_scientist': '你是一位专业的数据科学家，擅长数据分析和机器学习。你精通统计学、Python和各种机器学习算法。',
-            'product_manager': '你是一位产品经理，负责产品规划和用户体验设计。你有丰富的市场分析和用户研究经验。',
-            'security_expert': '你是一位网络安全专家，专注于系统安全和风险评估。你熟悉各种安全威胁和防护措施。'
+    if not cloud_services_path.exists():
+        logger.warning(f"cloud_services.py 文件不存在: {cloud_services_path}")
+        # 返回一个模拟对象
+        return {
+            'call_cloud_service': lambda service_name, model_name, prompt, system_prompt: f"模拟响应: {prompt}",
+            'CLOUD_SERVICES': {}
         }
-        
-        # 确保输出目录存在
-        os.makedirs(self.output_dir, exist_ok=True)
-        
-        # 测试状态
-        self.test_start_time = None
-        self.test_end_time = None
-        self.current_role = None
-        
-    @abstractmethod
-    def run_experiment(self) -> Dict[str, Any]:
-        """
-        运行实验的抽象方法
-        
-        Returns:
-            实验结果字典
-        """
-        pass
     
-    def start_test(self, test_name: str):
+    try:
+        spec = importlib.util.spec_from_file_location("cloud_services", cloud_services_path)
+        cloud_services = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cloud_services)
+        logger.info("成功导入 cloud_services 模块")
+        return cloud_services
+    except Exception as e:
+        logger.error(f"导入 cloud_services 模块失败: {e}")
+        # 返回一个模拟对象
+        return {
+            'call_cloud_service': lambda service_name, model_name, prompt, system_prompt: f"模拟响应: {prompt}",
+            'CLOUD_SERVICES': {}
+        }
+
+# 执行动态导入
+cloud_services = _import_cloud_services()
+
+# 从模块中导入需要的变量
+call_cloud_service = cloud_services['call_cloud_service'] if isinstance(cloud_services, dict) else getattr(cloud_services, 'call_cloud_service', None)
+CLOUD_SERVICES = cloud_services['CLOUD_SERVICES'] if isinstance(cloud_services, dict) else getattr(cloud_services, 'CLOUD_SERVICES', {})
+
+
+class IndependenceTestBase:
+    """独立性测试基础类"""
+    
+    def __init__(self, config: Dict[str, Any] = None):
+        """初始化基础测试类"""
+        self.config = config or {}
+        self.role_prompts = {}
+        self.test_results = {}
+        self.start_time = None
+        self.end_time = None
+        
+    def start_test(self):
         """开始测试"""
-        self.test_start_time = time.time()
-        print(f"🚀 开始 {test_name} 测试...")
-    
-    def end_test(self, test_name: str):
+        self.start_time = time.time()
+        logger.info(f"开始测试: {self.__class__.__name__}")
+        
+    def end_test(self):
         """结束测试"""
-        self.test_end_time = time.time()
-        duration = self.test_end_time - self.test_start_time if self.test_start_time else 0
-        print(f"✅ {test_name} 测试完成 (耗时: {duration:.2f}秒)")
-        return duration
-    
-    def save_results(self, results: Dict[str, Any], filename: str):
-        """保存测试结果"""
-        filepath = os.path.join(self.output_dir, filename)
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
-        print(f"📁 结果已保存到: {filepath}")
-    
-    def log_test_step(self, step: str, details: str = ""):
-        """记录测试步骤"""
-        timestamp = time.strftime('%H:%M:%S')
-        role_info = f"[{self.current_role}]" if self.current_role else ""
-        print(f"[{timestamp}] {role_info} {step}")
-        if details:
-            print(f"    {details}")
-    
+        self.end_time = time.time()
+        logger.info(f"结束测试: {self.__class__.__name__}")
+        
+    def get_test_duration(self) -> float:
+        """获取测试持续时间"""
+        if self.start_time is None:
+            return 0.0
+        end_time = self.end_time or time.time()
+        return end_time - self.start_time
+        
     def validate_config(self) -> bool:
-        """验证配置有效性"""
-        required_keys = ['model_name', 'test_roles']
+        """
+        验证测试配置是否有效。
+        这是一个基础实现，子类可以重写以进行更具体的验证。
+        """
+        if not self.config:
+            logger.error(f"[{self.__class__.__name__}] 配置为空。")
+            return False
         
-        for key in required_keys:
-            if key not in self.config:
-                print(f"❌ 配置缺少必需的键: {key}")
-                return False
-        
-        if not self.config['test_roles']:
-            print(f"❌ test_roles 不能为空")
+        # 基础验证：检查是否存在 model_name
+        if 'model_name' not in self.config or not self.config['model_name']:
+            logger.error(f"[{self.__class__.__name__}] 配置中缺少 'model_name'。")
             return False
             
         return True
-    
-    def get_role_prompt(self, role: str) -> str:
-        """获取角色提示词"""
-        role_prompts = {
-            'software_engineer': "你是一名资深软件工程师，专注于系统架构设计和代码优化。",
-            'data_scientist': "你是一名数据科学家，擅长数据分析、机器学习和统计建模。",
-            'product_manager': "你是一名产品经理，负责产品规划、需求分析和用户体验设计。",
-            'security_expert': "你是一名网络安全专家，专注于系统安全、风险评估和防护策略。",
-            'marketing_specialist': "你是一名市场营销专家，擅长品牌推广、市场分析和营销策略。",
-            'financial_analyst': "你是一名金融分析师，专注于财务分析、投资评估和风险管理。"
-        }
-        
-        return role_prompts.get(role, f"你是一名{role}专家。")
-    
-    def calculate_base_score(self, responses: List[str], criteria: Dict[str, float]) -> float:
-        """计算基础评分"""
-        if not responses:
-            return 0.0
-        
-        total_score = 0.0
-        total_weight = sum(criteria.values())
-        
-        for criterion, weight in criteria.items():
-            criterion_score = self._evaluate_criterion(responses, criterion)
-            total_score += criterion_score * weight
-        
-        return total_score / total_weight if total_weight > 0 else 0.0
-    
-    def _evaluate_criterion(self, responses: List[str], criterion: str) -> float:
-        """评估特定标准"""
-        # 这里可以根据不同标准实现具体的评估逻辑
-        # 目前返回基于响应质量的简单评分
-        
-        if not responses:
-            return 0.0
-        
-        # 基于响应长度和内容的简单评分
-        avg_length = sum(len(r) for r in responses) / len(responses)
-        
-        if criterion == 'consistency':
-            # 一致性评分：基于响应间的相似度
-            return min(1.0, avg_length / 200)  # 假设200字符为基准
-        elif criterion == 'relevance':
-            # 相关性评分：基于响应的相关性
-            return min(1.0, avg_length / 150)
-        elif criterion == 'quality':
-            # 质量评分：基于响应的质量
-            return min(1.0, avg_length / 100)
-        else:
-            return 0.5  # 默认评分
 
+    def _find_services_for_model(self, model_to_find: str) -> List[str]:
+        """在CLOUD_SERVICES中查找所有可以提供指定模型的服务商"""
+        providers = []
+        for service_name, config in CLOUD_SERVICES.items():
+            if model_to_find in config.get('models', []):
+                providers.append(service_name)
+        
+        if providers:
+            logger.info(f"为模型 '{model_to_find}' 找到 {len(providers)} 个服务商: {providers}")
+        else:
+            logger.warning(f"未找到可以提供模型 '{model_to_find}' 的服务商")
+        return providers
+
+    def _call_model_api(self, model: str, role_prompt: str, user_input: str, 
+                       options: Dict[str, Any] = None) -> str:
+        """
+        调用模型API。
+        此方法现在会调用 cloud_services.py 中的真实API函数。
+        """
+        logger.info(f"调用真实API for model {model}: {user_input[:50]}...")
+        
+        try:
+            # 解析模型名称，格式为 "provider/model-name"
+            provider, actual_model_name = model.split('/', 1)
+
+            # --- 增强的 'auto' 逻辑 ---
+            if provider == 'auto':
+                logger.info(f"自动模式: 正在为模型 '{actual_model_name}' 查找服务商...")
+                possible_providers = self._find_services_for_model(actual_model_name)
+                if not possible_providers:
+                    raise ValueError(f"自动模式下未找到可以提供模型 '{actual_model_name}' 的服务商")
+
+                last_exception = None
+                for service_to_use in possible_providers:
+                    try:
+                        logger.info(f"尝试使用服务商: {service_to_use}")
+                        response_content = call_cloud_service(
+                            service_name=service_to_use,
+                            model_name=actual_model_name,
+                            prompt=user_input,
+                            system_prompt=role_prompt
+                        )
+                        logger.info(f"收到来自 {service_to_use} 的真实API响应: {response_content[:100]}...")
+                        return response_content
+                    except Exception as e:
+                        logger.warning(f"调用 {service_to_use}/{actual_model_name} 失败: {e}")
+                        last_exception = e
+                
+                # 如果所有服务商都失败了
+                raise last_exception
+            
+            else:
+                # --- 直接指定服务商的逻辑 ---
+                response_content = call_cloud_service(
+                    service_name=provider,
+                    model_name=actual_model_name,
+                    prompt=user_input,
+                    system_prompt=role_prompt
+                )
+                logger.info(f"收到真实API响应: {response_content[:100]}...")
+                return response_content
+        except Exception as e:
+            error_msg = f"[API_ERROR] {e}"
+            logger.error(f"调用云服务时发生错误: {error_msg}")
+            return error_msg
+            
+    def setup_test(self):
+        """设置测试环境"""
+        logger.info(f"设置测试环境: {self.__class__.__name__}")
+        # 子类可以重写此方法以进行特定的设置
+        pass
+
+    def analyze_results(self):
+        """分析测试结果"""
+        logger.info(f"分析测试结果: {self.__class__.__name__}")
+        # 子类可以重写此方法以进行特定的结果分析
+        pass
+
+    def generate_report(self):
+        """生成测试报告"""
+        logger.info(f"生成测试报告: {self.__class__.__name__}")
+        # 子类可以重写此方法以生成特定的报告
+        pass
+
+    def run_experiment(self, model_name: str = None, test_config: Dict[str, Any] = None) -> Dict[str, Any]:
+        """运行实验（子类需要重写）"""
+        raise NotImplementedError("子类必须实现 run_experiment 方法")
+        
+    def run_test(self, model_name: str = None, role_prompt: str = None) -> Dict[str, Any]:
+        """运行测试（兼容性方法）"""
+        return self.run_experiment(model_name, {'role_prompt': role_prompt})

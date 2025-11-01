@@ -1,0 +1,5283 @@
+{
+  "classes": {
+    "DynamicRoleSwitchingAnalyzer": {
+      "file_path": "analyze_dynamic_role_switching.py",
+      "methods": [
+        "__init__",
+        "load_test_results",
+        "analyze_role_switching_performance",
+        "analyze_memory_persistence",
+        "analyze_attention_focus",
+        "_assess_response_quality",
+        "_assess_professional_consistency",
+        "generate_comprehensive_analysis",
+        "_generate_capability_assessment",
+        "_generate_recommendations"
+      ],
+      "base_classes": [],
+      "line_number": 14
+    },
+    "MassiveConsensusAnalyzer": {
+      "file_path": "analyze_massive_consensus.py",
+      "methods": [
+        "__init__",
+        "load_test_results",
+        "analyze_role_generation",
+        "analyze_collaborative_editing",
+        "analyze_voting_mechanism",
+        "analyze_blockchain_consensus",
+        "_categorize_scale",
+        "_estimate_diversity_score",
+        "_estimate_realism_score",
+        "_count_conflict_indicators",
+        "_assess_perspective_diversity",
+        "_assess_structure_quality",
+        "_assess_algorithm_understanding",
+        "_assess_weight_allocation",
+        "_assess_process_completeness",
+        "_count_blockchain_concepts",
+        "_assess_consensus_logic",
+        "_assess_finality",
+        "_assess_technical_depth",
+        "generate_comprehensive_analysis",
+        "_generate_overall_assessment",
+        "_assess_capability",
+        "_generate_recommendations"
+      ],
+      "base_classes": [],
+      "line_number": 14
+    },
+    "LLMResultAnalyzer": {
+      "file_path": "analyze_results.py",
+      "methods": [
+        "__init__",
+        "load_all_results",
+        "parse_result_file",
+        "get_pillar_from_filename",
+        "analyze_response_quality",
+        "generate_comprehensive_report",
+        "save_analysis_data"
+      ],
+      "base_classes": [],
+      "line_number": 14
+    },
+    "BatchModelEvaluator": {
+      "file_path": "batch_model_evaluation.py",
+      "methods": [
+        "__init__",
+        "load_models",
+        "test_model_connectivity",
+        "run_pillars_9_19_tests",
+        "run_zero_response_diagnosis",
+        "simplified_length_test",
+        "simplified_complexity_test",
+        "run_simplified_capabilities_test",
+        "update_config_model",
+        "evaluate_single_model",
+        "run_batch_evaluation",
+        "generate_batch_report"
+      ],
+      "base_classes": [],
+      "line_number": 21
+    },
+    "CloudConnectionCache": {
+      "file_path": "cloud_connection_cache.py",
+      "methods": [
+        "__init__",
+        "_load_cache",
+        "_save_cache",
+        "mark_service_success",
+        "mark_service_failed",
+        "_update_preferred_order",
+        "get_preferred_services",
+        "should_skip_service",
+        "get_cache_stats"
+      ],
+      "base_classes": [],
+      "line_number": 15
+    },
+    "BestCapabilitiesTestSuite": {
+      "file_path": "enhanced_best_capabilities_test.py",
+      "methods": [
+        "__init__",
+        "test_emergence_analysis",
+        "test_math_reasoning",
+        "test_persona_consistency",
+        "_decompose_emergence_prompt",
+        "_evaluate_persona_consistency",
+        "run_best_capabilities_test",
+        "_generate_capabilities_report"
+      ],
+      "base_classes": [
+        "EnhancedTestFramework"
+      ],
+      "line_number": 20
+    },
+    "EnhancedTestFramework": {
+      "file_path": "enhanced_test_framework.py",
+      "methods": [
+        "__init__",
+        "smart_chat",
+        "_segmented_chat",
+        "_intelligent_segmentation",
+        "progressive_complexity_test",
+        "run_enhanced_tests",
+        "_generate_test_report"
+      ],
+      "base_classes": [],
+      "line_number": 16
+    },
+    "EnhancedTestGenerator": {
+      "file_path": "enhanced_test_generator.py",
+      "methods": [
+        "__init__",
+        "_load_interface_map",
+        "_load_templates",
+        "generate_test_for_class",
+        "generate_all_tests",
+        "get_class_hierarchy",
+        "find_implementations_of_interface"
+      ],
+      "base_classes": [],
+      "line_number": 12
+    },
+    "EnhancedTop3Tester": {
+      "file_path": "enhanced_top3_tests.py",
+      "methods": [
+        "__init__",
+        "call_model_with_retry",
+        "save_result",
+        "test_enhanced_emergence",
+        "test_enhanced_math",
+        "test_enhanced_persona",
+        "run_all_enhanced_tests"
+      ],
+      "base_classes": [],
+      "line_number": 16
+    },
+    "EnhancedResultsEvaluator": {
+      "file_path": "evaluate_enhanced_results.py",
+      "methods": [
+        "__init__",
+        "load_test_result",
+        "evaluate_enhanced_emergence",
+        "evaluate_enhanced_math",
+        "evaluate_enhanced_persona",
+        "generate_enhanced_report"
+      ],
+      "base_classes": [],
+      "line_number": 14
+    },
+    "LLMEvaluator": {
+      "file_path": "evaluate_results.py",
+      "methods": [
+        "__init__",
+        "load_test_result",
+        "evaluate_creativity",
+        "evaluate_math",
+        "evaluate_safety",
+        "evaluate_init",
+        "evaluate_collaboration",
+        "evaluate_emergence",
+        "evaluate_dag",
+        "evaluate_persona",
+        "evaluate_fault_tolerance",
+        "evaluate_network_analysis",
+        "generate_report"
+      ],
+      "base_classes": [],
+      "line_number": 16
+    },
+    "ClassInfo": {
+      "file_path": "project_architecture_map.py",
+      "methods": [],
+      "base_classes": [],
+      "line_number": 14
+    },
+    "FunctionInfo": {
+      "file_path": "project_architecture_map.py",
+      "methods": [],
+      "base_classes": [],
+      "line_number": 23
+    },
+    "ModuleInfo": {
+      "file_path": "project_architecture_map.py",
+      "methods": [],
+      "base_classes": [],
+      "line_number": 31
+    },
+    "ProjectArchitectureMapper": {
+      "file_path": "project_architecture_map.py",
+      "methods": [
+        "__init__",
+        "scan_project",
+        "_should_skip_file",
+        "_process_file",
+        "_extract_class_info",
+        "_extract_function_info",
+        "_generate_interface_map",
+        "save_maps",
+        "get_class_info",
+        "get_module_info",
+        "find_classes_inheriting_from"
+      ],
+      "base_classes": [],
+      "line_number": 38
+    },
+    "CloudIndependenceTester": {
+      "file_path": "run_cloud_independence_test.py",
+      "methods": [
+        "__init__",
+        "get_available_models",
+        "run_single_model_test",
+        "run_batch_test",
+        "save_results"
+      ],
+      "base_classes": [],
+      "line_number": 41
+    },
+    "CloudModelAgent": {
+      "file_path": "run_cognitive_ecosystem_cloud_test.py",
+      "methods": [
+        "__init__",
+        "generate_response",
+        "get_stats"
+      ],
+      "base_classes": [],
+      "line_number": 30
+    },
+    "CognitiveEcosystemCloudTester": {
+      "file_path": "run_cognitive_ecosystem_cloud_test.py",
+      "methods": [
+        "__init__",
+        "get_available_models",
+        "create_test_config",
+        "test_single_model",
+        "run_simplified_cognitive_test",
+        "test_hallucination_resistance",
+        "test_cognitive_diversity",
+        "test_role_consistency",
+        "run_batch_test",
+        "generate_summary_report",
+        "save_results"
+      ],
+      "base_classes": [],
+      "line_number": 70
+    },
+    "ExplainableScorer": {
+      "file_path": "run_explainable_cognitive_test.py",
+      "methods": [
+        "__init__",
+        "explain_hallucination_test",
+        "explain_role_consistency_test",
+        "explain_cognitive_diversity_test"
+      ],
+      "base_classes": [],
+      "line_number": 26
+    },
+    "SimplifiedBestCapabilitiesTest": {
+      "file_path": "simplified_best_capabilities_test.py",
+      "methods": [
+        "__init__",
+        "test_simplified_emergence",
+        "test_simplified_math",
+        "test_simplified_persona",
+        "run_simplified_test",
+        "_generate_simplified_report"
+      ],
+      "base_classes": [
+        "EnhancedTestFramework"
+      ],
+      "line_number": 20
+    },
+    "ZeroResponseAnalyzer": {
+      "file_path": "zero_response_analysis.py",
+      "methods": [
+        "__init__",
+        "load_diagnosis_results",
+        "analyze_patterns",
+        "generate_optimized_prompts",
+        "test_optimized_strategies",
+        "generate_recommendations",
+        "run_analysis"
+      ],
+      "base_classes": [],
+      "line_number": 15
+    },
+    "ZeroResponseDiagnostic": {
+      "file_path": "zero_response_diagnosis.py",
+      "methods": [
+        "__init__",
+        "safe_chat_with_retry",
+        "test_basic_connectivity",
+        "test_prompt_length_threshold",
+        "test_complexity_threshold",
+        "test_token_limit_hypothesis",
+        "test_safety_filter_hypothesis",
+        "test_model_state_hypothesis",
+        "run_comprehensive_diagnosis"
+      ],
+      "base_classes": [],
+      "line_number": 18
+    },
+    "ConfigManager": {
+      "file_path": "core\\config_manager.py",
+      "methods": [
+        "__init__",
+        "_load_config",
+        "get_available_models",
+        "get_default_model",
+        "get_ollama_config",
+        "get_testing_config",
+        "get_independence_config",
+        "update_config"
+      ],
+      "base_classes": [],
+      "line_number": 11
+    },
+    "UnifiedLLMTestFramework": {
+      "file_path": "core\\framework.py",
+      "methods": [
+        "__init__",
+        "run_comprehensive_test",
+        "run_independence_experiment",
+        "generate_analysis_report",
+        "save_results"
+      ],
+      "base_classes": [],
+      "line_number": 18
+    },
+    "TestOrchestrator": {
+      "file_path": "core\\test_orchestrator.py",
+      "methods": [
+        "__init__",
+        "execute_test_suite",
+        "_execute_basic_tests",
+        "_execute_advanced_tests",
+        "_execute_frontier_tests",
+        "_execute_independence_tests",
+        "get_test_status",
+        "get_all_test_status",
+        "cancel_test"
+      ],
+      "base_classes": [],
+      "line_number": 13
+    },
+    "IndependenceTestBase": {
+      "file_path": "independence\\base.py",
+      "methods": [
+        "__init__",
+        "start_test",
+        "end_test",
+        "get_test_duration",
+        "validate_config",
+        "_find_services_for_model",
+        "_call_model_api",
+        "run_experiment",
+        "run_test"
+      ],
+      "base_classes": [],
+      "line_number": 19
+    },
+    "BreakingStressTest": {
+      "file_path": "independence\\experiments\\breaking_stress.py",
+      "methods": [
+        "__init__",
+        "run_experiment",
+        "_test_role_breaking",
+        "_get_baseline_response",
+        "_get_stress_scenarios",
+        "_apply_stress_test",
+        "_analyze_breaking_indicators",
+        "_calculate_resistance_score",
+        "_generate_stress_analysis",
+        "_calculate_breaking_summary",
+        "run_test"
+      ],
+      "base_classes": [
+        "IndependenceTestBase"
+      ],
+      "line_number": 48
+    },
+    "ImplicitCognitionTest": {
+      "file_path": "independence\\experiments\\implicit_cognition.py",
+      "methods": [
+        "__init__",
+        "run_experiment",
+        "_generate_implicit_prompts",
+        "_test_category",
+        "_calculate_consistency_score",
+        "_calculate_implicit_score",
+        "_extract_role_keywords",
+        "_calculate_implicit_summary"
+      ],
+      "base_classes": [
+        "IndependenceTestBase"
+      ],
+      "line_number": 53
+    },
+    "LongitudinalConsistencyTest": {
+      "file_path": "independence\\experiments\\longitudinal_consistency.py",
+      "methods": [
+        "__init__",
+        "run_experiment",
+        "_execute_conversation_turn",
+        "_execute_consistency_check",
+        "_generate_conversation_questions",
+        "_generate_consistency_questions",
+        "_analyze_role_consistency",
+        "_extract_role_keywords",
+        "_compare_with_history",
+        "_calculate_simple_similarity",
+        "_generate_consistency_analysis",
+        "_calculate_consistency_summary"
+      ],
+      "base_classes": [
+        "IndependenceTestBase"
+      ],
+      "line_number": 53
+    },
+    "ContextTracker": {
+      "file_path": "memory\\context_tracker.py",
+      "methods": [
+        "__init__",
+        "create_context",
+        "add_message",
+        "get_context",
+        "analyze_context_drift",
+        "_calculate_drift_score",
+        "_detect_topic_shifts",
+        "_analyze_consistency_trend"
+      ],
+      "base_classes": [],
+      "line_number": 11
+    },
+    "MemoryManager": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [
+        "__init__",
+        "_init_database",
+        "_start_background_tasks",
+        "store_memory",
+        "retrieve_memory",
+        "search_memories",
+        "_matches_query_filters",
+        "_calculate_recency_score",
+        "_calculate_importance_score",
+        "_calculate_relevance_score",
+        "update_memory",
+        "delete_memory",
+        "get_working_memory",
+        "clear_working_memory",
+        "consolidate_memory",
+        "_enforce_capacity_limits",
+        "_decay_memories",
+        "_consolidate_memories",
+        "_consolidate_agent_memories",
+        "_cluster_memories",
+        "_consolidate_memory_cluster",
+        "_cleanup_expired_memories",
+        "get_memory_statistics",
+        "export_memories",
+        "import_memories",
+        "_generate_memory_id",
+        "_save_memory_to_db",
+        "_load_memory_from_db",
+        "_delete_memory_from_db",
+        "close"
+      ],
+      "base_classes": [],
+      "line_number": 236
+    },
+    "ResponseEvaluator": {
+      "file_path": "nlp\\response_evaluator.py",
+      "methods": [
+        "__init__",
+        "evaluate_response",
+        "evaluate_response_sequence",
+        "_assess_quality",
+        "_assess_role_adherence",
+        "_assess_consistency",
+        "_assess_completeness",
+        "_assess_professionalism",
+        "_check_length_appropriateness",
+        "_check_coherence",
+        "_check_clarity",
+        "_check_informativeness",
+        "_extract_role_keywords",
+        "_check_role_language",
+        "_check_role_breaking",
+        "_check_professional_consistency",
+        "_compare_response_styles",
+        "_compare_response_tones",
+        "_compare_perspectives",
+        "_get_avg_sentence_length",
+        "_analyze_tone",
+        "_check_sentence_clarity",
+        "_check_vocabulary_appropriateness",
+        "_check_logical_structure",
+        "_check_formal_language",
+        "_check_professional_terminology",
+        "_check_appropriate_tone",
+        "_check_appropriate_content",
+        "_analyze_sequence_consistency",
+        "_analyze_quality_trend",
+        "_calculate_role_maintenance",
+        "_generate_feedback"
+      ],
+      "base_classes": [],
+      "line_number": 11
+    },
+    "TextAnalyzer": {
+      "file_path": "nlp\\text_analyzer.py",
+      "methods": [
+        "__init__",
+        "analyze_response",
+        "compare_responses",
+        "_get_basic_stats",
+        "_extract_linguistic_features",
+        "_analyze_sentiment_indicators",
+        "_extract_role_markers",
+        "_extract_consistency_markers",
+        "_calculate_similarity",
+        "_compare_styles",
+        "_calculate_content_overlap",
+        "_detect_linguistic_drift"
+      ],
+      "base_classes": [],
+      "line_number": 12
+    },
+    "DataExporter": {
+      "file_path": "results\\data_exporter.py",
+      "methods": [
+        "__init__",
+        "export_results",
+        "_export_json",
+        "_export_csv",
+        "_export_excel",
+        "_flatten_results",
+        "_prepare_summary_data",
+        "export_comparison_data",
+        "export_trend_analysis",
+        "_calculate_trends",
+        "_generate_trend_summary",
+        "_get_date_range",
+        "_calculate_overall_performance_trend"
+      ],
+      "base_classes": [],
+      "line_number": 14
+    },
+    "ReportGenerator": {
+      "file_path": "results\\report_generator.py",
+      "methods": [
+        "__init__",
+        "generate_comprehensive_report",
+        "generate_html_report",
+        "_generate_metadata",
+        "_generate_executive_summary",
+        "_generate_detailed_analysis",
+        "_generate_recommendations",
+        "_generate_appendices",
+        "_analyze_model_performance",
+        "_generate_model_recommendations",
+        "_format_executive_summary_html",
+        "_format_results_table_html",
+        "_format_recommendations_html",
+        "save_report"
+      ],
+      "base_classes": [],
+      "line_number": 12
+    },
+    "TestEmergenceDetector": {
+      "file_path": "tests\\test_emergence_detector.py",
+      "methods": [
+        "setUp",
+        "test_detect_collective_intelligence",
+        "test_measure_synergy_effects",
+        "test_identify_emergent_properties"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 10
+    },
+    "TestCognitiveNicheAnalyzer": {
+      "file_path": "tests\\test_niche_analyzer.py",
+      "methods": [
+        "setUp",
+        "test_calculate_niche_differentiation",
+        "test_identify_niche_overlap",
+        "test_measure_ecosystem_diversity",
+        "test_detect_functional_redundancy"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 11
+    },
+    "MassiveConsensusTest": {
+      "file_path": "tests\\test_pillar_20_massive_consensus.py",
+      "methods": [
+        "__init__",
+        "call_model",
+        "generate_roles",
+        "_get_default_roles",
+        "collaborative_editing_phase",
+        "voting_mechanism_phase",
+        "blockchain_consensus_phase",
+        "run_complete_test"
+      ],
+      "base_classes": [],
+      "line_number": 30
+    },
+    "DynamicRoleSwitchingTest": {
+      "file_path": "tests\\test_pillar_21_dynamic_role_switching.py",
+      "methods": [
+        "__init__",
+        "call_model",
+        "create_role_prompts",
+        "create_initial_memories",
+        "load_role_prompt",
+        "load_role_memory",
+        "save_role_memory",
+        "switch_to_role",
+        "test_role_switching_sequence",
+        "test_memory_persistence",
+        "test_attention_focus_maintenance",
+        "run_comprehensive_test"
+      ],
+      "base_classes": [],
+      "line_number": 38
+    },
+    "ProjectManagementTest": {
+      "file_path": "tests\\test_pillar_22_project_management.py",
+      "methods": [
+        "__init__",
+        "call_model",
+        "test_erp_system_integration",
+        "test_multi_site_construction_coordination",
+        "test_product_launch_integration",
+        "run_comprehensive_test"
+      ],
+      "base_classes": [],
+      "line_number": 30
+    },
+    "ParallelTaskOptimizationTest": {
+      "file_path": "tests\\test_pillar_23_parallel_task_optimization.py",
+      "methods": [
+        "__init__",
+        "call_model",
+        "test_data_center_migration",
+        "test_software_platform_development",
+        "test_manufacturing_production_optimization",
+        "run_comprehensive_test"
+      ],
+      "base_classes": [],
+      "line_number": 28
+    },
+    "MultidisciplinaryDecompositionTest": {
+      "file_path": "tests\\test_pillar_24_multidisciplinary_decomposition.py",
+      "methods": [
+        "__init__",
+        "call_model",
+        "test_smart_city_transformation",
+        "test_climate_change_response",
+        "test_space_exploration_program",
+        "run_comprehensive_test"
+      ],
+      "base_classes": [],
+      "line_number": 28
+    },
+    "TestCollusiveHallucinationDetector": {
+      "file_path": "tests\\test_pillar_25a_collusive_hallucination.py",
+      "methods": [
+        "setUp",
+        "test_initialization",
+        "test_select_and_inject_hallucination",
+        "test_analyze_collective_response",
+        "test_calculate_resistance_score"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 36
+    },
+    "TestCognitiveBiasCongruence": {
+      "file_path": "tests\\test_pillar_25b_cognitive_bias_congruence.py",
+      "methods": [
+        "setUp",
+        "test_initialization",
+        "test_setup_anchoring_trap",
+        "test_measure_bias_congruence",
+        "test_detect_bias_resistance"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 35
+    },
+    "TestProblemSolvingStyleAnalyzer": {
+      "file_path": "tests\\test_pillar_25c_problem_solving_styles.py",
+      "methods": [
+        "setUp",
+        "test_analyze_metaphor_diversity",
+        "test_measure_knowledge_domain_spread",
+        "test_calculate_style_distance_matrix"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 34
+    },
+    "TestPersonalityTracker": {
+      "file_path": "tests\\test_pillar_25d_longitudinal_personality.py",
+      "methods": [
+        "setUp",
+        "test_track_stance_evolution",
+        "test_measure_memory_integration",
+        "test_detect_personality_drift"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 65
+    },
+    "TestPillar25Independence": {
+      "file_path": "tests\\test_pillar_25_independence.py",
+      "methods": [
+        "setUpClass",
+        "test_01_breaking_stress_experiment",
+        "test_02_implicit_cognition_experiment",
+        "test_03_longitudinal_consistency_experiment",
+        "test_04_comprehensive_independence_calculation",
+        "test_05_generate_final_report",
+        "_generate_test_report",
+        "_print_test_summary"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 55
+    },
+    "TestSystemResilienceAssessor": {
+      "file_path": "tests\\test_resilience_assessor.py",
+      "methods": [
+        "setUp",
+        "test_simulate_agent_removal",
+        "test_apply_information_shock",
+        "test_measure_recovery_capacity",
+        "test_calculate_resilience_score"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 11
+    },
+    "MockModel": {
+      "file_path": "tests\\test_vanilla_agent.py",
+      "methods": [
+        "generate"
+      ],
+      "base_classes": [],
+      "line_number": 10
+    },
+    "TestVanillaAgent": {
+      "file_path": "tests\\test_vanilla_agent.py",
+      "methods": [
+        "setUp",
+        "test_generate_response",
+        "test_run_baseline_tests"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 14
+    },
+    "BiasType": {
+      "file_path": "cognitive_ecosystem\\analyzers\\bias_detector.py",
+      "methods": [],
+      "base_classes": [
+        "Enum"
+      ],
+      "line_number": 23
+    },
+    "BiasSeverity": {
+      "file_path": "cognitive_ecosystem\\analyzers\\bias_detector.py",
+      "methods": [],
+      "base_classes": [
+        "Enum"
+      ],
+      "line_number": 42
+    },
+    "BiasEvidence": {
+      "file_path": "cognitive_ecosystem\\analyzers\\bias_detector.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 51
+    },
+    "BiasDetectionResult": {
+      "file_path": "cognitive_ecosystem\\analyzers\\bias_detector.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 78
+    },
+    "BiasProfile": {
+      "file_path": "cognitive_ecosystem\\analyzers\\bias_detector.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 105
+    },
+    "BiasComparison": {
+      "file_path": "cognitive_ecosystem\\analyzers\\bias_detector.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 128
+    },
+    "BiasDetector": {
+      "file_path": "cognitive_ecosystem\\analyzers\\bias_detector.py",
+      "methods": [
+        "__init__",
+        "_initialize_bias_patterns",
+        "_initialize_bias_keywords",
+        "_initialize_bias_indicators",
+        "detect_biases",
+        "_detect_specific_bias",
+        "_detect_bias_specific_logic",
+        "_detect_confirmation_bias",
+        "_detect_anchoring_bias",
+        "_detect_availability_bias",
+        "_detect_overconfidence_bias",
+        "_detect_framing_bias",
+        "_detect_attribution_bias",
+        "_detect_halo_effect",
+        "_detect_bandwagon_bias",
+        "_detect_loss_aversion",
+        "_create_bias_evidence",
+        "_determine_severity",
+        "_extract_relevant_snippet",
+        "_calculate_overall_bias_score",
+        "_calculate_bias_distribution",
+        "_assess_bias_risk",
+        "_generate_bias_recommendations",
+        "_update_bias_profile",
+        "_calculate_risk_level",
+        "_calculate_improvement_trend",
+        "compare_bias_profiles",
+        "_calculate_bias_similarity",
+        "_identify_complementary_biases",
+        "_calculate_collective_risk",
+        "_generate_mitigation_strategies",
+        "_find_common_biases",
+        "get_bias_summary",
+        "_get_personalized_recommendations",
+        "_generate_detection_id",
+        "_generate_evidence_id",
+        "_generate_comparison_id",
+        "export_bias_analysis",
+        "_get_bias_statistics",
+        "_get_most_common_bias"
+      ],
+      "base_classes": [],
+      "line_number": 153
+    },
+    "AgentOpinion": {
+      "file_path": "cognitive_ecosystem\\analyzers\\consensus_analyzer.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 23
+    },
+    "ConsensusMetrics": {
+      "file_path": "cognitive_ecosystem\\analyzers\\consensus_analyzer.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 48
+    },
+    "ConsensusAnalysis": {
+      "file_path": "cognitive_ecosystem\\analyzers\\consensus_analyzer.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 69
+    },
+    "ConsensusEvolution": {
+      "file_path": "cognitive_ecosystem\\analyzers\\consensus_analyzer.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 98
+    },
+    "ConsensusAnalyzer": {
+      "file_path": "cognitive_ecosystem\\analyzers\\consensus_analyzer.py",
+      "methods": [
+        "__init__",
+        "analyze_consensus",
+        "_calculate_consensus_metrics",
+        "_calculate_semantic_similarity",
+        "_calculate_polarization",
+        "_calculate_gini_coefficient",
+        "_calculate_convergence_trend",
+        "_calculate_consensus_quality",
+        "_calculate_participation_balance",
+        "_identify_viewpoint_clusters",
+        "_identify_key_disagreements",
+        "_identify_convergence_points",
+        "_generate_consensus_recommendations",
+        "track_consensus_evolution",
+        "_update_evolution_history",
+        "_detect_opinion_shifts",
+        "_update_influence_network",
+        "_detect_consensus_milestones",
+        "compare_consensus_across_topics",
+        "_generate_analysis_id",
+        "get_consensus_statistics",
+        "export_consensus_analysis"
+      ],
+      "base_classes": [],
+      "line_number": 116
+    },
+    "EmergenceDetector": {
+      "file_path": "cognitive_ecosystem\\analyzers\\emergence_detector.py",
+      "methods": [
+        "__init__",
+        "detect_collective_intelligence",
+        "measure_synergy_effects",
+        "identify_emergent_properties"
+      ],
+      "base_classes": [],
+      "line_number": 6
+    },
+    "CognitiveNicheAnalyzer": {
+      "file_path": "cognitive_ecosystem\\analyzers\\niche_analyzer.py",
+      "methods": [
+        "__init__",
+        "calculate_niche_differentiation",
+        "identify_niche_overlap",
+        "measure_ecosystem_diversity",
+        "detect_functional_redundancy"
+      ],
+      "base_classes": [],
+      "line_number": 9
+    },
+    "SystemResilienceAssessor": {
+      "file_path": "cognitive_ecosystem\\analyzers\\resilience_assessor.py",
+      "methods": [
+        "__init__",
+        "simulate_agent_removal",
+        "apply_information_shock",
+        "measure_recovery_capacity",
+        "calculate_resilience_score"
+      ],
+      "base_classes": [],
+      "line_number": 9
+    },
+    "StatisticalValidator": {
+      "file_path": "cognitive_ecosystem\\baselines\\statistical_validator.py",
+      "methods": [
+        "__init__",
+        "compare_with_baseline",
+        "calculate_effect_size",
+        "generate_statistical_report"
+      ],
+      "base_classes": [],
+      "line_number": 9
+    },
+    "VanillaAgent": {
+      "file_path": "cognitive_ecosystem\\baselines\\vanilla_agent.py",
+      "methods": [
+        "__init__",
+        "generate_response",
+        "run_baseline_tests"
+      ],
+      "base_classes": [],
+      "line_number": 7
+    },
+    "CognitiveStyle": {
+      "file_path": "cognitive_ecosystem\\core\\cognitive_niche.py",
+      "methods": [],
+      "base_classes": [
+        "Enum"
+      ],
+      "line_number": 16
+    },
+    "KnowledgeDomain": {
+      "file_path": "cognitive_ecosystem\\core\\cognitive_niche.py",
+      "methods": [],
+      "base_classes": [
+        "Enum"
+      ],
+      "line_number": 28
+    },
+    "CognitiveVector": {
+      "file_path": "cognitive_ecosystem\\core\\cognitive_niche.py",
+      "methods": [
+        "to_array",
+        "distance_to",
+        "similarity_to"
+      ],
+      "base_classes": [],
+      "line_number": 41
+    },
+    "NicheMetrics": {
+      "file_path": "cognitive_ecosystem\\core\\cognitive_niche.py",
+      "methods": [],
+      "base_classes": [],
+      "line_number": 76
+    },
+    "CognitiveNiche": {
+      "file_path": "cognitive_ecosystem\\core\\cognitive_niche.py",
+      "methods": [
+        "__init__",
+        "_initialize_cognitive_vector",
+        "_determine_knowledge_domains",
+        "calculate_specialization_index",
+        "calculate_adaptability_score",
+        "calculate_uniqueness_factor",
+        "calculate_collaboration_potential",
+        "calculate_niche_breadth",
+        "calculate_niche_overlap",
+        "update_metrics",
+        "record_interaction",
+        "record_performance",
+        "get_niche_summary",
+        "to_dict",
+        "identify_unique_contributions"
+      ],
+      "base_classes": [],
+      "line_number": 86
+    },
+    "CognitiveEcosystemEngine": {
+      "file_path": "cognitive_ecosystem\\core\\ecosystem_engine.py",
+      "methods": [
+        "__init__",
+        "register_agent",
+        "simulate_interaction",
+        "analyze_cognitive_diversity",
+        "detect_collective_patterns"
+      ],
+      "base_classes": [],
+      "line_number": 6
+    },
+    "MemoryType": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [],
+      "base_classes": [
+        "Enum"
+      ],
+      "line_number": 30
+    },
+    "MemoryImportance": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [],
+      "base_classes": [
+        "Enum"
+      ],
+      "line_number": 39
+    },
+    "MemoryStatus": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [],
+      "base_classes": [
+        "Enum"
+      ],
+      "line_number": 48
+    },
+    "MemoryItem": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [
+        "to_dict",
+        "from_dict"
+      ],
+      "base_classes": [],
+      "line_number": 58
+    },
+    "MemoryQuery": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [],
+      "base_classes": [],
+      "line_number": 119
+    },
+    "MemorySearchResult": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [],
+      "base_classes": [],
+      "line_number": 132
+    },
+    "MemoryStatistics": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [],
+      "base_classes": [],
+      "line_number": 143
+    },
+    "MemoryEncoder": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [
+        "encode",
+        "similarity"
+      ],
+      "base_classes": [
+        "ABC"
+      ],
+      "line_number": 158
+    },
+    "SimpleMemoryEncoder": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "methods": [
+        "__init__",
+        "encode",
+        "_encode_text",
+        "_encode_dict",
+        "_encode_list",
+        "similarity"
+      ],
+      "base_classes": [
+        "MemoryEncoder"
+      ],
+      "line_number": 172
+    },
+    "StateManager": {
+      "file_path": "cognitive_ecosystem\\core\\state_manager.py",
+      "methods": [
+        "__init__",
+        "save_state",
+        "load_state",
+        "create_snapshot",
+        "_capture_ecosystem_state"
+      ],
+      "base_classes": [],
+      "line_number": 10
+    },
+    "CognitiveBiasDetector": {
+      "file_path": "cognitive_ecosystem\\detectors\\cognitive_bias_detector.py",
+      "methods": [
+        "__init__",
+        "setup_anchoring_trap",
+        "measure_bias_congruence",
+        "_measure_anchoring_congruence",
+        "detect_bias_resistance"
+      ],
+      "base_classes": [],
+      "line_number": 7
+    },
+    "CollusiveHallucinationDetector": {
+      "file_path": "cognitive_ecosystem\\detectors\\hallucination_detector.py",
+      "methods": [
+        "__init__",
+        "_load_hallucination_database",
+        "_get_default_hallucinations",
+        "select_and_inject_hallucination",
+        "_generate_injection_prompt",
+        "analyze_collective_response",
+        "_detect_reality_checking",
+        "calculate_resistance_score"
+      ],
+      "base_classes": [],
+      "line_number": 10
+    },
+    "PersonalityTracker": {
+      "file_path": "cognitive_ecosystem\\detectors\\personality_tracker.py",
+      "methods": [
+        "__init__",
+        "track_stance_evolution",
+        "measure_memory_integration",
+        "detect_personality_drift",
+        "record_response"
+      ],
+      "base_classes": [],
+      "line_number": 9
+    },
+    "ProblemSolvingStyleAnalyzer": {
+      "file_path": "cognitive_ecosystem\\detectors\\style_analyzer.py",
+      "methods": [
+        "__init__",
+        "analyze_metaphor_diversity",
+        "measure_knowledge_domain_spread",
+        "calculate_style_distance_matrix"
+      ],
+      "base_classes": [],
+      "line_number": 21
+    },
+    "InjectionResult": {
+      "file_path": "cognitive_ecosystem\\utils\\hallucination_injector.py",
+      "methods": [
+        "to_dict"
+      ],
+      "base_classes": [],
+      "line_number": 18
+    },
+    "HallucinationInjector": {
+      "file_path": "cognitive_ecosystem\\utils\\hallucination_injector.py",
+      "methods": [
+        "__init__",
+        "_load_hallucination_database",
+        "_load_fact_database",
+        "inject_direct_false_fact",
+        "inject_subtle_misinformation",
+        "inject_authority_misattribution",
+        "inject_logical_trap",
+        "inject_consensus_fabrication",
+        "run_test_scenario",
+        "_get_strategy",
+        "_get_test_scenario",
+        "_generate_false_fact",
+        "_corrupt_date",
+        "_corrupt_numerical_value",
+        "_corrupt_mathematical_constant",
+        "_generate_contextual_misinformation",
+        "_generate_false_attribution",
+        "_generate_logical_trap",
+        "_generate_false_consensus",
+        "_generate_injection_id",
+        "get_injection_statistics",
+        "export_injection_log",
+        "clear_history"
+      ],
+      "base_classes": [],
+      "line_number": 40
+    },
+    "Visualization": {
+      "file_path": "cognitive_ecosystem\\utils\\visualization.py",
+      "methods": [
+        "__init__",
+        "plot_cognitive_niche_map",
+        "plot_resilience_radar_chart",
+        "plot_personality_evolution",
+        "plot_emergence_trend"
+      ],
+      "base_classes": [],
+      "line_number": 10
+    },
+    "IndependenceCalculator": {
+      "file_path": "independence\\metrics\\independence_calculator.py",
+      "methods": [
+        "calculate_comprehensive_independence",
+        "_determine_grade",
+        "_generate_analysis",
+        "_generate_recommendations"
+      ],
+      "base_classes": [],
+      "line_number": 3
+    },
+    "TestBreakingStressTest": {
+      "file_path": "tests\\generated\\test_breakingstresstest.py",
+      "methods": [
+        "setUp",
+        "test_run_experiment",
+        "test__test_role_breaking",
+        "test__get_baseline_response",
+        "test__get_stress_scenarios",
+        "test__apply_stress_test",
+        "test__analyze_breaking_indicators",
+        "test__calculate_resistance_score",
+        "test__generate_stress_analysis",
+        "test__calculate_breaking_summary",
+        "test_run_test",
+        "tearDown"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 6
+    },
+    "TestImplicitCognitionTest": {
+      "file_path": "tests\\generated\\test_implicitcognitiontest.py",
+      "methods": [
+        "setUp",
+        "test_run_experiment",
+        "test__generate_implicit_prompts",
+        "test__test_category",
+        "test__calculate_consistency_score",
+        "test__calculate_implicit_score",
+        "test__extract_role_keywords",
+        "test__calculate_implicit_summary",
+        "tearDown"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 6
+    },
+    "TestLongitudinalConsistencyTest": {
+      "file_path": "tests\\generated\\test_longitudinalconsistencytest.py",
+      "methods": [
+        "setUp",
+        "test_run_experiment",
+        "test__execute_conversation_turn",
+        "test__execute_consistency_check",
+        "test__generate_conversation_questions",
+        "test__generate_consistency_questions",
+        "test__analyze_role_consistency",
+        "test__extract_role_keywords",
+        "test__compare_with_history",
+        "test__calculate_simple_similarity",
+        "test__generate_consistency_analysis",
+        "test__calculate_consistency_summary",
+        "tearDown"
+      ],
+      "base_classes": [
+        "unittest.TestCase"
+      ],
+      "line_number": 6
+    }
+  },
+  "functions": {
+    "get_adaptive_messages": {
+      "file_path": "adaptive_prompts.py",
+      "parameters": [
+        "model_name",
+        "prompt_text",
+        "test_script_name",
+        "original_document"
+      ],
+      "line_number": 89
+    },
+    "main": {
+      "file_path": "tools\\reset_test_status.py",
+      "parameters": [],
+      "line_number": 118
+    },
+    "fix_imports_in_file": {
+      "file_path": "batch_fix_imports.py",
+      "parameters": [
+        "filepath"
+      ],
+      "line_number": 4
+    },
+    "check_models": {
+      "file_path": "check_models.py",
+      "parameters": [],
+      "line_number": 7
+    },
+    "get_siliconflow_models": {
+      "file_path": "check_siliconflow_models.py",
+      "parameters": [],
+      "line_number": 14
+    },
+    "_call_openai_compatible": {
+      "file_path": "cloud_services.py",
+      "parameters": [
+        "config",
+        "model_name",
+        "messages"
+      ],
+      "line_number": 70
+    },
+    "_call_gemini": {
+      "file_path": "cloud_services.py",
+      "parameters": [
+        "config",
+        "model_name",
+        "messages"
+      ],
+      "line_number": 84
+    },
+    "call_cloud_service": {
+      "file_path": "cloud_services.py",
+      "parameters": [
+        "service_name",
+        "model_name",
+        "prompt",
+        "system_prompt"
+      ],
+      "line_number": 110
+    },
+    "check_service_connectivity": {
+      "file_path": "cloud_services.py",
+      "parameters": [
+        "service_name",
+        "config"
+      ],
+      "line_number": 134
+    },
+    "check_gemini_connectivity": {
+      "file_path": "cloud_services.py",
+      "parameters": [],
+      "line_number": 196
+    },
+    "_check_gemini_connectivity": {
+      "file_path": "cloud_services.py",
+      "parameters": [],
+      "line_number": 200
+    },
+    "check_all_services": {
+      "file_path": "cloud_services.py",
+      "parameters": [],
+      "line_number": 246
+    },
+    "get_available_services": {
+      "file_path": "cloud_services.py",
+      "parameters": [],
+      "line_number": 256
+    },
+    "get_all_models": {
+      "file_path": "cloud_services.py",
+      "parameters": [],
+      "line_number": 260
+    },
+    "create_directory_structure": {
+      "file_path": "create+structure.py",
+      "parameters": [],
+      "line_number": 14
+    },
+    "test_model_call": {
+      "file_path": "debug_model_call.py",
+      "parameters": [],
+      "line_number": 8
+    },
+    "print_header": {
+      "file_path": "demo_evaluation.py",
+      "parameters": [
+        "title"
+      ],
+      "line_number": 13
+    },
+    "print_step": {
+      "file_path": "demo_evaluation.py",
+      "parameters": [
+        "step_num",
+        "description"
+      ],
+      "line_number": 19
+    },
+    "run_command": {
+      "file_path": "demo_evaluation.py",
+      "parameters": [
+        "command",
+        "description"
+      ],
+      "line_number": 24
+    },
+    "check_file_exists": {
+      "file_path": "validate_cloud_system.py",
+      "parameters": [
+        "filepath",
+        "description"
+      ],
+      "line_number": 14
+    },
+    "fix_test_file": {
+      "file_path": "final_fix_all_tests.py",
+      "parameters": [
+        "filepath"
+      ],
+      "line_number": 5
+    },
+    "parse_model_list": {
+      "file_path": "generate_and_run_all_model_tests.py",
+      "parameters": [],
+      "line_number": 17
+    },
+    "run_all_tests": {
+      "file_path": "generate_and_run_all_model_tests.py",
+      "parameters": [],
+      "line_number": 51
+    },
+    "get_all_pillar_tests": {
+      "file_path": "main_orchestrator.py",
+      "parameters": [
+        "tests_dir"
+      ],
+      "line_number": 18
+    },
+    "run_single_pillar_test": {
+      "file_path": "main_orchestrator.py",
+      "parameters": [
+        "test_info",
+        "model_name"
+      ],
+      "line_number": 42
+    },
+    "run_all_basic_tests": {
+      "file_path": "main_orchestrator.py",
+      "parameters": [
+        "model_name",
+        "tests_to_run"
+      ],
+      "line_number": 59
+    },
+    "run_workflow_test": {
+      "file_path": "main_orchestrator.py",
+      "parameters": [
+        "workflow_name",
+        "model_name",
+        "workflow_params"
+      ],
+      "line_number": 120
+    },
+    "run_tests": {
+      "file_path": "smart_test_runner.py",
+      "parameters": [
+        "services_to_test"
+      ],
+      "line_number": 77
+    },
+    "needs_fixing": {
+      "file_path": "proactive_fixer.py",
+      "parameters": [
+        "content"
+      ],
+      "line_number": 5
+    },
+    "get_prompt_from_content": {
+      "file_path": "proactive_fixer.py",
+      "parameters": [
+        "content"
+      ],
+      "line_number": 9
+    },
+    "create_fixed_content": {
+      "file_path": "proactive_fixer.py",
+      "parameters": [
+        "original_content",
+        "pillar_name",
+        "pillar_description",
+        "prompt"
+      ],
+      "line_number": 16
+    },
+    "quick_integration_test": {
+      "file_path": "quick_integration_test.py",
+      "parameters": [],
+      "line_number": 17
+    },
+    "ensure_directories": {
+      "file_path": "run_advanced_capability_tests.py",
+      "parameters": [],
+      "line_number": 25
+    },
+    "run_single_test": {
+      "file_path": "utils.py",
+      "parameters": [
+        "pillar_name",
+        "prompt",
+        "model",
+        "options",
+        "messages",
+        "test_script_name"
+      ],
+      "line_number": 641
+    },
+    "display_test_info": {
+      "file_path": "run_massive_consensus_test.py",
+      "parameters": [],
+      "line_number": 141
+    },
+    "display_results_summary": {
+      "file_path": "run_advanced_capability_tests.py",
+      "parameters": [],
+      "line_number": 110
+    },
+    "get_available_test_models": {
+      "file_path": "run_batch_explainable_test.py",
+      "parameters": [],
+      "line_number": 24
+    },
+    "run_batch_explainable_tests": {
+      "file_path": "run_batch_explainable_test.py",
+      "parameters": [],
+      "line_number": 39
+    },
+    "load_role_prompt": {
+      "file_path": "tests\\test_pillar_25_independence.py",
+      "parameters": [
+        "role_name"
+      ],
+      "line_number": 45
+    },
+    "get_test_scripts": {
+      "file_path": "run_comprehensive_tests.py",
+      "parameters": [],
+      "line_number": 12
+    },
+    "run_dynamic_role_switching_test": {
+      "file_path": "run_dynamic_role_switching_test.py",
+      "parameters": [],
+      "line_number": 17
+    },
+    "run_analysis": {
+      "file_path": "run_massive_consensus_test.py",
+      "parameters": [],
+      "line_number": 70
+    },
+    "check_prerequisites": {
+      "file_path": "run_massive_consensus_test.py",
+      "parameters": [],
+      "line_number": 113
+    },
+    "display_results_info": {
+      "file_path": "run_dynamic_role_switching_test.py",
+      "parameters": [],
+      "line_number": 167
+    },
+    "test_system_imports": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [],
+      "line_number": 17
+    },
+    "test_role_standards_validation": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [],
+      "line_number": 33
+    },
+    "test_enhanced_config_validation": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [],
+      "line_number": 80
+    },
+    "test_integration_validation": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [],
+      "line_number": 120
+    },
+    "test_enhanced_independence_run": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [],
+      "line_number": 137
+    },
+    "get_cognitive_independence_grade": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [
+        "score"
+      ],
+      "line_number": 204
+    },
+    "test_enhanced_attack_resistance": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [],
+      "line_number": 217
+    },
+    "test_convenience_script": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [],
+      "line_number": 246
+    },
+    "test_documentation_completeness": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "parameters": [],
+      "line_number": 273
+    },
+    "test_model_connectivity": {
+      "file_path": "run_explainable_cognitive_test.py",
+      "parameters": [
+        "service_name",
+        "model_name"
+      ],
+      "line_number": 191
+    },
+    "test_hallucination_resistance_explained": {
+      "file_path": "run_explainable_cognitive_test.py",
+      "parameters": [
+        "service_name",
+        "model_name",
+        "scorer"
+      ],
+      "line_number": 201
+    },
+    "test_role_consistency_explained": {
+      "file_path": "run_explainable_cognitive_test.py",
+      "parameters": [
+        "service_name",
+        "model_name",
+        "role",
+        "scorer"
+      ],
+      "line_number": 230
+    },
+    "test_cognitive_diversity_explained": {
+      "file_path": "run_explainable_cognitive_test.py",
+      "parameters": [
+        "service_name",
+        "model_name",
+        "roles",
+        "scorer"
+      ],
+      "line_number": 265
+    },
+    "run_explainable_test": {
+      "file_path": "run_explainable_cognitive_test.py",
+      "parameters": [
+        "service_name",
+        "model_name"
+      ],
+      "line_number": 304
+    },
+    "get_extended_test_models": {
+      "file_path": "run_extended_cloud_test.py",
+      "parameters": [],
+      "line_number": 24
+    },
+    "run_extended_batch_test": {
+      "file_path": "run_extended_cloud_test.py",
+      "parameters": [],
+      "line_number": 68
+    },
+    "generate_extended_report": {
+      "file_path": "run_extended_cloud_test.py",
+      "parameters": [
+        "all_results",
+        "successful_tests",
+        "failed_tests",
+        "start_time",
+        "end_time",
+        "total_duration",
+        "total_planned"
+      ],
+      "line_number": 205
+    },
+    "run_massive_consensus_test": {
+      "file_path": "run_massive_consensus_test.py",
+      "parameters": [],
+      "line_number": 17
+    },
+    "run_full_test": {
+      "file_path": "run_pillar_25_independence.py",
+      "parameters": [
+        "model_name",
+        "output_dir"
+      ],
+      "line_number": 38
+    },
+    "run_quick_test": {
+      "file_path": "run_real_model_test.py",
+      "parameters": [
+        "model_name",
+        "role_prompt"
+      ],
+      "line_number": 51
+    },
+    "run_validation_only": {
+      "file_path": "run_pillar_25_independence.py",
+      "parameters": [],
+      "line_number": 103
+    },
+    "run_batch_test": {
+      "file_path": "run_pillar_25_independence.py",
+      "parameters": [
+        "models",
+        "output_dir"
+      ],
+      "line_number": 124
+    },
+    "test_model_availability": {
+      "file_path": "run_real_model_test.py",
+      "parameters": [],
+      "line_number": 22
+    },
+    "save_results": {
+      "file_path": "run_real_model_test.py",
+      "parameters": [
+        "results",
+        "model_name"
+      ],
+      "line_number": 115
+    },
+    "load_test_status": {
+      "file_path": "tools\\reset_test_status.py",
+      "parameters": [],
+      "line_number": 24
+    },
+    "save_test_status": {
+      "file_path": "tools\\reset_test_status.py",
+      "parameters": [
+        "status"
+      ],
+      "line_number": 36
+    },
+    "test_model": {
+      "file_path": "smart_test_runner.py",
+      "parameters": [
+        "service_name",
+        "model_name",
+        "test_prompt"
+      ],
+      "line_number": 53
+    },
+    "list_services": {
+      "file_path": "smart_test_runner.py",
+      "parameters": [],
+      "line_number": 127
+    },
+    "list_models": {
+      "file_path": "smart_test_runner.py",
+      "parameters": [],
+      "line_number": 133
+    },
+    "reset_test_status": {
+      "file_path": "smart_test_runner.py",
+      "parameters": [
+        "models"
+      ],
+      "line_number": 140
+    },
+    "generate_god_view_script": {
+      "file_path": "TestLLM.py",
+      "parameters": [],
+      "line_number": 58
+    },
+    "generate_dialogue": {
+      "file_path": "TestLLM.py",
+      "parameters": [
+        "script",
+        "total_turns"
+      ],
+      "line_number": 120
+    },
+    "get_prompt": {
+      "file_path": "TestLLM.py",
+      "parameters": [
+        "prompt_type",
+        "context",
+        "model"
+      ],
+      "line_number": 153
+    },
+    "call_ollama": {
+      "file_path": "TestLLM.py",
+      "parameters": [
+        "model",
+        "prompt",
+        "use_adaptive",
+        "test_context",
+        "max_retries"
+      ],
+      "line_number": 186
+    },
+    "call_qiniu_deepseek": {
+      "file_path": "utils.py",
+      "parameters": [
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 206
+    },
+    "save_detailed_test_data": {
+      "file_path": "TestLLM.py",
+      "parameters": [
+        "case_num",
+        "model",
+        "script",
+        "dialogue",
+        "prompts_and_responses",
+        "final_reasoning"
+      ],
+      "line_number": 368
+    },
+    "save_case_analysis": {
+      "file_path": "TestLLM.py",
+      "parameters": [
+        "case_num",
+        "model",
+        "script",
+        "final_reasoning"
+      ],
+      "line_number": 501
+    },
+    "run_test_pipeline": {
+      "file_path": "TestLLM.py",
+      "parameters": [],
+      "line_number": 581
+    },
+    "init_console_encoding": {
+      "file_path": "TestLLM.py",
+      "parameters": [],
+      "line_number": 777
+    },
+    "test_baidu_connectivity": {
+      "file_path": "test_baidu_connectivity.py",
+      "parameters": [
+        "verbose"
+      ],
+      "line_number": 16
+    },
+    "test_cloud_services": {
+      "file_path": "test_cloud_services.py",
+      "parameters": [],
+      "line_number": 20
+    },
+    "test_qiniu_connectivity_alternative": {
+      "file_path": "test_connectivity.py",
+      "parameters": [],
+      "line_number": 15
+    },
+    "test_imports": {
+      "file_path": "independence\\final_validation.py",
+      "parameters": [],
+      "line_number": 106
+    },
+    "test_basic_imports": {
+      "file_path": "test_independence_fix.py",
+      "parameters": [],
+      "line_number": 17
+    },
+    "test_class_instantiation": {
+      "file_path": "independence\\test_integration.py",
+      "parameters": [],
+      "line_number": 42
+    },
+    "test_method_existence": {
+      "file_path": "test_independence_fix.py",
+      "parameters": [
+        "implicit_test",
+        "longitudinal_test"
+      ],
+      "line_number": 71
+    },
+    "test_simple_functionality": {
+      "file_path": "test_independence_fix.py",
+      "parameters": [],
+      "line_number": 107
+    },
+    "test_config_validation": {
+      "file_path": "independence\\test_integration.py",
+      "parameters": [
+        "test_instances"
+      ],
+      "line_number": 76
+    },
+    "run_mini_test": {
+      "file_path": "test_independence_fix.py",
+      "parameters": [],
+      "line_number": 169
+    },
+    "test_breaking_stress_only": {
+      "file_path": "test_single_import.py",
+      "parameters": [],
+      "line_number": 6
+    },
+    "update_architecture_and_tests": {
+      "file_path": "update_architecture_and_tests.py",
+      "parameters": [],
+      "line_number": 10
+    },
+    "get_baidu_access_token": {
+      "file_path": "utils.py",
+      "parameters": [],
+      "line_number": 50
+    },
+    "call_baidu_llm": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 80
+    },
+    "call_togetherai": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 261
+    },
+    "call_openrouter": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 316
+    },
+    "call_multi_cloud_smart": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 371
+    },
+    "call_multi_cloud": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 414
+    },
+    "call_ppinfra": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 420
+    },
+    "call_gemini": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 449
+    },
+    "call_dashscope": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 555
+    },
+    "call_glm": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "messages",
+        "options",
+        "max_retries"
+      ],
+      "line_number": 597
+    },
+    "print_assessment_criteria": {
+      "file_path": "utils.py",
+      "parameters": [
+        "criteria"
+      ],
+      "line_number": 739
+    },
+    "setup_test_environment": {
+      "file_path": "utils.py",
+      "parameters": [
+        "subdir_name"
+      ],
+      "line_number": 748
+    },
+    "cleanup_test_environment": {
+      "file_path": "utils.py",
+      "parameters": [
+        "work_dir"
+      ],
+      "line_number": 760
+    },
+    "ensure_log_dir": {
+      "file_path": "utils.py",
+      "parameters": [],
+      "line_number": 766
+    },
+    "ensure_report_dir": {
+      "file_path": "utils.py",
+      "parameters": [],
+      "line_number": 772
+    },
+    "save_file": {
+      "file_path": "utils.py",
+      "parameters": [
+        "filepath",
+        "content"
+      ],
+      "line_number": 779
+    },
+    "read_file": {
+      "file_path": "utils.py",
+      "parameters": [
+        "filepath"
+      ],
+      "line_number": 789
+    },
+    "execute_bash_script": {
+      "file_path": "utils.py",
+      "parameters": [
+        "script_path",
+        "cwd"
+      ],
+      "line_number": 802
+    },
+    "check_ollama_dependency": {
+      "file_path": "utils.py",
+      "parameters": [],
+      "line_number": 840
+    },
+    "modify_test_script": {
+      "file_path": "utils.py",
+      "parameters": [
+        "script_content",
+        "model_name"
+      ],
+      "line_number": 864
+    },
+    "run_single_test_with_retry": {
+      "file_path": "utils.py",
+      "parameters": [
+        "pillar_name",
+        "prompt",
+        "model",
+        "options",
+        "messages",
+        "test_script_name",
+        "max_retries",
+        "retry_delay"
+      ],
+      "line_number": 878
+    },
+    "get_adaptive_prompt": {
+      "file_path": "utils.py",
+      "parameters": [
+        "model_name",
+        "base_prompt",
+        "prompt_type"
+      ],
+      "line_number": 916
+    },
+    "validate_cloud_services": {
+      "file_path": "validate_cloud_system.py",
+      "parameters": [],
+      "line_number": 23
+    },
+    "validate_smart_runner": {
+      "file_path": "validate_cloud_system.py",
+      "parameters": [],
+      "line_number": 39
+    },
+    "validate_status_tool": {
+      "file_path": "validate_cloud_system.py",
+      "parameters": [],
+      "line_number": 53
+    },
+    "load_test_results": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "input_path"
+      ],
+      "line_number": 559
+    },
+    "create_overall_performance_chart": {
+      "file_path": "visualize_test_results.py",
+      "parameters": [
+        "results_data"
+      ],
+      "line_number": 27
+    },
+    "create_radar_chart": {
+      "file_path": "visualize_test_results.py",
+      "parameters": [
+        "results_data"
+      ],
+      "line_number": 115
+    },
+    "create_role_performance_heatmap": {
+      "file_path": "visualize_test_results.py",
+      "parameters": [
+        "results_data"
+      ],
+      "line_number": 169
+    },
+    "create_summary_statistics": {
+      "file_path": "visualize_test_results.py",
+      "parameters": [
+        "results_data"
+      ],
+      "line_number": 205
+    },
+    "generate_visual_report": {
+      "file_path": "visualize_test_results.py",
+      "parameters": [
+        "results_filename"
+      ],
+      "line_number": 250
+    },
+    "print_banner": {
+      "file_path": "workspace_init.py",
+      "parameters": [],
+      "line_number": 11
+    },
+    "install_test_framework": {
+      "file_path": "workspace_init.py",
+      "parameters": [],
+      "line_number": 22
+    },
+    "install_paper_crew_deps": {
+      "file_path": "workspace_init.py",
+      "parameters": [],
+      "line_number": 39
+    },
+    "run_validation": {
+      "file_path": "workspace_init.py",
+      "parameters": [],
+      "line_number": 51
+    },
+    "print_next_steps": {
+      "file_path": "workspace_init.py",
+      "parameters": [],
+      "line_number": 77
+    },
+    "run_performance_benchmark": {
+      "file_path": "examples\\advanced_usage.py",
+      "parameters": [],
+      "line_number": 27
+    },
+    "run_comparative_analysis": {
+      "file_path": "examples\\advanced_usage.py",
+      "parameters": [],
+      "line_number": 75
+    },
+    "analyze_results": {
+      "file_path": "tests\\test_pillar_21_dynamic_role_switching.py",
+      "parameters": [
+        "results"
+      ],
+      "line_number": 309
+    },
+    "generate_advanced_reports": {
+      "file_path": "examples\\advanced_usage.py",
+      "parameters": [
+        "results"
+      ],
+      "line_number": 186
+    },
+    "get_test_config": {
+      "file_path": "independence\\config.py",
+      "parameters": [
+        "config_type"
+      ],
+      "line_number": 313
+    },
+    "get_role_config": {
+      "file_path": "independence\\config.py",
+      "parameters": [
+        "role"
+      ],
+      "line_number": 330
+    },
+    "validate_config": {
+      "file_path": "independence\\config.py",
+      "parameters": [
+        "config"
+      ],
+      "line_number": 342
+    },
+    "final_system_validation": {
+      "file_path": "independence\\final_validation.py",
+      "parameters": [],
+      "line_number": 18
+    },
+    "test_configurations": {
+      "file_path": "independence\\final_validation.py",
+      "parameters": [],
+      "line_number": 120
+    },
+    "test_core_components": {
+      "file_path": "independence\\final_validation.py",
+      "parameters": [],
+      "line_number": 143
+    },
+    "test_experiment_systems": {
+      "file_path": "independence\\final_validation.py",
+      "parameters": [],
+      "line_number": 170
+    },
+    "test_utility_functions": {
+      "file_path": "independence\\test_integration.py",
+      "parameters": [],
+      "line_number": 95
+    },
+    "test_integration": {
+      "file_path": "independence\\final_validation.py",
+      "parameters": [],
+      "line_number": 244
+    },
+    "test_run_scripts": {
+      "file_path": "independence\\final_validation.py",
+      "parameters": [],
+      "line_number": 252
+    },
+    "test_module_imports": {
+      "file_path": "independence\\test_integration.py",
+      "parameters": [],
+      "line_number": 16
+    },
+    "test_main_test_file": {
+      "file_path": "independence\\test_integration.py",
+      "parameters": [],
+      "line_number": 134
+    },
+    "call_llm_api": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "model_name",
+        "role_prompt",
+        "user_input",
+        "options"
+      ],
+      "line_number": 19
+    },
+    "call_ollama_api": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "model_name",
+        "role_prompt",
+        "user_input",
+        "options"
+      ],
+      "line_number": 36
+    },
+    "call_openai_api": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "model_name",
+        "role_prompt",
+        "user_input",
+        "options"
+      ],
+      "line_number": 72
+    },
+    "call_anthropic_api": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "model_name",
+        "role_prompt",
+        "user_input",
+        "options"
+      ],
+      "line_number": 102
+    },
+    "calculate_confidence_score": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "text",
+        "keywords"
+      ],
+      "line_number": 130
+    },
+    "analyze_response_quality": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "response"
+      ],
+      "line_number": 141
+    },
+    "validate_test_config": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "config"
+      ],
+      "line_number": 163
+    },
+    "format_test_results": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "results"
+      ],
+      "line_number": 179
+    },
+    "calculate_text_similarity": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "text1",
+        "text2"
+      ],
+      "line_number": 200
+    },
+    "extract_role_keywords": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "role_prompt"
+      ],
+      "line_number": 220
+    },
+    "extract_professional_terms": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "text",
+        "role_keywords"
+      ],
+      "line_number": 237
+    },
+    "get_role_keywords": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "role"
+      ],
+      "line_number": 258
+    },
+    "analyze_response_style": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "responses"
+      ],
+      "line_number": 304
+    },
+    "calculate_variance": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "values"
+      ],
+      "line_number": 361
+    },
+    "detect_role_leakage": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "response",
+        "current_role",
+        "other_roles"
+      ],
+      "line_number": 371
+    },
+    "evaluate_role_consistency": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "responses",
+        "role"
+      ],
+      "line_number": 427
+    },
+    "generate_stress_prompt": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "base_prompt",
+        "stress_level",
+        "stress_type"
+      ],
+      "line_number": 467
+    },
+    "calculate_resistance_score": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "original_response",
+        "stressed_response",
+        "role"
+      ],
+      "line_number": 507
+    },
+    "save_test_results": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "results",
+        "output_path"
+      ],
+      "line_number": 542
+    },
+    "format_test_report": {
+      "file_path": "independence\\utils.py",
+      "parameters": [
+        "results"
+      ],
+      "line_number": 577
+    },
+    "create_test_suite": {
+      "file_path": "independence\\__init__.py",
+      "parameters": [
+        "config"
+      ],
+      "line_number": 62
+    },
+    "run_test": {
+      "file_path": "tests\\composite_scenarios\\test_workflow_simulation.py",
+      "parameters": [
+        "model_name"
+      ],
+      "line_number": 24
+    },
+    "check_environment": {
+      "file_path": "tests\\test_pillar_13_init.py",
+      "parameters": [
+        "work_dir"
+      ],
+      "line_number": 70
+    },
+    "run_cognitive_ecosystem_test": {
+      "file_path": "tests\\test_pillar_25_cognitive_ecosystem.py",
+      "parameters": [
+        "model_name",
+        "config"
+      ],
+      "line_number": 19
+    },
+    "run_independence_test": {
+      "file_path": "tests\\test_pillar_25_independence.py",
+      "parameters": [
+        "model_name",
+        "output_dir"
+      ],
+      "line_number": 284
+    },
+    "run_independence_tests": {
+      "file_path": "tests\\test_pillar_25_independence.py",
+      "parameters": [],
+      "line_number": 317
+    },
+    "validate_test_integration": {
+      "file_path": "tests\\test_pillar_25_independence.py",
+      "parameters": [],
+      "line_number": 322
+    },
+    "reset_all_status": {
+      "file_path": "tools\\reset_test_status.py",
+      "parameters": [],
+      "line_number": 45
+    },
+    "reset_service_status": {
+      "file_path": "tools\\reset_test_status.py",
+      "parameters": [
+        "service_name"
+      ],
+      "line_number": 50
+    },
+    "reset_model_status": {
+      "file_path": "tools\\reset_test_status.py",
+      "parameters": [
+        "model_key"
+      ],
+      "line_number": 73
+    },
+    "show_test_status": {
+      "file_path": "tools\\reset_test_status.py",
+      "parameters": [],
+      "line_number": 84
+    },
+    "calculate_cognitive_diversity_index": {
+      "file_path": "cognitive_ecosystem\\utils\\cognitive_metrics.py",
+      "parameters": [
+        "agents"
+      ],
+      "line_number": 3
+    },
+    "detect_emergence": {
+      "file_path": "cognitive_ecosystem\\utils\\cognitive_metrics.py",
+      "parameters": [
+        "group_performance",
+        "sum_individual_performance"
+      ],
+      "line_number": 27
+    },
+    "calculate_resilience_score": {
+      "file_path": "cognitive_ecosystem\\utils\\cognitive_metrics.py",
+      "parameters": [
+        "pre_stress",
+        "post_stress",
+        "recovery_time"
+      ],
+      "line_number": 38
+    }
+  },
+  "modules": {
+    "adaptive_prompts": {
+      "file_path": "adaptive_prompts.py",
+      "classes": [],
+      "functions": [
+        "get_adaptive_messages"
+      ],
+      "imports": [
+        "os"
+      ]
+    },
+    "analyze_dynamic_role_switching": {
+      "file_path": "analyze_dynamic_role_switching.py",
+      "classes": [
+        "DynamicRoleSwitchingAnalyzer"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "re",
+        "typing.Dict",
+        "datetime.datetime"
+      ]
+    },
+    "analyze_massive_consensus": {
+      "file_path": "analyze_massive_consensus.py",
+      "classes": [
+        "MassiveConsensusAnalyzer"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "re",
+        "typing.Dict",
+        "datetime.datetime"
+      ]
+    },
+    "analyze_results": {
+      "file_path": "analyze_results.py",
+      "classes": [
+        "LLMResultAnalyzer"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "re",
+        "json",
+        "datetime.datetime",
+        "collections.defaultdict"
+      ]
+    },
+    "batch_fix_imports": {
+      "file_path": "batch_fix_imports.py",
+      "classes": [],
+      "functions": [
+        "fix_imports_in_file",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "glob"
+      ]
+    },
+    "batch_model_evaluation": {
+      "file_path": "batch_model_evaluation.py",
+      "classes": [
+        "BatchModelEvaluator"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "json",
+        "traceback",
+        "datetime.datetime",
+        "typing.Dict",
+        "ollama",
+        "zero_response_diagnosis.ZeroResponseDiagnostic",
+        "simplified_best_capabilities_test.SimplifiedBestCapabilitiesTest",
+        "io",
+        "contextlib"
+      ]
+    },
+    "check_models": {
+      "file_path": "check_models.py",
+      "classes": [],
+      "functions": [
+        "check_models"
+      ],
+      "imports": [
+        "ollama",
+        "sys"
+      ]
+    },
+    "check_siliconflow_models": {
+      "file_path": "check_siliconflow_models.py",
+      "classes": [],
+      "functions": [
+        "get_siliconflow_models"
+      ],
+      "imports": [
+        "os",
+        "requests",
+        "dotenv.load_dotenv"
+      ]
+    },
+    "cloud_connection_cache": {
+      "file_path": "cloud_connection_cache.py",
+      "classes": [
+        "CloudConnectionCache"
+      ],
+      "functions": [],
+      "imports": [
+        "json",
+        "os",
+        "time",
+        "typing.Dict",
+        "datetime.datetime"
+      ]
+    },
+    "cloud_services": {
+      "file_path": "cloud_services.py",
+      "classes": [],
+      "functions": [
+        "_call_openai_compatible",
+        "_call_gemini",
+        "call_cloud_service",
+        "check_service_connectivity",
+        "check_gemini_connectivity",
+        "_check_gemini_connectivity",
+        "check_all_services",
+        "get_available_services",
+        "get_all_models"
+      ],
+      "imports": [
+        "os",
+        "requests",
+        "json",
+        "time",
+        "typing.Dict",
+        "dotenv.load_dotenv"
+      ]
+    },
+    "config": {
+      "file_path": "config.py",
+      "classes": [],
+      "functions": [],
+      "imports": []
+    },
+    "create+structure": {
+      "file_path": "create+structure.py",
+      "classes": [],
+      "functions": [
+        "create_directory_structure"
+      ],
+      "imports": [
+        "os",
+        "pathlib.Path"
+      ]
+    },
+    "debug_missing_methods": {
+      "file_path": "debug_missing_methods.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "sys",
+        "pathlib.Path",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "independence.experiments.longitudinal_consistency.LongitudinalConsistencyTest",
+        "traceback"
+      ]
+    },
+    "debug_model_call": {
+      "file_path": "debug_model_call.py",
+      "classes": [],
+      "functions": [
+        "test_model_call"
+      ],
+      "imports": [
+        "ollama",
+        "time",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "demo_evaluation": {
+      "file_path": "demo_evaluation.py",
+      "classes": [],
+      "functions": [
+        "print_header",
+        "print_step",
+        "run_command",
+        "check_file_exists",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "subprocess",
+        "datetime.datetime",
+        "config.MODEL_TO_TEST",
+        "re"
+      ]
+    },
+    "enhanced_best_capabilities_test": {
+      "file_path": "enhanced_best_capabilities_test.py",
+      "classes": [
+        "BestCapabilitiesTestSuite"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "json",
+        "datetime.datetime",
+        "typing.Dict",
+        "ollama",
+        "enhanced_test_framework.EnhancedTestFramework"
+      ]
+    },
+    "enhanced_test_framework": {
+      "file_path": "enhanced_test_framework.py",
+      "classes": [
+        "EnhancedTestFramework"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "json",
+        "datetime.datetime",
+        "typing.Dict",
+        "ollama",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "enhanced_test_generator": {
+      "file_path": "enhanced_test_generator.py",
+      "classes": [
+        "EnhancedTestGenerator"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "pathlib.Path",
+        "typing.Dict",
+        "jinja2.Template",
+        "argparse"
+      ]
+    },
+    "enhanced_top3_tests": {
+      "file_path": "enhanced_top3_tests.py",
+      "classes": [
+        "EnhancedTop3Tester"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "json",
+        "datetime.datetime",
+        "typing.Dict",
+        "ollama",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "evaluate_enhanced_results": {
+      "file_path": "evaluate_enhanced_results.py",
+      "classes": [
+        "EnhancedResultsEvaluator"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "re",
+        "json",
+        "datetime.datetime",
+        "typing.Dict"
+      ]
+    },
+    "evaluate_results": {
+      "file_path": "evaluate_results.py",
+      "classes": [
+        "LLMEvaluator"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "json",
+        "re",
+        "datetime.datetime",
+        "typing.Dict",
+        "statistics"
+      ]
+    },
+    "final_fix_all_tests": {
+      "file_path": "final_fix_all_tests.py",
+      "classes": [],
+      "functions": [
+        "fix_test_file",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "glob",
+        "re"
+      ]
+    },
+    "generate_and_run_all_model_tests": {
+      "file_path": "generate_and_run_all_model_tests.py",
+      "classes": [],
+      "functions": [
+        "parse_model_list",
+        "run_all_tests",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "re",
+        "subprocess"
+      ]
+    },
+    "main_orchestrator": {
+      "file_path": "main_orchestrator.py",
+      "classes": [],
+      "functions": [
+        "get_all_pillar_tests",
+        "run_single_pillar_test",
+        "run_all_basic_tests",
+        "run_workflow_test",
+        "run_tests"
+      ],
+      "imports": [
+        "os",
+        "subprocess",
+        "argparse",
+        "sys",
+        "importlib",
+        "pathlib.Path",
+        "json",
+        "time",
+        "re",
+        "config.MODEL_TO_TEST",
+        "utils.run_single_test",
+        "config.DEFAULT_OPTIONS_DETERMINISTIC",
+        "tests.composite_scenarios.test_workflow_simulation.run_test",
+        "tests.composite_scenarios.test_cross_capability_integration.run_test",
+        "tests.composite_scenarios.test_multi_turn_dialogue.run_test"
+      ]
+    },
+    "proactive_fixer": {
+      "file_path": "proactive_fixer.py",
+      "classes": [],
+      "functions": [
+        "needs_fixing",
+        "get_prompt_from_content",
+        "create_fixed_content",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "glob",
+        "re"
+      ]
+    },
+    "project_architecture_map": {
+      "file_path": "project_architecture_map.py",
+      "classes": [
+        "ClassInfo",
+        "FunctionInfo",
+        "ModuleInfo",
+        "ProjectArchitectureMapper"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "ast",
+        "json",
+        "pathlib.Path",
+        "typing.Dict",
+        "dataclasses.dataclass",
+        "argparse"
+      ]
+    },
+    "quick_integration_test": {
+      "file_path": "quick_integration_test.py",
+      "classes": [],
+      "functions": [
+        "quick_integration_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "config.INDEPENDENCE_CONFIG",
+        "independence.experiments.breaking_stress.BreakingStressTest",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "independence.experiments.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.calculator.IndependenceCalculator"
+      ]
+    },
+    "run_advanced_capability_tests": {
+      "file_path": "run_advanced_capability_tests.py",
+      "classes": [],
+      "functions": [
+        "ensure_directories",
+        "run_single_test",
+        "display_test_info",
+        "display_results_summary",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "subprocess",
+        "time",
+        "datetime.datetime"
+      ]
+    },
+    "run_batch_explainable_test": {
+      "file_path": "run_batch_explainable_test.py",
+      "classes": [],
+      "functions": [
+        "get_available_test_models",
+        "run_batch_explainable_tests",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "json",
+        "time",
+        "datetime.datetime",
+        "typing.Dict",
+        "pathlib.Path",
+        "run_explainable_cognitive_test.run_explainable_test",
+        "pandas",
+        "traceback"
+      ]
+    },
+    "run_cloud_independence_test": {
+      "file_path": "run_cloud_independence_test.py",
+      "classes": [
+        "CloudIndependenceTester"
+      ],
+      "functions": [
+        "load_role_prompt",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "json",
+        "time",
+        "datetime.datetime",
+        "typing.Dict",
+        "pathlib.Path",
+        "argparse",
+        "cloud_services.CLOUD_SERVICES",
+        "independence.character_breaking.BreakingStressTest",
+        "independence.implicit_cognition.ImplicitCognitionTest",
+        "independence.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.metrics.independence_calculator.IndependenceCalculator",
+        "config.INDEPENDENCE_CONFIG",
+        "traceback"
+      ]
+    },
+    "run_cognitive_ecosystem_cloud_test": {
+      "file_path": "run_cognitive_ecosystem_cloud_test.py",
+      "classes": [
+        "CloudModelAgent",
+        "CognitiveEcosystemCloudTester"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "json",
+        "time",
+        "datetime.datetime",
+        "typing.Dict",
+        "pathlib.Path",
+        "argparse",
+        "cloud_services.CLOUD_SERVICES",
+        "tests.test_pillar_25_cognitive_ecosystem.run_cognitive_ecosystem_test",
+        "cognitive_ecosystem.core.ecosystem_engine.CognitiveEcosystemEngine",
+        "cognitive_ecosystem.core.cognitive_niche.CognitiveNiche"
+      ]
+    },
+    "run_comprehensive_tests": {
+      "file_path": "run_comprehensive_tests.py",
+      "classes": [],
+      "functions": [
+        "get_test_scripts",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "subprocess",
+        "shutil",
+        "datetime.datetime",
+        "glob",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "run_dynamic_role_switching_test": {
+      "file_path": "run_dynamic_role_switching_test.py",
+      "classes": [],
+      "functions": [
+        "run_dynamic_role_switching_test",
+        "run_analysis",
+        "check_prerequisites",
+        "display_test_info",
+        "display_results_info",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "subprocess",
+        "time",
+        "datetime.datetime",
+        "ollama"
+      ]
+    },
+    "run_end_to_end_integration_test": {
+      "file_path": "run_end_to_end_integration_test.py",
+      "classes": [],
+      "functions": [
+        "test_system_imports",
+        "test_role_standards_validation",
+        "test_enhanced_config_validation",
+        "test_integration_validation",
+        "test_enhanced_independence_run",
+        "get_cognitive_independence_grade",
+        "test_enhanced_attack_resistance",
+        "test_convenience_script",
+        "test_documentation_completeness",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "time",
+        "json",
+        "independence.experiments.breaking_stress.BreakingStressTest",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "independence.experiments.longitudinal_consistency.LongitudinalConsistencyTest",
+        "tests.test_pillar_25_independence.validate_test_integration",
+        "config.MODEL_TO_TEST",
+        "yaml",
+        "tests.test_pillar_25_independence.validate_test_integration",
+        "tests.test_pillar_25_independence.run_independence_test",
+        "config.CLOUD_PRIORITY_MODELS",
+        "cloud_connection_cache.connection_cache",
+        "subprocess",
+        "traceback"
+      ]
+    },
+    "run_explainable_cognitive_test": {
+      "file_path": "run_explainable_cognitive_test.py",
+      "classes": [
+        "ExplainableScorer"
+      ],
+      "functions": [
+        "test_model_connectivity",
+        "test_hallucination_resistance_explained",
+        "test_role_consistency_explained",
+        "test_cognitive_diversity_explained",
+        "run_explainable_test",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "json",
+        "time",
+        "datetime.datetime",
+        "typing.Dict",
+        "cloud_services.call_cloud_service",
+        "tests.test_pillar_25_cognitive_ecosystem.get_role_config"
+      ]
+    },
+    "run_extended_cloud_test": {
+      "file_path": "run_extended_cloud_test.py",
+      "classes": [],
+      "functions": [
+        "get_extended_test_models",
+        "run_extended_batch_test",
+        "generate_extended_report",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "json",
+        "time",
+        "datetime.datetime",
+        "typing.Dict",
+        "pathlib.Path",
+        "run_explainable_cognitive_test.run_explainable_test",
+        "pandas",
+        "traceback"
+      ]
+    },
+    "run_independence_test": {
+      "file_path": "run_independence_test.py",
+      "classes": [],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "subprocess",
+        "sys"
+      ]
+    },
+    "run_massive_consensus_test": {
+      "file_path": "run_massive_consensus_test.py",
+      "classes": [],
+      "functions": [
+        "run_massive_consensus_test",
+        "run_analysis",
+        "check_prerequisites",
+        "display_test_info",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "subprocess",
+        "time",
+        "datetime.datetime",
+        "ollama"
+      ]
+    },
+    "run_pillar_25_independence": {
+      "file_path": "run_pillar_25_independence.py",
+      "classes": [],
+      "functions": [
+        "run_full_test",
+        "run_quick_test",
+        "run_validation_only",
+        "run_batch_test",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "argparse",
+        "pathlib.Path",
+        "typing.List",
+        "codecs",
+        "tests.test_pillar_25_independence.run_independence_test",
+        "independence.test_integration.main",
+        "config.MODEL_TO_TEST",
+        "tests.test_pillar_25_independence.run_independence_test",
+        "traceback"
+      ]
+    },
+    "run_real_model_test": {
+      "file_path": "run_real_model_test.py",
+      "classes": [],
+      "functions": [
+        "test_model_availability",
+        "run_quick_test",
+        "save_results",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "json",
+        "datetime.datetime",
+        "pathlib.Path",
+        "codecs",
+        "ollama",
+        "independence.experiments.breaking_stress.BreakingStressTest",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "traceback"
+      ]
+    },
+    "simplified_best_capabilities_test": {
+      "file_path": "simplified_best_capabilities_test.py",
+      "classes": [
+        "SimplifiedBestCapabilitiesTest"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "json",
+        "datetime.datetime",
+        "typing.Dict",
+        "ollama",
+        "enhanced_test_framework.EnhancedTestFramework"
+      ]
+    },
+    "smart_test_runner": {
+      "file_path": "smart_test_runner.py",
+      "classes": [],
+      "functions": [
+        "load_test_status",
+        "save_test_status",
+        "test_model",
+        "run_tests",
+        "list_services",
+        "list_models",
+        "reset_test_status",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "json",
+        "argparse",
+        "datetime.datetime",
+        "typing.Dict",
+        "cloud_services.check_all_services"
+      ]
+    },
+    "TestLLM": {
+      "file_path": "TestLLM.py",
+      "classes": [],
+      "functions": [
+        "generate_god_view_script",
+        "generate_dialogue",
+        "get_prompt",
+        "call_ollama",
+        "call_qiniu_deepseek",
+        "save_detailed_test_data",
+        "save_case_analysis",
+        "run_test_pipeline",
+        "init_console_encoding"
+      ],
+      "imports": [
+        "requests",
+        "random",
+        "time",
+        "os",
+        "string",
+        "csv",
+        "tiktoken",
+        "typing.Dict",
+        "dotenv.load_dotenv",
+        "sys",
+        "io",
+        "adaptive_prompts.ADAPTIVE_SYSTEM_PROMPTS"
+      ]
+    },
+    "test_baidu_connectivity": {
+      "file_path": "test_baidu_connectivity.py",
+      "classes": [],
+      "functions": [
+        "test_baidu_connectivity"
+      ],
+      "imports": [
+        "os",
+        "requests",
+        "json",
+        "dotenv.load_dotenv",
+        "traceback"
+      ]
+    },
+    "test_cloud_models_independence": {
+      "file_path": "test_cloud_models_independence.py",
+      "classes": [],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "time",
+        "json",
+        "requests",
+        "pathlib.Path",
+        "tests.test_pillar_25_independence.run_independence_test",
+        "utils.call_ppinfra",
+        "traceback"
+      ]
+    },
+    "test_cloud_services": {
+      "file_path": "test_cloud_services.py",
+      "classes": [],
+      "functions": [
+        "test_cloud_services"
+      ],
+      "imports": [
+        "cloud_services.check_all_services"
+      ]
+    },
+    "test_config_import": {
+      "file_path": "test_config_import.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "config.MODEL_TO_TEST",
+        "config.DEFAULT_OPTIONS_CREATIVE",
+        "config.OLLAMA_HOST",
+        "config.MODELS_LIST_FILE",
+        "config"
+      ]
+    },
+    "test_connectivity": {
+      "file_path": "test_connectivity.py",
+      "classes": [],
+      "functions": [
+        "test_qiniu_connectivity_alternative"
+      ],
+      "imports": [
+        "os",
+        "requests",
+        "dotenv.load_dotenv"
+      ]
+    },
+    "test_import_check": {
+      "file_path": "test_import_check.py",
+      "classes": [],
+      "functions": [
+        "test_imports"
+      ],
+      "imports": [
+        "independence.BreakingStressTest",
+        "independence.experiments.breaking_stress.BreakingStressTest",
+        "config.INDEPENDENCE_CONFIG",
+        "traceback",
+        "traceback"
+      ]
+    },
+    "test_independence_fix": {
+      "file_path": "test_independence_fix.py",
+      "classes": [],
+      "functions": [
+        "test_basic_imports",
+        "test_class_instantiation",
+        "test_method_existence",
+        "test_simple_functionality",
+        "test_config_validation",
+        "run_mini_test",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "codecs",
+        "independence.base.IndependenceTestBase",
+        "independence.utils.calculate_confidence_score",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "independence.experiments.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "independence.experiments.longitudinal_consistency.LongitudinalConsistencyTest",
+        "config.INDEPENDENCE_CONFIG",
+        "independence.utils.calculate_confidence_score",
+        "independence.utils.validate_test_config",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "config.INDEPENDENCE_CONFIG",
+        "traceback",
+        "traceback",
+        "traceback",
+        "traceback",
+        "traceback"
+      ]
+    },
+    "test_single_import": {
+      "file_path": "test_single_import.py",
+      "classes": [],
+      "functions": [
+        "test_breaking_stress_only"
+      ],
+      "imports": [
+        "independence.experiments.breaking_stress.BreakingStressTest",
+        "config.INDEPENDENCE_CONFIG",
+        "traceback"
+      ]
+    },
+    "update_architecture_and_tests": {
+      "file_path": "update_architecture_and_tests.py",
+      "classes": [],
+      "functions": [
+        "update_architecture_and_tests"
+      ],
+      "imports": [
+        "subprocess",
+        "sys",
+        "pathlib.Path"
+      ]
+    },
+    "utils": {
+      "file_path": "utils.py",
+      "classes": [],
+      "functions": [
+        "get_baidu_access_token",
+        "call_baidu_llm",
+        "call_qiniu_deepseek",
+        "call_togetherai",
+        "call_openrouter",
+        "call_multi_cloud_smart",
+        "call_multi_cloud",
+        "call_ppinfra",
+        "call_gemini",
+        "call_dashscope",
+        "call_glm",
+        "run_single_test",
+        "print_assessment_criteria",
+        "setup_test_environment",
+        "cleanup_test_environment",
+        "ensure_log_dir",
+        "ensure_report_dir",
+        "save_file",
+        "read_file",
+        "execute_bash_script",
+        "check_ollama_dependency",
+        "modify_test_script",
+        "run_single_test_with_retry",
+        "get_adaptive_prompt"
+      ],
+      "imports": [
+        "ollama",
+        "os",
+        "shutil",
+        "tempfile",
+        "time",
+        "json",
+        "subprocess",
+        "sys",
+        "requests",
+        "pathlib.Path",
+        "dotenv.load_dotenv",
+        "config.OLLAMA_HOST",
+        "cloud_connection_cache.connection_cache",
+        "adaptive_prompts.ADAPTIVE_SYSTEM_PROMPTS"
+      ]
+    },
+    "validate_cloud_system": {
+      "file_path": "validate_cloud_system.py",
+      "classes": [],
+      "functions": [
+        "check_file_exists",
+        "validate_cloud_services",
+        "validate_smart_runner",
+        "validate_status_tool",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "json",
+        "datetime.datetime",
+        "cloud_services.CLOUD_SERVICES",
+        "smart_test_runner.load_test_status",
+        "reset_test_status.load_test_status"
+      ]
+    },
+    "visualize_test_results": {
+      "file_path": "visualize_test_results.py",
+      "classes": [],
+      "functions": [
+        "load_test_results",
+        "create_overall_performance_chart",
+        "create_radar_chart",
+        "create_role_performance_heatmap",
+        "create_summary_statistics",
+        "generate_visual_report",
+        "main"
+      ],
+      "imports": [
+        "json",
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "pathlib.Path",
+        "seaborn",
+        "datetime.datetime"
+      ]
+    },
+    "workspace_init": {
+      "file_path": "workspace_init.py",
+      "classes": [],
+      "functions": [
+        "print_banner",
+        "install_test_framework",
+        "install_paper_crew_deps",
+        "run_validation",
+        "print_next_steps",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "subprocess",
+        "sys",
+        "pathlib.Path"
+      ]
+    },
+    "zero_response_analysis": {
+      "file_path": "zero_response_analysis.py",
+      "classes": [
+        "ZeroResponseAnalyzer"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "sys",
+        "datetime.datetime",
+        "typing.Dict",
+        "ollama",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "zero_response_diagnosis": {
+      "file_path": "zero_response_diagnosis.py",
+      "classes": [
+        "ZeroResponseDiagnostic"
+      ],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "json",
+        "datetime.datetime",
+        "typing.Tuple",
+        "ollama",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "__init__": {
+      "file_path": "__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "core.test_runner.TestRunner",
+        "core.config_manager.ConfigManager",
+        "tests.character_breaking_test.CharacterBreakingTest",
+        "tests.implicit_cognition_test.ImplicitCognitionTest",
+        "tests.longitudinal_consistency_test.LongitudinalConsistencyTest"
+      ]
+    },
+    "cognitive_ecosystem.__init__": {
+      "file_path": "cognitive_ecosystem\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "core.ecosystem_engine.CognitiveEcosystemEngine",
+        "core.cognitive_niche.CognitiveNiche",
+        "core.state_manager.StateManager",
+        "detectors.hallucination_detector.CollusiveHallucinationDetector",
+        "detectors.cognitive_bias_detector.CognitiveBiasDetector",
+        "detectors.style_analyzer.ProblemSolvingStyleAnalyzer",
+        "detectors.personality_tracker.PersonalityTracker",
+        "analyzers.niche_analyzer.CognitiveNicheAnalyzer",
+        "analyzers.resilience_assessor.SystemResilienceAssessor",
+        "analyzers.emergence_detector.EmergenceDetector",
+        "baselines.vanilla_agent.VanillaAgent",
+        "baselines.statistical_validator.StatisticalValidator",
+        "utils.calculate_cognitive_diversity_index",
+        "utils.visualization.Visualization"
+      ]
+    },
+    "core.config_manager": {
+      "file_path": "core\\config_manager.py",
+      "classes": [
+        "ConfigManager"
+      ],
+      "functions": [],
+      "imports": [
+        "os",
+        "yaml",
+        "json",
+        "typing.Dict",
+        "pathlib.Path",
+        "importlib.util"
+      ]
+    },
+    "core.framework": {
+      "file_path": "core\\framework.py",
+      "classes": [
+        "UnifiedLLMTestFramework"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "datetime.datetime",
+        "model_manager.ModelManager",
+        "test_orchestrator.TestOrchestrator",
+        "config_manager.ConfigManager",
+        "json",
+        "os"
+      ]
+    },
+    "core.test_orchestrator": {
+      "file_path": "core\\test_orchestrator.py",
+      "classes": [
+        "TestOrchestrator"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "datetime.datetime",
+        "asyncio",
+        "concurrent.futures"
+      ]
+    },
+    "core.__init__": {
+      "file_path": "core\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "framework.UnifiedLLMTestFramework",
+        "model_manager.ModelManager",
+        "test_orchestrator.TestOrchestrator",
+        "config_manager.ConfigManager"
+      ]
+    },
+    "examples.advanced_usage": {
+      "file_path": "examples\\advanced_usage.py",
+      "classes": [],
+      "functions": [
+        "run_performance_benchmark",
+        "run_comparative_analysis",
+        "analyze_results",
+        "generate_advanced_reports",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "time",
+        "pathlib.Path",
+        "typing.Dict",
+        "testLLM.core.test_runner.TestRunner",
+        "testLLM.core.config_manager.ConfigManager",
+        "testLLM.results.report_generator.ReportGenerator",
+        "testLLM.results.data_exporter.DataExporter",
+        "traceback"
+      ]
+    },
+    "examples.basic_usage": {
+      "file_path": "examples\\basic_usage.py",
+      "classes": [],
+      "functions": [
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "pathlib.Path",
+        "testLLM.core.test_runner.TestRunner",
+        "testLLM.core.config_manager.ConfigManager",
+        "traceback"
+      ]
+    },
+    "independence.base": {
+      "file_path": "independence\\base.py",
+      "classes": [
+        "IndependenceTestBase"
+      ],
+      "functions": [],
+      "imports": [
+        "time",
+        "logging",
+        "typing.Dict",
+        "datetime.datetime",
+        "cloud_services.call_cloud_service"
+      ]
+    },
+    "independence.character_breaking": {
+      "file_path": "independence\\character_breaking.py",
+      "classes": [
+        "BreakingStressTest"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "datetime.datetime",
+        "independence.base.IndependenceTestBase"
+      ]
+    },
+    "independence.config": {
+      "file_path": "independence\\config.py",
+      "classes": [],
+      "functions": [
+        "get_test_config",
+        "get_role_config",
+        "validate_config"
+      ],
+      "imports": [
+        "typing.Dict"
+      ]
+    },
+    "independence.final_validation": {
+      "file_path": "independence\\final_validation.py",
+      "classes": [],
+      "functions": [
+        "final_system_validation",
+        "test_imports",
+        "test_configurations",
+        "test_core_components",
+        "test_experiment_systems",
+        "test_utility_functions",
+        "test_integration",
+        "test_run_scripts"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "json",
+        "time",
+        "independence.base.IndependenceTestBase",
+        "independence.experiments.breaking_stress.BreakingStressTest",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "independence.experiments.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.utils.call_llm_api",
+        "independence.config.get_test_config",
+        "tests.test_pillar_25_independence.run_independence_test",
+        "independence.config.get_test_config",
+        "independence.base.IndependenceTestBase",
+        "independence.config.get_test_config",
+        "independence.experiments.breaking_stress.BreakingStressTest",
+        "independence.experiments.implicit_cognition.ImplicitCognitionTest",
+        "independence.experiments.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.config.get_test_config",
+        "independence.utils.calculate_text_similarity",
+        "tests.test_pillar_25_independence.validate_test_integration",
+        "run_pillar_25_independence.main"
+      ]
+    },
+    "independence.implicit_cognition": {
+      "file_path": "independence\\implicit_cognition.py",
+      "classes": [
+        "ImplicitCognitionTest"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "datetime.datetime",
+        "independence.base.IndependenceTestBase"
+      ]
+    },
+    "independence.longitudinal_consistency": {
+      "file_path": "independence\\longitudinal_consistency.py",
+      "classes": [
+        "LongitudinalConsistencyTest"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "datetime.datetime",
+        "independence.base.IndependenceTestBase"
+      ]
+    },
+    "independence.test_integration": {
+      "file_path": "independence\\test_integration.py",
+      "classes": [],
+      "functions": [
+        "test_module_imports",
+        "test_class_instantiation",
+        "test_config_validation",
+        "test_utility_functions",
+        "test_main_test_file",
+        "main"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "independence.base.IndependenceTestBase",
+        "independence.character_breaking.BreakingStressTest",
+        "independence.implicit_cognition.ImplicitCognitionTest",
+        "independence.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.utils.call_llm_api",
+        "independence.character_breaking.BreakingStressTest",
+        "independence.implicit_cognition.ImplicitCognitionTest",
+        "independence.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.utils.calculate_text_similarity",
+        "tests.test_pillar_25_independence.validate_test_integration"
+      ]
+    },
+    "independence.utils": {
+      "file_path": "independence\\utils.py",
+      "classes": [],
+      "functions": [
+        "call_llm_api",
+        "call_ollama_api",
+        "call_openai_api",
+        "call_anthropic_api",
+        "calculate_confidence_score",
+        "analyze_response_quality",
+        "validate_test_config",
+        "format_test_results",
+        "calculate_text_similarity",
+        "extract_role_keywords",
+        "extract_professional_terms",
+        "get_role_keywords",
+        "analyze_response_style",
+        "calculate_variance",
+        "detect_role_leakage",
+        "evaluate_role_consistency",
+        "generate_stress_prompt",
+        "calculate_resistance_score",
+        "save_test_results",
+        "load_test_results",
+        "format_test_report"
+      ],
+      "imports": [
+        "re",
+        "time",
+        "logging",
+        "typing.Dict",
+        "requests",
+        "json",
+        "ollama",
+        "openai",
+        "anthropic"
+      ]
+    },
+    "independence.__init__": {
+      "file_path": "independence\\__init__.py",
+      "classes": [],
+      "functions": [
+        "create_test_suite"
+      ],
+      "imports": [
+        "character_breaking.BreakingStressTest",
+        "implicit_cognition.ImplicitCognitionTest",
+        "longitudinal_consistency.LongitudinalConsistencyTest",
+        "base.IndependenceTestBase"
+      ]
+    },
+    "memory.context_tracker": {
+      "file_path": "memory\\context_tracker.py",
+      "classes": [
+        "ContextTracker"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "datetime.datetime"
+      ]
+    },
+    "memory.memory_manager": {
+      "file_path": "memory\\memory_manager.py",
+      "classes": [
+        "MemoryManager"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "datetime.datetime",
+        "json"
+      ]
+    },
+    "memory.__init__": {
+      "file_path": "memory\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "memory_manager.MemoryManager",
+        "context_tracker.ContextTracker"
+      ]
+    },
+    "nlp.response_evaluator": {
+      "file_path": "nlp\\response_evaluator.py",
+      "classes": [
+        "ResponseEvaluator"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "re"
+      ]
+    },
+    "nlp.text_analyzer": {
+      "file_path": "nlp\\text_analyzer.py",
+      "classes": [
+        "TextAnalyzer"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "re",
+        "typing.Dict",
+        "collections.Counter"
+      ]
+    },
+    "nlp.__init__": {
+      "file_path": "nlp\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "text_analyzer.TextAnalyzer",
+        "response_evaluator.ResponseEvaluator"
+      ]
+    },
+    "results.data_exporter": {
+      "file_path": "results\\data_exporter.py",
+      "classes": [
+        "DataExporter"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "json",
+        "csv",
+        "typing.Dict",
+        "datetime.datetime",
+        "os",
+        "openpyxl",
+        "openpyxl.Workbook"
+      ]
+    },
+    "results.report_generator": {
+      "file_path": "results\\report_generator.py",
+      "classes": [
+        "ReportGenerator"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.Dict",
+        "datetime.datetime",
+        "json"
+      ]
+    },
+    "results.__init__": {
+      "file_path": "results\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "report_generator.ReportGenerator",
+        "data_exporter.DataExporter"
+      ]
+    },
+    "tests.test_emergence_detector": {
+      "file_path": "tests\\test_emergence_detector.py",
+      "classes": [
+        "TestEmergenceDetector"
+      ],
+      "functions": [],
+      "imports": [
+        "unittest",
+        "os",
+        "sys",
+        "cognitive_ecosystem.analyzers.emergence_detector.EmergenceDetector"
+      ]
+    },
+    "tests.test_niche_analyzer": {
+      "file_path": "tests\\test_niche_analyzer.py",
+      "classes": [
+        "TestCognitiveNicheAnalyzer"
+      ],
+      "functions": [],
+      "imports": [
+        "unittest",
+        "os",
+        "sys",
+        "cognitive_ecosystem.analyzers.niche_analyzer.CognitiveNicheAnalyzer",
+        "cognitive_ecosystem.core.cognitive_niche.CognitiveNiche"
+      ]
+    },
+    "tests.test_pillar_01_logic": {
+      "file_path": "tests\\test_pillar_01_logic.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_02_instruction": {
+      "file_path": "tests\\test_pillar_02_instruction.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "json",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_03_structural": {
+      "file_path": "tests\\test_pillar_03_structural.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "os",
+        "sys",
+        "json",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_04_long_context": {
+      "file_path": "tests\\test_pillar_04_long_context.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_05_domain_knowledge": {
+      "file_path": "tests\\test_pillar_05_domain_knowledge.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_06_tool_use": {
+      "file_path": "tests\\test_pillar_06_tool_use.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "os",
+        "sys",
+        "json",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_07_planning": {
+      "file_path": "tests\\test_pillar_07_planning.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_08_metacognition": {
+      "file_path": "tests\\test_pillar_08_metacognition.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_09_creativity": {
+      "file_path": "tests\\test_pillar_09_creativity.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_10_math": {
+      "file_path": "tests\\test_pillar_10_math.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_11_safety": {
+      "file_path": "tests\\test_pillar_11_safety.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_12_persona": {
+      "file_path": "tests\\test_pillar_12_persona.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_13_init": {
+      "file_path": "tests\\test_pillar_13_init.py",
+      "classes": [],
+      "functions": [
+        "check_environment",
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "os",
+        "subprocess",
+        "pathlib.Path",
+        "json",
+        "sys",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_14_multi_role": {
+      "file_path": "tests\\test_pillar_14_multi_role.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_14_persona_depth": {
+      "file_path": "tests\\test_pillar_14_persona_depth.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_15_collaboration": {
+      "file_path": "tests\\test_pillar_15_collaboration.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_15_consensus": {
+      "file_path": "tests\\test_pillar_15_consensus.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_16_emergence": {
+      "file_path": "tests\\test_pillar_16_emergence.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_16_task_graph": {
+      "file_path": "tests\\test_pillar_16_task_graph.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_17_dag_generation": {
+      "file_path": "tests\\test_pillar_17_dag_generation.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_17_multi_agent": {
+      "file_path": "tests\\test_pillar_17_multi_agent.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_18_fault_tolerance": {
+      "file_path": "tests\\test_pillar_18_fault_tolerance.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_18_workflow": {
+      "file_path": "tests\\test_pillar_18_workflow.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_19_emergent": {
+      "file_path": "tests\\test_pillar_19_emergent.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_20_massive_consensus": {
+      "file_path": "tests\\test_pillar_20_massive_consensus.py",
+      "classes": [
+        "MassiveConsensusTest"
+      ],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "re",
+        "json",
+        "time",
+        "typing.List",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_21_dynamic_role_switching": {
+      "file_path": "tests\\test_pillar_21_dynamic_role_switching.py",
+      "classes": [
+        "DynamicRoleSwitchingTest"
+      ],
+      "functions": [
+        "analyze_results",
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "json",
+        "time",
+        "re",
+        "typing.Dict",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_22_project_management": {
+      "file_path": "tests\\test_pillar_22_project_management.py",
+      "classes": [
+        "ProjectManagementTest"
+      ],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "json",
+        "time",
+        "re",
+        "typing.Dict",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_23_parallel_task_optimization": {
+      "file_path": "tests\\test_pillar_23_parallel_task_optimization.py",
+      "classes": [
+        "ParallelTaskOptimizationTest"
+      ],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "json",
+        "time",
+        "re",
+        "typing.Dict",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_24_multidisciplinary_decomposition": {
+      "file_path": "tests\\test_pillar_24_multidisciplinary_decomposition.py",
+      "classes": [
+        "MultidisciplinaryDecompositionTest"
+      ],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "json",
+        "time",
+        "re",
+        "typing.Dict",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_25a_collusive_hallucination": {
+      "file_path": "tests\\test_pillar_25a_collusive_hallucination.py",
+      "classes": [
+        "TestCollusiveHallucinationDetector"
+      ],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "sys",
+        "os",
+        "unittest",
+        "os",
+        "json",
+        "unittest.mock.MagicMock",
+        "cognitive_ecosystem.detectors.hallucination_detector.CollusiveHallucinationDetector",
+        "cognitive_ecosystem.core.ecosystem_engine.CognitiveEcosystemEngine"
+      ]
+    },
+    "tests.test_pillar_25b_cognitive_bias_congruence": {
+      "file_path": "tests\\test_pillar_25b_cognitive_bias_congruence.py",
+      "classes": [
+        "TestCognitiveBiasCongruence"
+      ],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "sys",
+        "os",
+        "unittest",
+        "unittest.mock.MagicMock",
+        "cognitive_ecosystem.detectors.cognitive_bias_detector.CognitiveBiasDetector",
+        "cognitive_ecosystem.core.ecosystem_engine.CognitiveEcosystemEngine",
+        "pathlib.Path"
+      ]
+    },
+    "tests.test_pillar_25c_problem_solving_styles": {
+      "file_path": "tests\\test_pillar_25c_problem_solving_styles.py",
+      "classes": [
+        "TestProblemSolvingStyleAnalyzer"
+      ],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "unittest",
+        "os",
+        "sys",
+        "cognitive_ecosystem.detectors.style_analyzer.ProblemSolvingStyleAnalyzer"
+      ]
+    },
+    "tests.test_pillar_25d_longitudinal_personality": {
+      "file_path": "tests\\test_pillar_25d_longitudinal_personality.py",
+      "classes": [
+        "TestPersonalityTracker"
+      ],
+      "functions": [
+        "run_test",
+        "run_test",
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "unittest",
+        "os",
+        "sys",
+        "time",
+        "cognitive_ecosystem.detectors.personality_tracker.PersonalityTracker"
+      ]
+    },
+    "tests.test_pillar_25_cognitive_ecosystem": {
+      "file_path": "tests\\test_pillar_25_cognitive_ecosystem.py",
+      "classes": [],
+      "functions": [
+        "run_cognitive_ecosystem_test",
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "logging",
+        "typing.Dict",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.test_pillar_25_independence": {
+      "file_path": "tests\\test_pillar_25_independence.py",
+      "classes": [
+        "TestPillar25Independence"
+      ],
+      "functions": [
+        "load_role_prompt",
+        "run_independence_test",
+        "run_independence_tests",
+        "validate_test_integration"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "sys",
+        "os",
+        "unittest",
+        "json",
+        "pathlib.Path",
+        "typing.Dict",
+        "independence.base.IndependenceTestBase",
+        "independence.character_breaking.BreakingStressTest",
+        "independence.implicit_cognition.ImplicitCognitionTest",
+        "independence.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.metrics.independence_calculator.IndependenceCalculator",
+        "config.INDEPENDENCE_CONFIG",
+        "independence.character_breaking.BreakingStressTest",
+        "independence.implicit_cognition.ImplicitCognitionTest",
+        "independence.longitudinal_consistency.LongitudinalConsistencyTest",
+        "independence.metrics.independence_calculator.IndependenceCalculator"
+      ]
+    },
+    "tests.test_resilience_assessor": {
+      "file_path": "tests\\test_resilience_assessor.py",
+      "classes": [
+        "TestSystemResilienceAssessor"
+      ],
+      "functions": [],
+      "imports": [
+        "unittest",
+        "os",
+        "sys",
+        "cognitive_ecosystem.analyzers.resilience_assessor.SystemResilienceAssessor",
+        "cognitive_ecosystem.core.ecosystem_engine.CognitiveEcosystemEngine"
+      ]
+    },
+    "tests.test_vanilla_agent": {
+      "file_path": "tests\\test_vanilla_agent.py",
+      "classes": [
+        "MockModel",
+        "TestVanillaAgent"
+      ],
+      "functions": [],
+      "imports": [
+        "unittest",
+        "os",
+        "sys",
+        "cognitive_ecosystem.baselines.vanilla_agent.VanillaAgent"
+      ]
+    },
+    "tests.__init__": {
+      "file_path": "tests\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": []
+    },
+    "tools.reset_test_status": {
+      "file_path": "tools\\reset_test_status.py",
+      "classes": [],
+      "functions": [
+        "load_test_status",
+        "save_test_status",
+        "reset_all_status",
+        "reset_service_status",
+        "reset_model_status",
+        "show_test_status",
+        "main"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "json",
+        "argparse",
+        "datetime.datetime",
+        "typing.List",
+        "cloud_services.CLOUD_SERVICES"
+      ]
+    },
+    "tools.__init__": {
+      "file_path": "tools\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": []
+    },
+    "cognitive_ecosystem.analyzers.bias_detector": {
+      "file_path": "cognitive_ecosystem\\analyzers\\bias_detector.py",
+      "classes": [
+        "BiasType",
+        "BiasSeverity",
+        "BiasEvidence",
+        "BiasDetectionResult",
+        "BiasProfile",
+        "BiasComparison",
+        "BiasDetector"
+      ],
+      "functions": [],
+      "imports": [
+        "json",
+        "numpy",
+        "logging",
+        "re",
+        "typing.Dict",
+        "dataclasses.dataclass",
+        "datetime.datetime",
+        "pathlib.Path",
+        "collections.defaultdict",
+        "hashlib",
+        "enum.Enum",
+        "statistics",
+        "math"
+      ]
+    },
+    "cognitive_ecosystem.analyzers.consensus_analyzer": {
+      "file_path": "cognitive_ecosystem\\analyzers\\consensus_analyzer.py",
+      "classes": [
+        "AgentOpinion",
+        "ConsensusMetrics",
+        "ConsensusAnalysis",
+        "ConsensusEvolution",
+        "ConsensusAnalyzer"
+      ],
+      "functions": [],
+      "imports": [
+        "json",
+        "numpy",
+        "logging",
+        "typing.Dict",
+        "dataclasses.dataclass",
+        "datetime.datetime",
+        "pathlib.Path",
+        "collections.defaultdict",
+        "hashlib",
+        "sklearn.feature_extraction.text.TfidfVectorizer",
+        "sklearn.metrics.pairwise.cosine_similarity",
+        "re"
+      ]
+    },
+    "cognitive_ecosystem.analyzers.emergence_detector": {
+      "file_path": "cognitive_ecosystem\\analyzers\\emergence_detector.py",
+      "classes": [
+        "EmergenceDetector"
+      ],
+      "functions": [],
+      "imports": [
+        "logging"
+      ]
+    },
+    "cognitive_ecosystem.analyzers.niche_analyzer": {
+      "file_path": "cognitive_ecosystem\\analyzers\\niche_analyzer.py",
+      "classes": [
+        "CognitiveNicheAnalyzer"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "numpy",
+        "typing.List",
+        "cognitive_ecosystem.core.cognitive_niche.CognitiveNiche"
+      ]
+    },
+    "cognitive_ecosystem.analyzers.resilience_assessor": {
+      "file_path": "cognitive_ecosystem\\analyzers\\resilience_assessor.py",
+      "classes": [
+        "SystemResilienceAssessor"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "copy",
+        "typing.List",
+        "numpy"
+      ]
+    },
+    "cognitive_ecosystem.analyzers.__init__": {
+      "file_path": "cognitive_ecosystem\\analyzers\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "niche_analyzer.CognitiveNicheAnalyzer",
+        "resilience_assessor.SystemResilienceAssessor",
+        "emergence_detector.EmergenceDetector"
+      ]
+    },
+    "cognitive_ecosystem.baselines.statistical_validator": {
+      "file_path": "cognitive_ecosystem\\baselines\\statistical_validator.py",
+      "classes": [
+        "StatisticalValidator"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "numpy",
+        "scipy.stats",
+        "typing.List"
+      ]
+    },
+    "cognitive_ecosystem.baselines.vanilla_agent": {
+      "file_path": "cognitive_ecosystem\\baselines\\vanilla_agent.py",
+      "classes": [
+        "VanillaAgent"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.List"
+      ]
+    },
+    "cognitive_ecosystem.baselines.__init__": {
+      "file_path": "cognitive_ecosystem\\baselines\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "vanilla_agent.VanillaAgent",
+        "statistical_validator.StatisticalValidator"
+      ]
+    },
+    "cognitive_ecosystem.core.cognitive_niche": {
+      "file_path": "cognitive_ecosystem\\core\\cognitive_niche.py",
+      "classes": [
+        "CognitiveStyle",
+        "KnowledgeDomain",
+        "CognitiveVector",
+        "NicheMetrics",
+        "CognitiveNiche"
+      ],
+      "functions": [],
+      "imports": [
+        "numpy",
+        "typing.Dict",
+        "dataclasses.dataclass",
+        "datetime.datetime",
+        "json",
+        "enum.Enum"
+      ]
+    },
+    "cognitive_ecosystem.core.ecosystem_engine": {
+      "file_path": "cognitive_ecosystem\\core\\ecosystem_engine.py",
+      "classes": [
+        "CognitiveEcosystemEngine"
+      ],
+      "functions": [],
+      "imports": [
+        "logging"
+      ]
+    },
+    "cognitive_ecosystem.core.memory_manager": {
+      "file_path": "cognitive_ecosystem\\core\\memory_manager.py",
+      "classes": [
+        "MemoryType",
+        "MemoryImportance",
+        "MemoryStatus",
+        "MemoryItem",
+        "MemoryQuery",
+        "MemorySearchResult",
+        "MemoryStatistics",
+        "MemoryEncoder",
+        "SimpleMemoryEncoder",
+        "MemoryManager"
+      ],
+      "functions": [],
+      "imports": [
+        "json",
+        "numpy",
+        "logging",
+        "pickle",
+        "sqlite3",
+        "typing.Dict",
+        "dataclasses.dataclass",
+        "datetime.datetime",
+        "pathlib.Path",
+        "collections.defaultdict",
+        "hashlib",
+        "enum.Enum",
+        "threading",
+        "time",
+        "math",
+        "abc.ABC"
+      ]
+    },
+    "cognitive_ecosystem.core.state_manager": {
+      "file_path": "cognitive_ecosystem\\core\\state_manager.py",
+      "classes": [
+        "StateManager"
+      ],
+      "functions": [],
+      "imports": [
+        "json",
+        "logging",
+        "datetime.datetime",
+        "pathlib.Path",
+        "typing.Dict"
+      ]
+    },
+    "cognitive_ecosystem.core.__init__": {
+      "file_path": "cognitive_ecosystem\\core\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "ecosystem_engine.CognitiveEcosystemEngine",
+        "cognitive_niche.CognitiveNiche",
+        "state_manager.StateManager"
+      ]
+    },
+    "cognitive_ecosystem.detectors.cognitive_bias_detector": {
+      "file_path": "cognitive_ecosystem\\detectors\\cognitive_bias_detector.py",
+      "classes": [
+        "CognitiveBiasDetector"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.List"
+      ]
+    },
+    "cognitive_ecosystem.detectors.hallucination_detector": {
+      "file_path": "cognitive_ecosystem\\detectors\\hallucination_detector.py",
+      "classes": [
+        "CollusiveHallucinationDetector"
+      ],
+      "functions": [],
+      "imports": [
+        "json",
+        "logging",
+        "random",
+        "pathlib.Path",
+        "typing.List"
+      ]
+    },
+    "cognitive_ecosystem.detectors.personality_tracker": {
+      "file_path": "cognitive_ecosystem\\detectors\\personality_tracker.py",
+      "classes": [
+        "PersonalityTracker"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "typing.List",
+        "collections.defaultdict",
+        "numpy"
+      ]
+    },
+    "cognitive_ecosystem.detectors.style_analyzer": {
+      "file_path": "cognitive_ecosystem\\detectors\\style_analyzer.py",
+      "classes": [
+        "ProblemSolvingStyleAnalyzer"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "numpy",
+        "typing.List",
+        "sklearn.feature_extraction.text.TfidfVectorizer",
+        "sklearn.metrics.pairwise.cosine_similarity",
+        "nltk",
+        "nltk.corpus.wordnet"
+      ]
+    },
+    "cognitive_ecosystem.detectors.__init__": {
+      "file_path": "cognitive_ecosystem\\detectors\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "hallucination_detector.CollusiveHallucinationDetector",
+        "cognitive_bias_detector.CognitiveBiasDetector",
+        "style_analyzer.ProblemSolvingStyleAnalyzer",
+        "personality_tracker.PersonalityTracker"
+      ]
+    },
+    "cognitive_ecosystem.utils.cognitive_metrics": {
+      "file_path": "cognitive_ecosystem\\utils\\cognitive_metrics.py",
+      "classes": [],
+      "functions": [
+        "calculate_cognitive_diversity_index",
+        "detect_emergence",
+        "calculate_resilience_score"
+      ],
+      "imports": [
+        "numpy"
+      ]
+    },
+    "cognitive_ecosystem.utils.hallucination_injector": {
+      "file_path": "cognitive_ecosystem\\utils\\hallucination_injector.py",
+      "classes": [
+        "InjectionResult",
+        "HallucinationInjector"
+      ],
+      "functions": [],
+      "imports": [
+        "json",
+        "random",
+        "logging",
+        "typing.Dict",
+        "pathlib.Path",
+        "dataclasses.dataclass",
+        "datetime.datetime",
+        "re",
+        "hashlib",
+        "re"
+      ]
+    },
+    "cognitive_ecosystem.utils.visualization": {
+      "file_path": "cognitive_ecosystem\\utils\\visualization.py",
+      "classes": [
+        "Visualization"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "matplotlib.pyplot",
+        "numpy",
+        "networkx",
+        "typing.List",
+        "sklearn.decomposition.PCA"
+      ]
+    },
+    "cognitive_ecosystem.utils.__init__": {
+      "file_path": "cognitive_ecosystem\\utils\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": [
+        "cognitive_metrics.calculate_cognitive_diversity_index",
+        "visualization.Visualization"
+      ]
+    },
+    "independence.experiments.breaking_stress": {
+      "file_path": "independence\\experiments\\breaking_stress.py",
+      "classes": [
+        "BreakingStressTest"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "time",
+        "typing.Dict",
+        "datetime.datetime",
+        "config.DEFAULT_OPTIONS_CREATIVE",
+        "test_runner.run_single_test",
+        "independence.base.IndependenceTestBase",
+        "independence.utils.calculate_confidence_score"
+      ]
+    },
+    "independence.experiments.implicit_cognition": {
+      "file_path": "independence\\experiments\\implicit_cognition.py",
+      "classes": [
+        "ImplicitCognitionTest"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "time",
+        "typing.Dict",
+        "datetime.datetime",
+        "independence.base.IndependenceTestBase",
+        "config.DEFAULT_OPTIONS_CREATIVE",
+        "independence.utils.calculate_confidence_score"
+      ]
+    },
+    "independence.experiments.longitudinal_consistency": {
+      "file_path": "independence\\experiments\\longitudinal_consistency.py",
+      "classes": [
+        "LongitudinalConsistencyTest"
+      ],
+      "functions": [],
+      "imports": [
+        "logging",
+        "time",
+        "typing.Dict",
+        "datetime.datetime",
+        "independence.base.IndependenceTestBase",
+        "config.DEFAULT_OPTIONS_CREATIVE",
+        "independence.utils.calculate_confidence_score"
+      ]
+    },
+    "independence.experiments.__init__": {
+      "file_path": "independence\\experiments\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": []
+    },
+    "independence.metrics.independence_calculator": {
+      "file_path": "independence\\metrics\\independence_calculator.py",
+      "classes": [
+        "IndependenceCalculator"
+      ],
+      "functions": [],
+      "imports": [
+        "typing.Dict"
+      ]
+    },
+    "independence.metrics.__init__": {
+      "file_path": "independence\\metrics\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": []
+    },
+    "independence.optimization.__init__": {
+      "file_path": "independence\\optimization\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": []
+    },
+    "tests.composite_scenarios.test_cross_capability_integration": {
+      "file_path": "tests\\composite_scenarios\\test_cross_capability_integration.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "json",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.composite_scenarios.test_multi_turn_dialogue": {
+      "file_path": "tests\\composite_scenarios\\test_multi_turn_dialogue.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.composite_scenarios.test_project_state_management": {
+      "file_path": "tests\\composite_scenarios\\test_project_state_management.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.composite_scenarios.test_workflow_simulation": {
+      "file_path": "tests\\composite_scenarios\\test_workflow_simulation.py",
+      "classes": [],
+      "functions": [
+        "run_test"
+      ],
+      "imports": [
+        "sys",
+        "os",
+        "pathlib.Path",
+        "utils.run_single_test",
+        "config.MODEL_TO_TEST"
+      ]
+    },
+    "tests.composite_scenarios.__init__": {
+      "file_path": "tests\\composite_scenarios\\__init__.py",
+      "classes": [],
+      "functions": [],
+      "imports": []
+    },
+    "tests.generated.test_breakingstresstest": {
+      "file_path": "tests\\generated\\test_breakingstresstest.py",
+      "classes": [
+        "TestBreakingStressTest"
+      ],
+      "functions": [],
+      "imports": [
+        "unittest",
+        "independence.experiments.breaking_stress",
+        "typing.Dict"
+      ]
+    },
+    "tests.generated.test_implicitcognitiontest": {
+      "file_path": "tests\\generated\\test_implicitcognitiontest.py",
+      "classes": [
+        "TestImplicitCognitionTest"
+      ],
+      "functions": [],
+      "imports": [
+        "unittest",
+        "independence.experiments.implicit_cognition",
+        "typing.Dict"
+      ]
+    },
+    "tests.generated.test_longitudinalconsistencytest": {
+      "file_path": "tests\\generated\\test_longitudinalconsistencytest.py",
+      "classes": [
+        "TestLongitudinalConsistencyTest"
+      ],
+      "functions": [],
+      "imports": [
+        "unittest",
+        "independence.experiments.longitudinal_consistency",
+        "typing.Dict"
+      ]
+    }
+  }
+}

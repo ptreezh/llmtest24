@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-08-04 16:37:33",
+  "total_tests": 9,
+  "passed_tests": 9,
+  "failed_tests": 0,
+  "success_rate": 100.0,
+  "results": [
+    {
+      "test": "basic_imports",
+      "status": "PASS"
+    },
+    {
+      "test": "file_visual_test_interface.py",
+      "status": "PASS"
+    },
+    {
+      "test": "file_tests/config.py",
+      "status": "PASS"
+    },
+    {
+      "test": "file_config/test_config.yaml",
+      "status": "PASS"
+    },
+    {
+      "test": "file_README.md",
+      "status": "PASS"
+    },
+    {
+      "test": "test_files_count",
+      "status": "PASS",
+      "count": 35
+    },
+    {
+      "test": "test_file_load",
+      "status": "PASS"
+    },
+    {
+      "test": "config_readable",
+      "status": "PASS"
+    },
+    {
+      "test": "web_interface_streamlit",
+      "status": "PASS"
+    }
+  ]
+}

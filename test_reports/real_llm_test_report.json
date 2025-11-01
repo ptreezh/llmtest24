@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-08-04 15:27:54",
+  "total_tests": 4,
+  "passed_tests": 4,
+  "success_rate": 100.0,
+  "results": [
+    {
+      "test": "cloud_services_import",
+      "status": "PASS"
+    },
+    {
+      "test": "available_models",
+      "status": "PASS",
+      "count": 17
+    },
+    {
+      "test": "model_call_together",
+      "status": "PASS",
+      "response_length": 86
+    },
+    {
+      "test": "real_test_execution",
+      "status": "PASS",
+      "response_length": 179
+    }
+  ]
+}

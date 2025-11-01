@@ -17,9 +17,13 @@ except ImportError:
     print("⚠️ Adaptive prompts module not found, using standard prompts")
 
 # === Qiniu DeepSeek (OpenAI兼容) API 配置 ===
-QINIU_API_URL = "https://api.qnaigc.com/v1/chat/completions"
-QINIU_API_KEY = "sk-85a07f1fd99e9ebb760104e7257a8678c0f0e018fd1a22019e4506323b6db0af"  # 请替换为你的实际密钥
-QINIU_GROUP = "DeepSeek"    # 分组名称（如有需要）
+# 从环境变量读取配置
+from dotenv import load_dotenv
+load_dotenv()
+
+QINIU_API_URL = os.getenv("QINIU_API_URL", "https://api.qnaigc.com/v1/chat/completions")
+QINIU_API_KEY = os.getenv("QINIU_API_KEY")
+QINIU_GROUP = os.getenv("QINIU_GROUP", "DeepSeek")
 
 # --- CONFIGURATION ---
 # 请根据您的本地Ollama服务进行配置
@@ -349,7 +353,7 @@ def call_qiniu_deepseek(prompt: str, max_retries: int = 5) -> str:
     }
     for attempt in range(max_retries):
         try:
-            response = requests.post(QINIU_API_URL, headers=headers, json=payload, timeout=60)
+            response = requests.post(QINIU_API_URL, headers=headers, json=payload, timeout=240)
             response.raise_for_status()
             data = response.json()
             content = data['choices'][0]['message']['content']

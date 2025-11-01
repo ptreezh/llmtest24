@@ -1,65 +1,42 @@
-import ollama
 import sys
 import os
-import re
+from pathlib import Path
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-try:
-    from config import MODEL_TO_TEST
-except ImportError:
-    print("错误: 无法从config.py导入MODEL_TO_TEST。请确保config.py存在于项目根目录。")
-    sys.exit(1)
+# Add project root to Python path to ensure imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-def extract_mermaid_code(response_text):
-    match = re.search(r'```mermaid\n(.*?)```', response_text, re.DOTALL)
-    if match:
-        return match.group(1).strip()
-    return ""
+from utils import run_single_test, print_assessment_criteria
+from config import MODEL_TO_TEST, DEFAULT_OPTIONS_DETERMINISTIC
 
-TESTOUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'testout')
-PROMPT_FILE = os.path.join(os.path.dirname(__file__), '..', 'user_prompts', 'pillar17_dag_generation.txt')
-os.makedirs(TESTOUT_DIR, exist_ok=True)
+PILLAR_NAME = "Pillar 17: Refactored Test"
+PILLAR_DESCRIPTION = "This test was automatically refactored to use the standard test framework."
 
-def load_prompts():
-    prompts = []
-    if os.path.exists(PROMPT_FILE):
-        with open(PROMPT_FILE, 'r', encoding='utf-8') as f:
-            content = f.read()
-        for match in re.finditer(r'# case(\d+):\s*(.*?)\n([^#]+)', content, re.DOTALL):
-            case, desc, prompt = match.groups()
-            prompts.append({
-                'case': f'case{case}',
-                'desc': desc.strip(),
-                'prompt': prompt.strip()
-            })
-    if not prompts:
-        prompts = [
-            {"case": "case1", "desc": "移动应用开发DAG", "prompt": "一个移动应用开发项目的任务分解如下：A、B、C、D、E、F、G。请将上述任务关系转换成Mermaid语法的任务依赖图。"},
-            {"case": "case2", "desc": "新增DAG场景", "prompt": "请为一个电商网站开发项目设计任务依赖DAG，包含前端、后端、支付、测试、上线等环节。"}
-        ]
-    return prompts
+PROMPT = """
+# PROMPT NOT FOUND
+"""
 
-def run_test():
-    prompts = load_prompts()
-    for p in prompts:
-        print(f"Running {p['case']}: {p['desc']}")
-        try:
-            response = ollama.chat(
-                model=MODEL_TO_TEST,
-                messages=[{'role': 'user', 'content': p['prompt']}]
-            )
-            model_response = response['message']['content']
-            mermaid_code = extract_mermaid_code(model_response)
-            output_path = os.path.join(TESTOUT_DIR, f"dag_{p['case']}.txt")
-            with open(output_path, 'w', encoding='utf-8') as f:
-                f.write(f"用例编号: {p['case']}\n类型: {p['desc']}\nPROMPT:\n{p['prompt']}\n\nMODEL RESPONSE (Mermaid):\n")
-                if mermaid_code:
-                    f.write(mermaid_code)
-                else:
-                    f.write(model_response)
-            print(f"Saved result to {output_path}")
-        except Exception as e:
-            print(f"[ERROR] {p['case']}: {e}")
+ASSESSMENT_CRITERIA = """
+- 5/5: Correctly and fully answers the prompt.
+- 3/5: Partially answers the prompt or contains minor errors.
+- 1/5: Fails to understand the prompt or gives a completely incorrect answer.
+"""
 
-if __name__ == "__main__":
-    run_test() 
+def run_test(model_name):
+    """Runs the test for a given model."""
+    run_single_test(
+        pillar_name=PILLAR_NAME,
+        prompt=PROMPT,
+        model=model_name,
+        options=DEFAULT_OPTIONS_DETERMINISTIC,
+        test_script_name=Path(__file__).name
+    )
+    print_assessment_criteria(ASSESSMENT_CRITERIA)
+
+if __name__ == '__main__':
+    try:
+        model_to_use = sys.argv[1]
+    except IndexError:
+        print(f"Usage: python {os.path.basename(__file__)} <model_name>")
+        print(f"Using default model from config: {MODEL_TO_TEST}")
+        model_to_use = MODEL_TO_TEST
+    run_test(model_to_use)

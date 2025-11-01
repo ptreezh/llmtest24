@@ -1,82 +1,193 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-角色独立性测试工具函数
-
-提供测试过程中需要的各种工具函数
+独立性测试工具函数
 """
 
 import re
 import time
-import hashlib
-from typing import List, Dict, Any, Optional
-from collections import Counter
+import logging
+from typing import Dict, List, Any, Optional, Tuple
+import requests
 import json
-import sys
-import os
+import importlib.util
 from pathlib import Path
 
-# 添加项目根目录到Python路径
-project_root = Path(__file__).parent.parent
-sys.path.insert(0, str(project_root))
+# 配置日志
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-from utils import run_single_test
-
-def call_llm_api(model_name: str, messages: List[Dict[str, str]], options: Dict[str, Any] = None) -> tuple:
-    """
-    调用LLM API的统一接口
+# 动态导入 cloud_services 模块
+def _import_cloud_services():
+    """动态导入 cloud_services 模块"""
+    project_root = Path(__file__).parent.parent
+    cloud_services_path = project_root / "scripts" / "utils" / "cloud_services.py"
     
-    Args:
-        model_name: 模型名称
-        messages: 消息列表
-        options: API选项
-        
-    Returns:
-        tuple: (response_content, response_message)
-    """
+    if not cloud_services_path.exists():
+        logger.warning(f"cloud_services.py 文件不存在: {cloud_services_path}")
+        # 返回一个模拟对象
+        return {
+            'call_cloud_service': lambda service_name, model_name, prompt, system_prompt: f"模拟响应: {prompt}",
+            'call_multi_cloud': lambda models, prompt, system_prompt: {model: f"模拟响应: {prompt}" for model in models}
+        }
+    
     try:
-        # 构造单个prompt用于run_single_test
-        if messages:
-            # 合并所有消息为单个prompt
-            prompt_parts = []
-            for msg in messages:
-                role = msg.get('role', 'user')
-                content = msg.get('content', '')
-                if role == 'system':
-                    prompt_parts.append(f"[系统指令] {content}")
-                elif role == 'user':
-                    prompt_parts.append(f"[用户] {content}")
-                elif role == 'assistant':
-                    prompt_parts.append(f"[助手] {content}")
+        spec = importlib.util.spec_from_file_location("cloud_services", cloud_services_path)
+        cloud_services = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cloud_services)
+        logger.info("成功导入 cloud_services 模块")
+        return cloud_services
+    except Exception as e:
+        logger.error(f"导入 cloud_services 模块失败: {e}")
+        # 返回一个模拟对象
+        return {
+            'call_cloud_service': lambda service_name, model_name, prompt, system_prompt: f"模拟响应: {prompt}",
+            'call_multi_cloud': lambda models, prompt, system_prompt: {model: f"模拟响应: {prompt}" for model in models}
+        }
+
+# 执行动态导入
+cloud_services = _import_cloud_services()
+
+# 从模块中导入需要的变量
+call_cloud_service = cloud_services['call_cloud_service'] if isinstance(cloud_services, dict) else getattr(cloud_services, 'call_cloud_service', None)
+call_multi_cloud = cloud_services['call_multi_cloud'] if isinstance(cloud_services, dict) else getattr(cloud_services, 'call_multi_cloud', None)
+
+
+def call_llm_api(model_name: str, role_prompt: str, user_input: str, 
+                 options: Dict[str, Any] = None) -> str:
+    """调用LLM API"""
+    options = options or {}
+    
+    # 检测模型类型并调用相应的API
+    if model_name.startswith('ollama/') or ':' in model_name:
+        return call_ollama_api(model_name.replace('ollama/', ''), role_prompt, user_input, options)
+    else:
+        # 对于其他模型，尝试直接通过服务前缀调用
+        try:
+            # 从模型名称中提取服务前缀 (e.g., 'ppinfra/qwen3-235b-a22b-fp8' -> 'ppinfra')
+            if '/' in model_name:
+                service_name, model_short_name = model_name.split('/', 1)
+            else:
+                # 如果没有前缀，则使用模型名称作为服务名（用于本地Ollama模型）
+                service_name = model_name
+                model_short_name = model_name
             
-            prompt = "\n\n".join(prompt_parts)
-        else:
-            prompt = ""
+            # 直接调用云服务
+            return call_cloud_service(service_name, model_short_name, user_input, role_prompt)
+        except Exception as e:
+            logger.error(f"调用云服务失败: {e}")
+            return f"API调用失败: {str(e)}"
+
+
+def call_ollama_api(model_name: str, role_prompt: str, user_input: str, 
+                   options: Dict[str, Any] = None) -> str:
+    """调用Ollama API"""
+    try:
+        import ollama
         
-        # 使用现有的run_single_test函数
-        content, response_message = run_single_test(
-            pillar_name="Independence Test",
-            prompt=prompt,
+        # 构建消息
+        messages = []
+        if role_prompt:
+            messages.append({'role': 'system', 'content': role_prompt})
+        messages.append({'role': 'user', 'content': user_input})
+        
+        # 设置选项
+        ollama_options = {
+            'temperature': options.get('temperature', 0.7),
+            'top_p': options.get('top_p', 0.9),
+            'max_tokens': options.get('max_tokens', 2048)
+        }
+        
+        # 调用模型
+        response = ollama.chat(
             model=model_name,
-            options=options or {},
-            messages=messages
+            messages=messages,
+            options=ollama_options
         )
         
-        return content, response_message
+        return response['message']['content']
         
+    except ImportError:
+        logger.error("Ollama库未安装，请运行: pip install ollama")
+        return "错误: Ollama库未安装"
     except Exception as e:
-        print(f"❌ LLM API调用失败: {e}")
-        return f"ERROR: {str(e)}", None
+        logger.error(f"Ollama API调用失败: {e}")
+        return f"API调用失败: {str(e)}"
+
+
+
+def calculate_confidence_score(text: str, keywords: List[str]) -> float:
+    """计算置信度分数"""
+    if not text or not keywords:
+        return 0.0
+    
+    text_lower = text.lower()
+    matched_keywords = sum(1 for keyword in keywords if keyword.lower() in text_lower)
+    
+    return min(1.0, matched_keywords / len(keywords))
+
+
+def analyze_response_quality(response: str) -> Dict[str, float]:
+    """分析响应质量"""
+    if not response:
+        return {'overall_quality': 0.0, 'length_score': 0.0, 'coherence_score': 0.0}
+    
+    # 长度评分
+    length_score = min(1.0, len(response) / 500)  # 500字符为满分
+    
+    # 连贯性评分（基于句子数量和标点）
+    sentences = len(re.findall(r'[.!?。！？]', response))
+    coherence_score = min(1.0, sentences / 5)  # 5句话为满分
+    
+    # 总体质量
+    overall_quality = (length_score + coherence_score) / 2
+    
+    return {
+        'overall_quality': overall_quality,
+        'length_score': length_score,
+        'coherence_score': coherence_score
+    }
+
+
+def validate_test_config(config: Dict[str, Any]) -> Tuple[bool, List[str]]:
+    """验证测试配置"""
+    errors = []
+    
+    # 检查必需字段
+    if not config.get('model_name'):
+        errors.append("缺少model_name字段")
+    
+    if not config.get('role_prompt'):
+        errors.append("缺少role_prompt字段")
+    elif len(config['role_prompt']) < 10:
+        errors.append("role_prompt太短，至少需要10个字符")
+    
+    return len(errors) == 0, errors
+
+
+def format_test_results(results: Dict[str, Any]) -> str:
+    """格式化测试结果"""
+    if not results:
+        return "无测试结果"
+    
+    formatted = f"测试类型: {results.get('experiment_type', '未知')}\n"
+    formatted += f"模型: {results.get('model_name', '未知')}\n"
+    formatted += f"时间: {results.get('timestamp', '未知')}\n"
+    
+    if 'summary' in results:
+        summary = results['summary']
+        formatted += "\n摘要:\n"
+        for key, value in summary.items():
+            if isinstance(value, float):
+                formatted += f"  {key}: {value:.3f}\n"
+            else:
+                formatted += f"  {key}: {value}\n"
+    
+    return formatted
+
 
 def calculate_text_similarity(text1: str, text2: str) -> float:
-    """
-    计算两个文本的相似度
-    
-    Args:
-        text1: 第一个文本
-        text2: 第二个文本
-        
-    Returns:
-        相似度分数 (0-1)
-    """
+    """计算文本相似度"""
     if not text1 or not text2:
         return 0.0
     
@@ -84,43 +195,33 @@ def calculate_text_similarity(text1: str, text2: str) -> float:
     words1 = set(text1.lower().split())
     words2 = set(text2.lower().split())
     
+    if not words1 and not words2:
+        return 1.0
     if not words1 or not words2:
         return 0.0
     
-    intersection = words1.intersection(words2)
-    union = words1.union(words2)
+    intersection = len(words1.intersection(words2))
+    union = len(words1.union(words2))
     
-    return len(intersection) / len(union) if union else 0.0
+    return intersection / union if union > 0 else 0.0
 
-def calculate_jaccard_similarity(text1: str, text2: str) -> float:
-    """
-    计算Jaccard相似度
+
+def extract_role_keywords(role_prompt: str) -> List[str]:
+    """从角色提示词中提取关键词"""
+    # 移除标点符号和常见词
+    cleaned_text = re.sub(r'[^\w\s]', ' ', role_prompt)
+    words = cleaned_text.split()
     
-    Args:
-        text1: 第一个文本
-        text2: 第二个文本
-        
-    Returns:
-        Jaccard相似度分数 (0-1)
-    """
-    if not text1 or not text2:
-        return 0.0
+    # 过滤常见词
+    stop_words = {
+        '你是', '一位', '一个', '的', '是', '在', '有', '和', '我', '你', '他', '她', '它',
+        '这', '那', '专注于', '工作', '经验', '熟悉', '具有', '拥有', '能够', '可以'
+    }
     
-    # 转换为字符级别的n-gram集合
-    def get_ngrams(text: str, n: int = 3) -> set:
-        text = text.lower().replace(' ', '')
-        return set(text[i:i+n] for i in range(len(text)-n+1))
+    keywords = [word for word in words if word not in stop_words and len(word) > 1]
     
-    ngrams1 = get_ngrams(text1)
-    ngrams2 = get_ngrams(text2)
-    
-    if not ngrams1 or not ngrams2:
-        return 0.0
-    
-    intersection = ngrams1.intersection(ngrams2)
-    union = ngrams1.union(ngrams2)
-    
-    return len(intersection) / len(union) if union else 0.0
+    return list(set(keywords))  # 去重
+
 
 def extract_professional_terms(text: str, role_keywords: List[str]) -> List[str]:
     """
@@ -141,6 +242,7 @@ def extract_professional_terms(text: str, role_keywords: List[str]) -> List[str]
             found_terms.append(keyword)
     
     return found_terms
+
 
 def get_role_keywords(role: str) -> List[str]:
     """
@@ -186,6 +288,7 @@ def get_role_keywords(role: str) -> List[str]:
     }
     
     return role_keywords.get(role, [])
+
 
 def analyze_response_style(responses: List[str]) -> Dict[str, Any]:
     """
@@ -243,6 +346,7 @@ def analyze_response_style(responses: List[str]) -> Dict[str, Any]:
         'style_features': style_features
     }
 
+
 def calculate_variance(values: List[float]) -> float:
     """计算方差"""
     if not values:
@@ -251,6 +355,7 @@ def calculate_variance(values: List[float]) -> float:
     mean = sum(values) / len(values)
     variance = sum((x - mean) ** 2 for x in values) / len(values)
     return variance
+
 
 def detect_role_leakage(response: str, current_role: str, other_roles: List[str]) -> Dict[str, Any]:
     """
@@ -307,6 +412,7 @@ def detect_role_leakage(response: str, current_role: str, other_roles: List[str]
     
     return leakage_results
 
+
 def evaluate_role_consistency(responses: List[str], role: str) -> Dict[str, float]:
     """
     评估角色一致性
@@ -345,6 +451,7 @@ def evaluate_role_consistency(responses: List[str], role: str) -> Dict[str, floa
         'style_consistency': style_consistency,
         'avg_professional_score': sum(professional_scores) / len(professional_scores) if professional_scores else 0.0
     }
+
 
 def generate_stress_prompt(base_prompt: str, stress_level: str, stress_type: str) -> str:
     """
@@ -385,6 +492,7 @@ def generate_stress_prompt(base_prompt: str, stress_level: str, stress_type: str
     
     return base_prompt
 
+
 def calculate_resistance_score(original_response: str, stressed_response: str, role: str) -> float:
     """
     计算角色抵抗力分数
@@ -419,6 +527,7 @@ def calculate_resistance_score(original_response: str, stressed_response: str, r
     
     return min(1.0, max(0.0, resistance_score))
 
+
 def save_test_results(results: Dict[str, Any], output_path: str):
     """
     保存测试结果到文件
@@ -434,6 +543,7 @@ def save_test_results(results: Dict[str, Any], output_path: str):
         print(f"✅ 测试结果已保存到: {output_path}")
     except Exception as e:
         print(f"❌ 保存测试结果失败: {e}")
+
 
 def load_test_results(input_path: str) -> Optional[Dict[str, Any]]:
     """
@@ -451,6 +561,7 @@ def load_test_results(input_path: str) -> Optional[Dict[str, Any]]:
     except Exception as e:
         print(f"❌ 加载测试结果失败: {e}")
         return None
+
 
 def format_test_report(results: Dict[str, Any]) -> str:
     """
@@ -501,4 +612,3 @@ def format_test_report(results: Dict[str, Any]) -> str:
     report_lines.append("\n" + "=" * 80)
     
     return "\n".join(report_lines)
-

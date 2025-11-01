@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
+import sys
+import os
+
+# Add project root to Python path to ensure imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # -*- coding: utf-8 -*-
 """
 Pillar 20: 海量角色协同编辑与区块链共识测试
 测试模型在大规模角色协作、投票机制和共识算法方面的能力
 """
 
-import ollama
 import sys
 import os
+
+# 添加项目根目录到Python路径，确保能找到utils和config
+
 import re
 import json
 import time
 from typing import List, Dict, Any
-from utils import call_qiniu_deepseek, run_single_test
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from utils import run_single_test
 try:
     from config import MODEL_TO_TEST
 except ImportError:
@@ -24,12 +30,21 @@ except ImportError:
 class MassiveConsensusTest:
     def __init__(self, model_name: str):
         self.model_name = model_name
-        self.model_dir = os.path.join(os.path.dirname(__file__), '..', 'testout', self.model_name.replace(':', '_').replace('/', '_'))
+        # 修正路径拼接，使用项目根目录下的 'testout'
+        self.model_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'testout', self.model_name.replace(':', '_').replace('/', '_'))
         os.makedirs(self.model_dir, exist_ok=True)
         self.test_results = []
         
     def call_model(self, prompt, options=None):
-        return run_single_test("Pillar 20: Massive Consensus", prompt, self.model_name, options or {}, messages=[], test_script_name="test_pillar_20_massive_consensus.py")[0]
+        # 确保所有模型调用都通过统一的测试运行器
+        content, _ = run_single_test(
+            pillar_name="Pillar 20: Massive Consensus",
+            prompt=prompt,
+            model=self.model_name,
+            options=options or {},
+            test_script_name="test_pillar_20_massive_consensus.py"
+        )
+        return content
     
     def generate_roles(self, num_roles: int = 50) -> List[Dict[str, Any]]:
         """生成大量不同的角色"""

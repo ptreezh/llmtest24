@@ -5,18 +5,19 @@ Longitudinal Consistency Test - Tests role consistency over time
 import logging
 from typing import Dict, List, Any, Optional
 from datetime import datetime, timedelta
-import time
+
+from independence.base import IndependenceTestBase
+from config.config import INDEPENDENCE_CONFIG
 
 logger = logging.getLogger(__name__)
 
-class LongitudinalConsistencyTest:
+class LongitudinalConsistencyTest(IndependenceTestBase):
     """Tests role consistency across multiple sessions and time periods"""
     
-    def __init__(self, model_manager, config):
+    def __init__(self, config: Dict[str, Any]):
         """Initialize longitudinal consistency test"""
-        self.model_manager = model_manager
-        self.config = config
-        self.independence_config = config.get_independence_config()
+        super().__init__(config)
+        self.independence_config = self.config.get('independence_config', {})
         self.session_data = {}
         
     def run_longitudinal_test(self, model: str, role_prompt: str,
@@ -122,22 +123,24 @@ class LongitudinalConsistencyTest:
         
         # Generate responses for consistency questions
         for i, question in enumerate(consistency_questions):
-            response = self.model_manager.generate_response(
+            response_content = self._call_model_api(
                 model=model,
-                system_prompt=role_prompt,
-                prompt=question,
-                temperature=0.3  # Low temperature for consistency
+                role_prompt=role_prompt,
+                user_input=question,
+                options={'temperature': 0.3}
             )
             
-            if response:
+            if response_content and not response_content.startswith("[API_ERROR]"):
                 response_data = {
                     'question': question,
-                    'response': response['content'],
-                    'timestamp': response['timestamp'],
-                    'tokens_used': response.get('tokens_used', 0)
+                    'response': response_content,
+                    'timestamp': datetime.now().isoformat(),
+                    'tokens_used': len(response_content.split()) # Approximate tokens
                 }
                 session_result['responses'][f'q_{i+1}'] = response_data
-                responses.append(response['content'])
+                responses.append(response_content)
+            else:
+                logger.warning(f"获取一致性会话响应失败 for question '{question}': {response_content}")
         
         # Analyze response characteristics
         if responses:
@@ -430,3 +433,35 @@ class LongitudinalConsistencyTest:
         
         final_score = max(0.0, base_score - penalties)
         return min(1.0, final_score)
+
+    def run_experiment(self, model_name: str = None, test_config: Dict[str, Any] = None) -> Dict[str, Any]:
+        """
+        运行纵向一致性测试实验。
+        这是被测试框架调用的主入口。
+        """
+        logger.info(f"Executing LongitudinalConsistencyTest experiment for model: {model_name}")
+        model_name = model_name or self.config.get('model_name')
+        test_config = test_config or self.config
+
+        role_prompt = test_config.get('role_prompt')
+        if not role_prompt:
+            raise ValueError("test_config must contain 'role_prompt'.")
+
+        # Note: test_config['conversation_turns'] and 'consistency_checks' are not
+        # used by run_longitudinal_test. This is a known mismatch.
+        # We run with default parameters for duration and intervals.
+        result = self.run_longitudinal_test(
+            model=model_name,
+            role_prompt=role_prompt
+        )
+
+        # Adapt the result to the format expected by the test case
+        summary = {
+            'overall_consistency': result.get('stability_score', 0.0),
+            'drift_detected': result.get('drift_analysis', {}).get('drift_detected', False)
+        }
+        
+        return {
+            'summary': summary,
+            'conversation_history': result.get('sessions', {})
+        }

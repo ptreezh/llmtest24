@@ -1,0 +1,48 @@
+{
+  "timestamp": "2025-08-04 15:34:34",
+  "demo_type": "Live LLM Testing Demo",
+  "total_tests": 6,
+  "successful_tests": 4,
+  "success_rate": 66.66666666666666,
+  "results": [
+    {
+      "demo": "model_call",
+      "service": "together",
+      "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "status": "SUCCESS",
+      "response_length": 752
+    },
+    {
+      "demo": "model_call",
+      "service": "ppinfra",
+      "model": "qwen/qwen3-235b-a22b-fp8",
+      "status": "SUCCESS",
+      "response_length": 3430
+    },
+    {
+      "demo": "model_call",
+      "service": "glm",
+      "model": "glm/glm-4-plus",
+      "status": "FAILED",
+      "error": "400 Client Error: Bad Request for url: https://open.bigmodel.cn/api/paas/v4/chat/completions"
+    },
+    {
+      "demo": "logic_test",
+      "status": "SUCCESS",
+      "response_length": 783,
+      "test_type": "Logic Reasoning"
+    },
+    {
+      "demo": "math_test",
+      "status": "FAILED",
+      "error": "400 Client Error: Bad Request for url: https://open.bigmodel.cn/api/paas/v4/chat/completions"
+    },
+    {
+      "demo": "creativity_test",
+      "status": "SUCCESS",
+      "response_length": 2873,
+      "test_type": "Creativity"
+    }
+  ],
+  "conclusion": "PARTIAL"
+}

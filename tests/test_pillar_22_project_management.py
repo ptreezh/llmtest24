@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
+import sys
+import os
+
+# Add project root to Python path to ensure imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # -*- coding: utf-8 -*-
 """
 Pillar 22: 强项目管理、分工协调、状态跟踪、最终集成能力测试
 测试模型在复杂项目管理、团队协调、状态监控和成果集成方面的能力
 """
 
-import ollama
 import sys
 import os
+
+# 添加项目根目录到Python路径
+
 import json
 import time
 import re
 from typing import Dict, List, Any
-from utils import call_qiniu_deepseek, run_single_test
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from utils import run_single_test
 try:
     from config import MODEL_TO_TEST
 except ImportError:
@@ -24,11 +30,18 @@ except ImportError:
 class ProjectManagementTest:
     def __init__(self, model_name: str):
         self.model_name = model_name
-        self.model_dir = os.path.join(os.path.dirname(__file__), '..', 'testout', self.model_name.replace(':', '_').replace('/', '_'))
+        self.model_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'testout', self.model_name.replace(':', '_').replace('/', '_'))
         os.makedirs(self.model_dir, exist_ok=True)
 
     def call_model(self, prompt, options=None):
-        return run_single_test("Pillar 22: Project Management", prompt, self.model_name, options or {}, messages=[], test_script_name="test_pillar_22_project_management.py")[0]
+        content, _ = run_single_test(
+            pillar_name="Pillar 22: Project Management",
+            prompt=prompt,
+            model=self.model_name,
+            options=options or {},
+            test_script_name="test_pillar_22_project_management.py"
+        )
+        return content
     
     def test_erp_system_integration(self) -> Dict[str, Any]:
         """测试ERP系统集成项目的全流程管理"""

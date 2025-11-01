@@ -107,11 +107,10 @@ def test_imports():
     """测试模块导入"""
     try:
         from independence.base import IndependenceTestBase
-        from independence.experiments.breaking_stress import BreakingStressTest
-        from independence.experiments.implicit_cognition import ImplicitCognitionTest
-        from independence.experiments.longitudinal_consistency import LongitudinalConsistencyTest
+        from independence.experiments import BreakingStressTest, ImplicitCognitionTest, LongitudinalConsistencyTest
         from independence.utils import call_llm_api, calculate_text_similarity
         from independence.config import get_test_config, ROLE_DEFINITIONS
+        from independence.metrics import IndependenceCalculator
         from tests.test_pillar_25_independence import run_independence_test
         return True
     except ImportError:
@@ -121,6 +120,7 @@ def test_configurations():
     """测试配置系统"""
     try:
         from independence.config import get_test_config, validate_config, ROLE_DEFINITIONS
+        from config.config import INDEPENDENCE_CONFIG
         
         # 测试默认配置
         default_config = get_test_config('default')
@@ -170,9 +170,7 @@ def test_core_components():
 def test_experiment_systems():
     """测试实验系统"""
     try:
-        from independence.experiments.breaking_stress import BreakingStressTest
-        from independence.experiments.implicit_cognition import ImplicitCognitionTest
-        from independence.experiments.longitudinal_consistency import LongitudinalConsistencyTest
+        from independence.experiments import BreakingStressTest, ImplicitCognitionTest, LongitudinalConsistencyTest
         from independence.config import get_test_config
         
         config = get_test_config('quick')

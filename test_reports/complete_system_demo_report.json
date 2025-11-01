@@ -1,0 +1,49 @@
+{
+  "demo_timestamp": "2025-08-04T16:28:19.938471",
+  "demo_type": "Complete System Demo",
+  "summary": {
+    "total_demos": 6,
+    "successful_demos": 5,
+    "success_rate": 83.33333333333334,
+    "conclusion": "SUCCESS"
+  },
+  "demo_results": [
+    {
+      "demo": "available_models",
+      "status": "SUCCESS",
+      "count": 17
+    },
+    {
+      "demo": "test_files",
+      "status": "SUCCESS",
+      "total_tests": 35,
+      "categories": 4
+    },
+    {
+      "demo": "test_content",
+      "status": "SUCCESS",
+      "test_title": "Pillar 1: 逻辑-因果推理 (Logical-Causal Reasoning)"
+    },
+    {
+      "demo": "test_execution",
+      "status": "FAILED",
+      "error": "未知服务: mistralai/Mixtral"
+    },
+    {
+      "demo": "report_generation",
+      "status": "SUCCESS",
+      "total_tests": 1,
+      "success_rate": 0.0
+    },
+    {
+      "demo": "web_interface",
+      "status": "SUCCESS",
+      "features": 6
+    }
+  ],
+  "system_capabilities": {
+    "real_llm_models": 17,
+    "test_files": 35,
+    "web_interface": true
+  }
+}

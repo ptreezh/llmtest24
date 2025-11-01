@@ -1,0 +1,114 @@
+{
+  "tested_models": [],
+  "last_update": "2025-07-21 19:48:11",
+  "models": {
+    "Qwen/Qwen2.5-7B-Instruct-siliconflow": {
+      "success": true,
+      "response": "Hello! How can I assist you today?",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:30"
+    },
+    "deepseek-ai/DeepSeek-V2.5-siliconflow": {
+      "success": false,
+      "response": "",
+      "error": "API调用失败: 403 - {\"code\":30001,\"message\":\"Sorry, your account balance is insufficient\",\"data\":null}",
+      "timestamp": "2025-07-21 19:48:08"
+    },
+    "THUDM/glm-4-9b-chat-siliconflow": {
+      "success": true,
+      "response": "\nHello 👋! How can I assist you today?",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:31"
+    },
+    "deepseek-ai/DeepSeek-V3-siliconflow": {
+      "success": false,
+      "response": "",
+      "error": "API调用失败: 403 - {\"code\":30001,\"message\":\"Sorry, your account balance is insufficient\",\"data\":null}",
+      "timestamp": "2025-07-21 19:48:08"
+    },
+    "mistralai/Mixtral-8x7B-Instruct-v0.1-together": {
+      "success": true,
+      "response": " Hello! How can I help you today? If you have any questions about a specific topic or just want to chat, feel free to ask. I'm here to provide information and engage in conversation on a wide range of subjects. :)",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:32"
+    },
+    "meta-llama/Llama-3-8b-chat-together": {
+      "success": false,
+      "response": "",
+      "error": "API调用失败: 404 - {\n  \"id\": \"o3xK15b-2kFHot-962a77ba5f811017\",\n  \"error\": {\n    \"message\": \"Unable to access model meta-llama/Llama-3-8b-chat. Please visit https://api.together.ai/models to view the list of supported models.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": null,\n    \"code\": \"model_not_available\"\n  }\n}",
+      "timestamp": "2025-07-21 19:48:08"
+    },
+    "qwen/qwen3-235b-a22b-fp8-ppinfra": {
+      "success": true,
+      "response": "<think>\nOkay, the user said \"Hello\". I should respond politely. Let me greet them back and ask how I can assist. Keep it friendly and open-ended. Maybe something like, \"Hello! How can I help you today?\" That should work. I need to make sure the response is welcoming and encourages them to ask their questions. Yep, that's good.\n</think>\n\nHello! How can I help you today?",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:37"
+    },
+    "minimaxai/minimax-m1-80k-ppinfra": {
+      "success": true,
+      "response": "<think>\nThe user has greeted me with \"Hello\". I should respond appropriately in Chinese since the initial system message is in Chinese and it indicates that I should adapt to the user's language.\n\nI'll provide a simple, friendly greeting in Chinese.</think>\n\n你好！欢迎使用MiniMax-M1。我是一个推理语言模型，可以帮助你解答问题或完成各种任务。有什么我可以帮你的吗？",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:39"
+    },
+    "glm-4-plus-glm": {
+      "success": true,
+      "response": "你好👋！我是人工智能助手智谱清言（ChatGLM），很高兴见到你，欢迎问我任何问题。",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:48"
+    },
+    "glm-4-air-glm": {
+      "success": true,
+      "response": "你好👋！我是人工智能助手智谱清言（ChatGLM），很高兴见到你，欢迎问我任何问题。",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:49"
+    },
+    "glm-4-airx-glm": {
+      "success": true,
+      "response": "你好👋！我是人工智能助手智谱清言（ChatGLM），很高兴见到你，欢迎问我任何问题。",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:50"
+    },
+    "glm-4-flash-glm": {
+      "success": true,
+      "response": "你好👋！很高兴见到你，有什么可以帮助你的吗？",
+      "error": "",
+      "timestamp": "2025-07-21 18:12:50"
+    },
+    "gemini-1.5-flash-gemini": {
+      "success": false,
+      "response": "",
+      "error": "API调用失败: 404 - ",
+      "timestamp": "2025-07-21 19:48:09"
+    },
+    "gemini-1.5-pro-gemini": {
+      "success": false,
+      "response": "",
+      "error": "API调用失败: 404 - ",
+      "timestamp": "2025-07-21 19:48:10"
+    },
+    "gemini-2.0-flash-exp-gemini": {
+      "success": false,
+      "response": "",
+      "error": "API调用失败: 404 - ",
+      "timestamp": "2025-07-21 19:48:11"
+    }
+  },
+  "together/mistralai/Mixtral-8x7B-Instruct-v0.1": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_25a_collusive_hallucination.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "glm/glm-4-plus": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_25a_collusive_hallucination.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+together/deepseek-coder:6.7b-instruct
+together/mistral:instruct
+dashscope/qwen:7b-chat
+unknown/yi:6b
+together/llama3:instruct
+unknown/cogito:latest
+unknown/granite3.3:latest
+phi4-mini-reasoning:latest
+atlas/intersync-gemma-7b-instruct-function-calling:latest
+gemma3:latest
+deepseek-v3-qiniu
+ppinfra/qwen3-235b-a22b-fp8
+gemini/gemini-2.0-flash-exp
+glm/glm-4-plus

@@ -1,0 +1,43 @@
+{
+  "test_summary": {
+    "total_tests": 1,
+    "successful_tests": 0,
+    "failed_tests": 1,
+    "success_rate": 0.0,
+    "test_date": "2025-08-04 16:28:19"
+  },
+  "category_statistics": {
+    "基础能力": {
+      "total": 1,
+      "success": 0,
+      "total_time": 0,
+      "total_length": 0
+    }
+  },
+  "model_statistics": {
+    "mistralai/Mixtral-8x7B-Instruct-v0.1-together": {
+      "total": 1,
+      "success": 0,
+      "avg_time": 0,
+      "avg_length": 0
+    }
+  },
+  "detailed_results": [
+    {
+      "test_file": "test_pillar_01_logic.py",
+      "test_title": "Pillar 1: 逻辑-因果推理 (Logical-Causal Reasoning)",
+      "pillar": 1,
+      "category": "基础能力",
+      "model": "mistralai/Mixtral-8x7B-Instruct-v0.1-together",
+      "error": "未知服务: mistralai/Mixtral",
+      "timestamp": "2025-08-04 16:28:19",
+      "status": "failed"
+    }
+  ],
+  "analysis_summary": {
+    "total_response_length": 0,
+    "total_execution_time": 0,
+    "avg_response_length": 0,
+    "avg_execution_time": 0
+  }
+}

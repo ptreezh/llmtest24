@@ -1,0 +1,74 @@
+{
+  "together/meta-llama/Llama-3-8b-chat": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_25_cognitive_ecosystem.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "together/mistralai/Mixtral-8x7B-Instruct-v0.1": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_25_cognitive_ecosystem.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "openrouter/google/gemma-2-9b-it": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_25_cognitive_ecosystem.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "openrouter/anthropic/claude-3-opus": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_25_cognitive_ecosystem.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "gemini/gemini-1.5-flash": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_19_network_analysis.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "dashscope/qwen-plus": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_19_network_analysis.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "glm/glm-4-plus": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_19_network_analysis.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  },
+  "baidu/ernie-4.0-8k": {
+    "status": "Aborted",
+    "failed_tests": [
+      {
+        "script": "test_pillar_19_network_analysis.py",
+        "reason": "Failed after 3 attempts."
+      }
+    ]
+  }
+}

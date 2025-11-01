@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
-
 import sys
+import os
+
+# Add project root to Python path to ensure imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
+import os
+import sys
+# 添加项目根目录到Python路径
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import json
 from pathlib import Path
 from utils import run_single_test, print_assessment_criteria

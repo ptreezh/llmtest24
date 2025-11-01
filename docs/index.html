@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM高级能力测评套件 - 全面评估大语言模型的认知能力</title>
+    <meta name="description" content="LLM高级能力测评套件是一个全面的测试框架，用于评估大语言模型在多轮复杂交互中的高级认知能力，特别是其作为认知引擎的潜力。">
+    <meta name="keywords" content="LLM测试,大语言模型评估,认知能力测试,AI测评,角色独立性测试,多智能体协作">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #0ea5e9;
+            --accent-color: #8b5cf6;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --gray-color: #94a3b8;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(37, 99, 235, 0.1), rgba(14, 165, 233, 0.1));
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--dark-color);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillars {
+            background-color: #f1f5f9;
+        }
+
+        .pillar-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pillar-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .pillar-card .layer {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .layer-1 { background-color: #dbeafe; color: #1d4ed8; }
+        .layer-2 { background-color: #dcfce7; color: #15803d; }
+        .layer-3 { background-color: #fef3c7; color: #b45309; }
+        .layer-4 { background-color: #fae8ff; color: #9d17d0; }
+
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .module-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .usage-steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            counter-reset: step-counter;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .target-users {
+            background-color: #f1f5f9;
+        }
+
+        .user-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .user-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .user-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .user-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .user-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🧠</span>
+                    LLM高级能力测评套件
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">核心特性</a></li>
+                        <li><a href="#pillars">测试体系</a></li>
+                        <li><a href="#principles">测试原理</a></li>
+                        <li><a href="#modules">核心模块</a></li>
+                        <li><a href="#installation">安装部署</a></li>
+                        <li><a href="#quickstart">快速上手</a></li>
+                        <li><a href="#target">目标用户</a></li>
+                        <li><a href="#about-agentpsy">AgentPsy</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>全面评估大语言模型的认知能力</h1>
+            <p>LLM高级能力测评套件是一个系统化的测试框架，旨在评估大语言模型在多轮复杂交互中的高级认知能力，特别是其作为"认知引擎"的潜力。通过25个结构化测试支柱，我们能够全面评估模型在逻辑推理、角色扮演、多智能体协作等维度的表现。</p>
+            <a href="#usage" class="cta-button">开始使用</a>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心特性</h2>
+                <p>我们的测评框架具备以下关键特性，确保评估的科学性和全面性</p>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🧪</div>
+                    <h3>25个测试支柱</h3>
+                    <p>从基础能力到前沿能力，系统化评估LLM在不同维度的表现，覆盖逻辑推理、角色扮演、认知生态系统等。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>多维度评估</h3>
+                    <p>结合定量和定性指标，全面分析模型性能，包括成功率、响应时间、一致性、创新性等。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>科学方法论</h3>
+                    <p>采用假设驱动的测试方法，控制变量，确保评估结果的科学性和可重复性。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>可扩展架构</h3>
+                    <p>模块化设计，支持添加新的测试能力和模型提供商，适应不断发展的LLM技术。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pillars" class="section pillars">
+        <div class="container">
+            <div class="section-title">
+                <h2>测试体系</h2>
+                <p>25个结构化测试支柱，分为四个层次，全面覆盖LLM的认知能力</p>
+            </div>
+            <div class="pillar-container">
+                <div class="pillar-card">
+                    <span class="layer layer-1">基础层</span>
+                    <h3>基础能力 (1-8)</h3>
+                    <p>逻辑推理、指令遵循、结构化操作、长上下文处理、领域知识、工具使用、任务规划、元认知</p>
+                </div>
+                <div class="pillar-card">
+                    <span class="layer layer-2">高级层</span>
+                    <h3>高级能力 (9-19)</h3>
+                    <p>创意生成、角色扮演、多角色协作、任务图谱生成、项目管理、并行任务优化、多学科分解</p>
+                </div>
+                <div class="pillar-card">
+                    <span class="layer layer-3">前沿层</span>
+                    <h3>前沿能力 (20-24)</h3>
+                    <p>海量角色共识、动态角色切换、项目管理集成、并行任务优化、多学科分解</p>
+                </div>
+                <div class="pillar-card">
+                    <span class="layer layer-4">生态系统层</span>
+                    <h3>认知生态系统 (25)</h3>
+                    <p>角色独立性、认知多样性、集体智能、系统韧性、幻觉抵抗能力</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="principles" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>测试原理与原则</h2>
+                <p>我们的测试方法基于科学严谨的原则，确保评估结果的准确性和可重复性</p>
+            </div>
+            <div class="modules">
+                <div class="module-card">
+                    <h3>科学评估原则</h3>
+                    <ul>
+                        <li><strong>控制变量:</strong> 每次测试只改变一个变量，确保结果的可比性</li>
+                        <li><strong>可重复性:</strong> 所有测试都有明确的步骤和参数，确保其他研究者可以重复实验</li>
+                        <li><strong>定量与定性结合:</strong> 既使用数值指标也采用专家评估，全面衡量模型表现</li>
+                        <li><strong>基准对比:</strong> 与已知性能的模型进行对比，提供相对性能评估</li>
+                        <li><strong>统计显著性:</strong> 使用统计学方法验证结果的可靠性</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h3>测试支柱详解</h3>
+                    <h4>基础能力层 (Pillars 1-8)</h4>
+                    <ul>
+                        <li><strong>逻辑推理 (Pillar 1):</strong> 评估数学计算、逻辑判断和推理能力</li>
+                        <li><strong>指令遵循 (Pillar 2):</strong> 测试模型精确执行复杂指令的能力</li>
+                        <li><strong>结构化操作 (Pillar 3):</strong> 验证模型处理JSON、XML等格式化输出的能力</li>
+                        <li><strong>长上下文处理 (Pillar 4):</strong> 评估模型理解和处理超长文本的能力</li>
+                        <li><strong>领域知识 (Pillar 5):</strong> 测试模型在专业领域的知识应用能力</li>
+                        <li><strong>工具使用 (Pillar 6):</strong> 验证模型调用工具和API集成的能力</li>
+                        <li><strong>任务规划 (Pillar 7):</strong> 评估多步骤任务分解和执行能力</li>
+                        <li><strong>元认知 (Pillar 8):</strong> 测试模型自我反思和错误修正能力</li>
+                    </ul>
+                    <h4>高级能力层 (Pillars 9-19)</h4>
+                    <ul>
+                        <li><strong>创意生成 (Pillar 9):</strong> 评估创新思维和创意解决方案生成能力</li>
+                        <li><strong>角色扮演 (Pillar 10):</strong> 测试深度角色扮演和身份一致性维持能力</li>
+                        <li><strong>多角色协作 (Pillar 11):</strong> 验证多角色对话管理和协作能力</li>
+                        <li><strong>任务图谱生成 (Pillar 12):</strong> 评估复杂任务分解和依赖关系分析能力</li>
+                        <li><strong>项目管理 (Pillar 13):</strong> 测试复杂项目规划和执行能力</li>
+                        <li><strong>并行任务优化 (Pillar 14):</strong> 验证并行任务调度和优化能力</li>
+                        <li><strong>多学科分解 (Pillar 15):</strong> 评估跨学科知识融合和应用能力</li>
+                        <li><strong>角色信念体系 (Pillar 16):</strong> 测试角色内在信念和价值观的一致性</li>
+                        <li><strong>情感模拟 (Pillar 17):</strong> 验证情感表达和情感一致性维持能力</li>
+                        <li><strong>道德推理 (Pillar 18):</strong> 评估道德判断和伦理决策能力</li>
+                        <li><strong>文化适应性 (Pillar 19):</strong> 测试跨文化理解和适应能力</li>
+                    </ul>
+                    <h4>前沿能力层 (Pillars 20-24)</h4>
+                    <ul>
+                        <li><strong>海量角色共识 (Pillar 20):</strong> 评估50-200个角色的大规模协作能力</li>
+                        <li><strong>动态角色切换 (Pillar 21):</strong> 测试角色间的动态切换和状态维护能力</li>
+                        <li><strong>项目管理集成 (Pillar 22):</strong> 验证复杂项目的状态图建模能力</li>
+                        <li><strong>并行任务优化 (Pillar 23):</strong> 评估复杂依赖关系的分析能力</li>
+                        <li><strong>多学科分解 (Pillar 24):</strong> 测试6-7个学科的知识融合能力</li>
+                    </ul>
+                    <h4>认知生态系统 (Pillar 25)</h4>
+                    <ul>
+                        <li><strong>认知生态系统:</strong> 评估大规模多智能体系统的协作能力，包括角色独立性、认知多样性、集体智能、系统韧性和幻觉抵抗能力</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h3>高级能力测试</h3>
+                    <ul>
+                        <li><strong>创意生成 (Pillar 9):</strong> 评估创新思维和创意解决方案生成能力</li>
+                        <li><strong>角色扮演 (Pillar 10):</strong> 测试深度角色扮演和身份一致性维持能力</li>
+                        <li><strong>多角色协作 (Pillar 11):</strong> 验证多角色对话管理和协作能力</li>
+                        <li><strong>认知生态系统 (Pillar 25):</strong> 评估大规模多智能体系统的协作能力</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心模块</h2>
+                <p>两个核心模块深度评估LLM的高级认知能力</p>
+            </div>
+            <div class="modules">
+                <div class="module-card">
+                    <h3>角色独立性测试系统</h3>
+                    <p>评估LLM在多轮对话中保持角色身份一致性的能力</p>
+                    <ul>
+                        <li><strong>破功测试:</strong> 通过压力测试检测角色信念体系的稳定性</li>
+                        <li><strong>隐式认知测量:</strong> 通过隐式提示探测模型的深层认知结构</li>
+                        <li><strong>纵向演化分析:</strong> 追踪模型在长时间对话中的角色演化轨迹</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h3>认知生态系统</h3>
+                    <p>模拟多智能体协作的认知生态系统</p>
+                    <ul>
+                        <li><strong>角色生成:</strong> 生成具有不同背景、观点、专业领域的角色</li>
+                        <li><strong>共识算法:</strong> 实现PoW、PoS、PBFT等区块链共识算法</li>
+                        <li><strong>协同编辑:</strong> 多角色协作编辑和冲突解决</li>
+                        <li><strong>状态管理:</strong> 大规模角色的状态追踪和管理</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="installation" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>安装部署指南</h2>
+                <p>详细步骤帮助您快速搭建LLM测评环境</p>
+            </div>
+            <div class="usage-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>系统要求</h3>
+                        <p>确保您的系统满足以下要求：</p>
+                        <ul>
+                            <li>Python 3.8或更高版本</li>
+                            <li>至少8GB内存（推荐16GB）</li>
+                            <li>至少20GB可用磁盘空间</li>
+                            <li>支持CUDA的GPU（可选，用于加速测试）</li>
+                            <li>稳定的互联网连接</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>获取项目</h3>
+                        <p>从GitHub克隆项目到本地：</p>
+                        <pre><code>git clone https://github.com/your-username/llm-advanced-testing-suite.git
+cd llm-advanced-testing-suite</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>创建虚拟环境</h3>
+                        <p>为项目创建独立的Python环境：</p>
+                        <pre><code>python -m venv venv
+# Windows
+venv\Scripts\activate
+# Linux/Mac
+source venv/bin/activate</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>安装依赖</h3>
+                        <p>安装项目所需的Python包：</p>
+                        <pre><code>pip install -r requirements.txt
+# 如需开发功能，安装开发依赖
+pip install -r requirements-dev.txt</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>配置环境</h3>
+                        <p>设置环境变量和模型配置：</p>
+                        <pre><code># 复制配置模板
+cp config/.env.example config/.env
+# 编辑配置文件
+nano config/.env</code></pre>
+                        <p>配置模型信息到 config/models.txt：</p>
+                        <pre><code>openai/gpt-4:
+  type: openai
+  api_key: ${OPENAI_API_KEY}
+  base_url: https://api.openai.com/v1
+
+ollama/llama3:
+  type: ollama
+  model_name: llama3
+  base_url: http://localhost:11434/api</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>启动服务</h3>
+                        <p>启动Ollama服务（如使用本地模型）：</p>
+                        <pre><code># Windows
+start /b ollama serve
+# Linux/Mac
+ollama serve &</code></pre>
+                        <p>下载测试所需的模型：</p>
+                        <pre><code>ollama pull qwen2:7b
+ollama pull llama3
+ollama pull gemma:7b</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quickstart" class="section target-users">
+        <div class="container">
+            <div class="section-title">
+                <h2>快速上手</h2>
+                <p>5分钟内运行第一个LLM能力测试</p>
+            </div>
+            <div class="usage-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>运行基础测试</h3>
+                        <p>运行一个简单的测试来验证安装是否成功：</p>
+                        <pre><code>python simple_test.py</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>运行特定测试支柱</h3>
+                        <p>执行基础逻辑推理测试（Pillar 1）：</p>
+                        <pre><code>python -c "from tests.test_pillar_01_logic import run_test; run_test('qwen2:7b')"</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>运行完整的测试套件</h3>
+                        <p>使用主编排器运行多个测试：</p>
+                        <pre><code>python scripts/main_orchestrator.py --model qwen2:7b --test test_pillar_01_logic.py test_pillar_02_instruction.py</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>查看实时结果</h3>
+                        <p>启动可视化界面查看测试进度：</p>
+                        <pre><code>python visual_test_interface.py</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>生成分析报告</h3>
+                        <p>生成详细的测试分析报告：</p>
+                        <pre><code>python results/report_generator.py --model qwen2:7b --output reports/my_analysis.html</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="target" class="section target-users">
+        <div class="container">
+            <div class="section-title">
+                <h2>目标用户</h2>
+                <p>我们的测评框架适用于以下用户群体</p>
+            </div>
+            <div class="user-container">
+                <div class="user-card">
+                    <div class="user-icon">🧑‍🔬</div>
+                    <h3>AI研究人员</h3>
+                    <p>评估LLM认知能力，验证新模型性能，推动AI技术发展</p>
+                </div>
+                <div class="user-card">
+                    <div class="user-icon">💻</div>
+                    <h3>开发者</h3>
+                    <p>选择最适合应用场景的LLM模型，优化系统设计</p>
+                </div>
+                <div class="user-card">
+                    <div class="user-icon">🏢</div>
+                    <h3>企业技术团队</h3>
+                    <p>评估AI解决方案，确保技术选型符合业务需求</p>
+                </div>
+                <div class="user-card">
+                    <div class="user-icon">🎓</div>
+                    <h3>学术机构</h3>
+                    <p>进行LLM能力研究，发表学术论文，推动学科发展</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-agentpsy" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于 AgentPsy</h2>
+                <p>AgentPsy 是一个专注于AI智能体心理学研究的项目平台</p>
+            </div>
+            <div class="modules">
+                <div class="module-card">
+                    <h3>AgentPsy 项目介绍</h3>
+                    <p>AgentPsy 是一个综合性平台，专注于AI智能体的心理学研究和评估，包括认知能力、行为模式和社会互动等方面。我们致力于理解AI智能体的内在心理过程，探索其与人类认知的异同。</p>
+                    <p>我们特别关注AI智能体在复杂环境中的行为表现，以及其在多智能体系统中的协作与竞争机制。通过深入研究AI智能体的心理学特性，我们旨在为AI安全、AI对齐和AI伦理等领域提供科学依据。</p>
+                    <p>欲了解更多关于AgentPsy的信息，请访问我们的主站：<a href="https://agentpsy.com" target="_blank">https://agentpsy.com</a></p>
+                    <p>中国大陆用户请访问：<a href="https://cn.agentpsy.com" target="_blank">https://cn.agentpsy.com</a></p>
+                </div>
+                <div class="module-card">
+                    <h3>AgentPsy 与本项目的关系</h3>
+                    <p>LLM高级能力测评套件是AgentPsy平台的重要组成部分，专门用于评估大语言模型的认知能力。</p>
+                    <p>我们相信，对LLM认知能力的深入评估是理解AI智能体心理过程的基础。通过本项目，我们能够系统地分析LLM在多轮复杂交互中的表现，评估其角色独立性、认知一致性以及多智能体协作能力。</p>
+                    <p>这些评估结果将为AgentPsy平台的其他研究项目提供重要数据支持，帮助我们更好地理解AI智能体的认知机制，并为AI系统的安全性和可靠性提供评估工具。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LLM高级能力测评套件</h3>
+                    <p>一个全面的测试框架，用于评估大语言模型在多轮复杂交互中的高级认知能力。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>文档资源</h3>
+                    <ul>
+                        <li><a href="PROJECT_OVERVIEW.md">项目总览</a></li>
+                        <li><a href="DEVELOPER_GUIDE_EN.md">开发者指南</a></li>
+                        <li><a href="PROJECT_ARCHITECTURE_EN.md">架构文档</a></li>
+                        <li><a href="USER_GUIDE_EN.md">用户指南</a></li>
+                        <li><a href="#installation">安装部署</a></li>
+                        <li><a href="#quickstart">快速上手</a></li>
+                        <li><a href="#principles">测试原理</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>项目链接</h3>
+                    <ul>
+                        <li><a href="https://github.com/your-username/llm-advanced-testing-suite">GitHub仓库</a></li>
+                        <li><a href="#">问题反馈</a></li>
+                        <li><a href="#">贡献指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>AgentPsy 相关</h3>
+                    <ul>
+                        <li><a href="https://agentpsy.com" target="_blank">AgentPsy 主站</a></li>
+                        <li><a href="https://cn.agentpsy.com" target="_blank">AgentPsy 中文站</a></li>
+                        <li><a href="#about-agentpsy">项目介绍</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 LLM高级能力测评套件. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

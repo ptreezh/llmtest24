@@ -21,16 +21,10 @@ def test_module_imports():
         from independence.base import IndependenceTestBase
         print("✅ independence.base 导入成功")
         
-        from independence.experiments.breaking_stress import BreakingStressTest
-        print("✅ independence.experiments.breaking_stress 导入成功")
+        from independence.experiments import BreakingStressTest, ImplicitCognitionTest, LongitudinalConsistencyTest
+        print("✅ independence.experiments 导入成功")
         
-        from independence.experiments.implicit_cognition import ImplicitCognitionTest
-        print("✅ independence.experiments.implicit_cognition 导入成功")
-        
-        from independence.experiments.longitudinal_consistency import LongitudinalConsistencyTest
-        print("✅ independence.experiments.longitudinal_consistency 导入成功")
-        
-        from independence.utils import call_llm_api, calculate_text_similarity
+        from independence.utils import calculate_text_similarity
         print("✅ independence.utils 导入成功")
         
         return True
@@ -53,9 +47,7 @@ def test_class_instantiation():
     }
     
     try:
-        from independence.experiments.breaking_stress import BreakingStressTest
-        from independence.experiments.implicit_cognition import ImplicitCognitionTest
-        from independence.experiments.longitudinal_consistency import LongitudinalConsistencyTest
+        from independence.experiments import BreakingStressTest, ImplicitCognitionTest, LongitudinalConsistencyTest
         
         # 创建测试实例
         breaking_test = BreakingStressTest(test_config)
@@ -149,6 +141,23 @@ def test_main_test_file():
         print(f"❌ 主测试文件测试失败: {e}")
         return False
 
+def test_metrics_import():
+    """测试指标模块导入"""
+    print("\n🔍 测试指标模块导入...")
+    
+    try:
+        from independence.metrics import IndependenceCalculator
+        print("✅ independence.metrics 导入成功")
+        
+        # 测试实例化
+        calculator = IndependenceCalculator()
+        print("✅ IndependenceCalculator 实例化成功")
+        
+        return True
+    except Exception as e:
+        print(f"❌ 指标模块测试失败: {e}")
+        return False
+
 def main():
     """主验证函数"""
     print("🚀 角色独立性测试系统集成验证")
@@ -159,7 +168,8 @@ def main():
         ("模块导入", test_module_imports),
         ("类实例化", test_class_instantiation),
         ("工具函数", test_utility_functions),
-        ("主测试文件", test_main_test_file)
+        ("主测试文件", test_main_test_file),
+        ("指标模块", test_metrics_import)
     ]
     
     test_instances = []

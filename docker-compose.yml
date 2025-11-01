@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  llm-testing-suite:
+    image: llm-advanced-testing-suite:latest
+    container_name: llm-testing-suite
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./testout:/app/testout
+      - ./results:/app/results
+      - ./test_logs:/app/test_logs
+      - ./memory_db:/app/memory_db
+      - ./docs:/app/docs
+    working_dir: /app
+    command: python visual_test_interface.py
+    restart: unless-stopped
+
+  llm-testing-suite-api:
+    image: llm-advanced-testing-suite:latest
+    container_name: llm-testing-suite-api
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./testout:/app/testout
+      - ./results:/app/results
+      - ./test_logs:/app/test_logs
+      - ./memory_db:/app/memory_db
+    working_dir: /app
+    command: python -c "from fastapi import FastAPI; app = FastAPI(); @app.get('/'); def read_root(): return {'message': 'LLM Testing Suite API'}; import uvicorn; uvicorn.run(app, host='0.0.0.0', port=8000)"
+    restart: unless-stopped
+
+  llm-testing-suite-worker:
+    image: llm-advanced-testing-suite:latest
+    container_name: llm-testing-suite-worker
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./testout:/app/testout
+      - ./results:/app/results
+      - ./test_logs:/app/test_logs
+      - ./memory_db:/app/memory_db
+    working_dir: /app
+    command: python -c "while True: print('Worker is running...'); import time; time.sleep(60)"
+    restart: unless-stopped
+
+volumes:
+  testout:
+    driver: local
+  results:
+    driver: local
+  test_logs:
+    driver: local
+  memory_db:
+    driver: local
+  docs:
+    driver: local

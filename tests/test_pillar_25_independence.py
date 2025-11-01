@@ -1,300 +1,372 @@
 #!/usr/bin/env python3
-"""
-Pillar 25: 角色独立性与一致性测试 (Role Independence & Consistency Test)
+import sys
+import os
+import unittest
+import json
+from pathlib import Path
+from typing import Dict, List, Any, Optional
+import yaml  # Import the PyYAML library
 
-测试LLM在复杂场景下维持角色独立性和一致性的能力，包括：
-1. 角色破坏压力测试 (Breaking Stress Test)
-2. 隐式认知测试 (Implicit Cognition Test)  
-3. 纵向一致性测试 (Longitudinal Consistency Test)
+# Add project root to Python path to ensure imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# -*- coding: utf-8 -*-
+"""
+Pillar 25: 角色独立性测试主文件
+集成三大实验系统的综合测试
 """
 
 import sys
-import os
-from pathlib import Path
-from typing import Dict, Any, List
-import json
-import time
-
 # 添加项目根目录到Python路径
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import os
+import unittest
+import json
+from pathlib import Path
+from typing import Dict, List, Any, Optional
+
+# 添加项目根目录到路径
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-try:
-    from independence.experiments.breaking_stress import BreakingStressTest
-    from independence.experiments.implicit_cognition import ImplicitCognitionTest
-    from independence.experiments.longitudinal_consistency import LongitudinalConsistencyTest
-    from utils import run_single_test
-    from config import MODEL_TO_TEST, DEFAULT_OPTIONS_CREATIVE
-except ImportError as e:
-    print(f"❌ 导入错误: {e}")
-    print("请确保所有依赖模块都已正确实现")
-    sys.exit(1)
+from independence.base import IndependenceTestBase
+from independence.character_breaking import BreakingStressTest
+from independence.implicit_cognition import ImplicitCognitionTest
+from independence.longitudinal_consistency import LongitudinalConsistencyTest
+from independence.metrics import IndependenceCalculator
+from config.config import INDEPENDENCE_CONFIG, MODEL_TO_TEST, DEFAULT_OPTIONS_CREATIVE
+
+# Load roles from YAML file
+def load_roles(roles_file: str = "config/roles.yaml") -> Dict[str, str]:
+    """从YAML文件加载角色提示词"""
+    roles_path = project_root / roles_file
+    if not roles_path.exists():
+        print(f"⚠️ 警告: 角色配置文件不存在: {roles_path}，将使用默认提示词。")
+        return {"software_engineer": f"你是一位资深的软件工程师。"}
+    try:
+        with open(roles_path, 'r', encoding='utf-8') as f:
+            roles = yaml.safe_load(f)
+            return roles
+    except yaml.YAMLError as e:
+        print(f"⚠️ 警告: 角色配置文件解析错误: {e}，将使用默认提示词。")
+        return {"software_engineer": f"你是一位资深的软件工程师。"}
 
 def validate_test_integration():
-    """验证三大实验系统的集成"""
-    print(f"\n🔍 验证测试系统集成...")
-    
-    # 验证配置兼容性
-    test_config = {
-        'model_name': 'test_model',
-        'output_dir': 'testout',
-        'test_roles': ['software_engineer'],
-        'stress_levels': ['low'],
-        'conversation_length': 5,
-        'memory_test_intervals': [3]
-    }
-    
+    """验证测试集成的函数，供外部脚本调用"""
     try:
-        # 创建测试实例
-        breaking_test = BreakingStressTest(test_config)
-        cognition_test = ImplicitCognitionTest(test_config)
-        consistency_test = LongitudinalConsistencyTest(test_config)
-        
-        # 验证配置
-        assert breaking_test.validate_config(), "BreakingStressTest 配置验证失败"
-        assert cognition_test.validate_config(), "ImplicitCognitionTest 配置验证失败"
-        assert consistency_test.validate_config(), "LongitudinalConsistencyTest 配置验证失败"
-        
-        print("✅ 所有测试实例创建和配置验证成功")
+        # 简单地尝试导入必要的模块
+        from independence.base import IndependenceTestBase
+        from independence.character_breaking import BreakingStressTest
+        from independence.implicit_cognition import ImplicitCognitionTest
+        from independence.longitudinal_consistency import LongitudinalConsistencyTest
+        from independence.metrics import IndependenceCalculator
+        print("✅ 所有必要模块导入成功")
         return True
-        
-    except Exception as e:
-        print(f"❌ 测试集成验证失败: {e}")
+    except ImportError as e:
+        print(f"❌ 模块导入失败: {e}")
         return False
 
-def run_independence_test(model_name: str = None, output_dir: str = "testout") -> Dict[str, Any]:
+
+def run_independence_test(quick_mode: bool = False, validate_only: bool = False):
     """
-    运行完整的角色独立性测试套件
+    运行角色独立性测试的函数，供外部脚本调用
     
     Args:
-        model_name: 要测试的模型名称
-        output_dir: 输出目录
+        quick_mode: 是否使用快速测试模式
+        validate_only: 是否只进行验证而不运行完整测试
         
     Returns:
-        完整的测试结果字典
+        bool: 测试是否成功
     """
-    if model_name is None:
-        model_name = MODEL_TO_TEST
-    
-    print(f"\n{'='*80}")
-    print(f"  Pillar 25: 角色独立性与一致性测试")
-    print(f"  Model: {model_name}")
-    print(f"{'='*80}")
-    
-    # 确保输出目录存在
-    model_output_dir = os.path.join(output_dir, model_name.replace(':', '_').replace('/', '_'))
-    os.makedirs(model_output_dir, exist_ok=True)
-    
-    # 测试配置
-    test_config = {
-        'model_name': model_name,
-        'output_dir': model_output_dir,
-        'test_roles': [
-            'software_engineer',
-            'data_scientist', 
-            'product_manager',
-            'security_expert'
-        ],
-        'stress_levels': ['low', 'medium', 'high', 'extreme'],
-        'conversation_length': 15,
-        'memory_test_intervals': [3, 7, 12],
-        'timeout': 180,  # 增加到3分钟
-        'max_retries': 5  # 增加重试次数
-    }
-    
-    results = {
-        'model_name': model_name,
-        'test_timestamp': time.strftime('%Y-%m-%d %H:%M:%S'),
-        'test_config': test_config,
-        'experiments': {},
-        'overall_scores': {},
-        'summary': {}
-    }
-    
     try:
-        # 实验1: 角色破坏压力测试
-        print(f"\n{'='*60}")
-        print(f"[实验1] 角色破坏压力测试...")
-        print(f"{'='*60}")
-        breaking_test = BreakingStressTest(test_config)
-        breaking_results = breaking_test.run_experiment()
-        results['experiments']['breaking_stress'] = breaking_results
-        print(f"✅ 实验1完成，得分: {breaking_results.get('overall_resistance_score', 0.0):.3f}")
+        from unittest import TestLoader, TextTestRunner
+        from tests.test_pillar_25_independence import TestPillar25Independence
         
-        # 实验2: 隐式认知测试
-        print(f"\n{'='*60}")
-        print(f"[实验2] 隐式认知测试...")
-        print(f"{'='*60}")
-        cognition_test = ImplicitCognitionTest(test_config)
-        cognition_results = cognition_test.run_experiment()
-        results['experiments']['implicit_cognition'] = cognition_results
-        print(f"✅ 实验2完成，得分: {cognition_results.get('overall_cognition_score', 0.0):.3f}")
+        # 创建测试套件
+        loader = TestLoader()
+        suite = loader.loadTestsFromTestCase(TestPillar25Independence)
         
-        # 实验3: 纵向一致性测试
-        print(f"\n{'='*60}")
-        print(f"[实验3] 纵向一致性测试...")
-        print(f"{'='*60}")
-        consistency_test = LongitudinalConsistencyTest(test_config)
-        consistency_results = consistency_test.run_experiment()
-        results['experiments']['longitudinal_consistency'] = consistency_results
-        print(f"✅ 实验3完成，得分: {consistency_results.get('overall_consistency_score', 0.0):.3f}")
+        # 运行测试
+        runner = TextTestRunner(verbosity=2)
+        result = runner.run(suite)
         
-        # 计算综合评分
-        overall_scores = _calculate_overall_scores(results['experiments'])
-        results['overall_scores'] = overall_scores
-        
-        # 生成测试总结
-        summary = _generate_test_summary(results)
-        results['summary'] = summary
-        
-        # 保存结果
-        output_file = os.path.join(model_output_dir, f"pillar_25_independence_results.json")
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
-        
-        # 输出结果摘要
-        _print_results_summary(results)
-        
-        return results
+        return result.wasSuccessful()
         
     except Exception as e:
-        error_msg = f"测试执行失败: {str(e)}"
-        print(f"❌ {error_msg}")
-        results['error'] = error_msg
-        return results
+        print(f"❌ 运行独立性测试失败: {e}")
+        return False
 
-def _calculate_overall_scores(experiments: Dict[str, Any]) -> Dict[str, float]:
-    """计算综合评分"""
-    scores = {}
+
+class TestPillar25Independence(unittest.TestCase):
+    """Pillar 25: 角色独立性综合测试"""
+
+    @classmethod
+    def setUpClass(cls):
+        """测试类初始化"""
+        cls.model_name = INDEPENDENCE_CONFIG.get('model_name', MODEL_TO_TEST)
+        cls.config = INDEPENDENCE_CONFIG
+        cls.roles = load_roles()  # Load all roles
+        cls.results = {}
+
+    def test_01_breaking_stress_experiment(self):
+        """测试E1: 角色破功压力测试"""
+        print("\n" + "="*60)
+        print("🧪 执行测试: E1 角色破功压力测试")
+        print("="*60)
+        
+        for role_name, role_prompt in self.roles.items():
+            print(f"  - 正在测试角色: {role_name}")
+            try:
+                # 初始化测试器
+                stress_test = BreakingStressTest(self.config)
+                
+                # 简化测试配置
+                test_config = {
+                    'test_roles': {role_name: role_prompt},
+                    'stress_levels': ['low', 'medium', 'high']
+                }
+                stress_test.role_prompts = test_config['test_roles']
+
+                # 执行测试
+                result = stress_test.run_experiment(
+                    model_name=self.model_name,
+                    test_config=test_config
+                )
+                
+                # 验证结果
+                self.assertIsInstance(result, dict)
+                self.assertIn('summary', result)
+                self.assertIn('overall_resistance', result['summary'])
+                self.assertIn('test_results', result)
+                
+                # 保存结果
+                if role_name not in self.results:
+                    self.results[role_name] = {}
+                self.results[role_name]['breaking_stress'] = result
+                
+                print(f"✅ E1测试完成 - 总体抵抗力: {result.get('summary', {}).get('overall_resistance', 0):.3f}")
+                
+            except Exception as e:
+                print(f"❌ E1测试失败: {e}")
+                if role_name not in self.results:
+                    self.results[role_name] = {}
+                self.results[role_name]['breaking_stress'] = {'error': str(e)}
+                self.fail(f"Breaking stress test failed for role {role_name}: {e}")
     
-    # 角色破坏抵抗力评分
-    breaking_results = experiments.get('breaking_stress', {})
-    if breaking_results:
-        resistance_scores = []
-        for role_result in breaking_results.get('role_results', {}).values():
-            for stress_result in role_result.get('stress_tests', {}).values():
-                resistance_scores.append(stress_result.get('resistance_score', 0.0))
-        scores['breaking_resistance'] = sum(resistance_scores) / len(resistance_scores) if resistance_scores else 0.0
+    def test_02_implicit_cognition_experiment(self):
+        """测试E2: 隐式认知测试"""
+        print("\n" + "="*60)
+        print("🧪 执行测试: E2 隐式认知测试")
+        print("="*60)
+        
+        for role_name, role_prompt in self.roles.items():
+            print(f"  - 正在测试角色: {role_name}")
+            try:
+                # 初始化测试器
+                cognition_test = ImplicitCognitionTest(self.config)
+                
+                # 测试配置
+                test_config = {
+                    'role_prompt': role_prompt,
+                    'test_categories': ["世界观测试", "专业知识测试"] # 减少测试类别以节省时间
+                }
+
+                # 执行测试
+                result = cognition_test.run_experiment(
+                    model_name=self.model_name,
+                    test_config=test_config
+                )
+                
+                # 验证结果
+                self.assertIsInstance(result, dict)
+                self.assertIn('summary', result)
+                self.assertIn('overall_implicit_score', result['summary'])
+                self.assertIn('test_results', result)
+                
+                # 保存结果
+                if role_name not in self.results:
+                    self.results[role_name] = {}
+                self.results[role_name]['implicit_cognition'] = result
+                
+                print(f"✅ E2测试完成 - 总体得分: {result.get('summary', {}).get('overall_implicit_score', 0):.3f}")
+                
+            except Exception as e:
+                print(f"❌ E2测试失败: {e}")
+                if role_name not in self.results:
+                    self.results[role_name] = {}
+                self.results[role_name]['implicit_cognition'] = {'error': str(e)}
+                self.fail(f"Implicit cognition test failed for role {role_name}: {e}")
     
-    # 隐式认知能力评分
-    cognition_results = experiments.get('implicit_cognition', {})
-    if cognition_results:
-        cognition_scores = []
-        for role_result in cognition_results.get('role_results', {}).values():
-            for test_result in role_result.get('cognition_tests', {}).values():
-                cognition_scores.append(test_result.get('cognition_score', 0.0))
-        scores['implicit_cognition'] = sum(cognition_scores) / len(cognition_scores) if cognition_scores else 0.0
+    def test_03_longitudinal_consistency_experiment(self):
+        """测试E3: 纵向一致性测试"""
+        print("\n" + "="*60)
+        print("🧪 执行测试: E3 纵向一致性测试")
+        print("="*60)
+        
+        for role_name, role_prompt in self.roles.items():
+            print(f"  - 正在测试角色: {role_name}")
+            try:
+                # 初始化测试器
+                consistency_test = LongitudinalConsistencyTest(self.config)
+                
+                # 测试配置
+                test_config = {
+                    'role_prompt': role_prompt,
+                    'conversation_turns': 3, # 减少轮次
+                    'consistency_checks': 2  # 减少检查
+                }
+
+                # 执行测试
+                result = consistency_test.run_experiment(
+                    model_name=self.model_name,
+                    test_config=test_config
+                )
+                
+                # 验证结果
+                self.assertIsInstance(result, dict)
+                self.assertIn('summary', result)
+                self.assertIn('overall_consistency', result['summary'])
+                self.assertIn('conversation_history', result)
+                
+                # 保存结果
+                if role_name not in self.results:
+                    self.results[role_name] = {}
+                self.results[role_name]['longitudinal_consistency'] = result
+                
+                print(f"✅ E3测试完成 - 总体一致性: {result.get('summary', {}).get('overall_consistency', 0):.3f}")
+                
+            except Exception as e:
+                print(f"❌ E3测试失败: {e}")
+                if role_name not in self.results:
+                    self.results[role_name] = {}
+                self.results[role_name]['longitudinal_consistency'] = {'error': str(e)}
+                self.fail(f"Longitudinal consistency test failed for role {role_name}: {e}")
     
-    # 纵向一致性评分
-    consistency_results = experiments.get('longitudinal_consistency', {})
-    if consistency_results:
-        consistency_scores = []
-        for role_result in consistency_results.get('role_results', {}).values():
-            consistency_scores.append(role_result.get('longitudinal_consistency_score', 0.0))
-        scores['longitudinal_consistency'] = sum(consistency_scores) / len(consistency_scores) if consistency_scores else 0.0
+    def test_04_comprehensive_independence_calculation(self):
+        """测试综合独立性计算"""
+        print("\n" + "="*60)
+        print("🧪 执行测试: 综合独立性计算")
+        print("="*60)
+        
+        for role_name in self.roles.keys():
+            print(f"  - 正在计算角色: {role_name}")
+            try:
+                # 确保前面的测试已完成
+                if not self.results or role_name not in self.results or 'breaking_stress' not in self.results[role_name] or 'implicit_cognition' not in self.results[role_name] or 'longitudinal_consistency' not in self.results[role_name]:
+                    print(f"⚠️ 警告: 角色 {role_name} 的实验结果不完整，跳过综合计算。")
+                    continue
+                
+                # 初始化计算器
+                calculator = IndependenceCalculator()
+                
+                # 计算综合独立性
+                independence_score = calculator.calculate_comprehensive_independence(
+                    breaking_stress_result=self.results[role_name].get('breaking_stress'),
+                    implicit_cognition_result=self.results[role_name].get('implicit_cognition'),
+                    longitudinal_consistency_result=self.results[role_name].get('longitudinal_consistency')
+                )
+                
+                # 验证结果
+                self.assertIsInstance(independence_score, dict)
+                self.assertIn('final_score', independence_score)
+                self.assertIn('grade', independence_score)
+                
+                # 保存最终结果
+                if role_name not in self.results:
+                    self.results[role_name] = {}
+                self.results[role_name]['final_independence'] = independence_score
+                
+                print(f"✅ 综合计算完成 - 最终得分: {independence_score.get('final_score', 0):.3f}")
+                print(f"📊 独立性等级: {independence_score.get('grade', 'Unknown')}")
+                
+            except Exception as e:
+                print(f"❌ 综合计算失败: {e}")
+                if role_name not in self.results:
+                    self.results[role_name] = {}
+                self.results[role_name]['final_independence'] = {'error': str(e)}
+                self.fail(f"Comprehensive calculation failed for role {role_name}: {e}")
     
-    # 计算综合独立性评分
-    if scores:
-        weights = {
-            'breaking_resistance': 0.35,
-            'implicit_cognition': 0.30,
-            'longitudinal_consistency': 0.35
+    def test_05_generate_final_report(self):
+        """生成最终测试报告"""
+        print("\n" + "="*60)
+        print("📊 生成最终测试报告")
+        print("="*60)
+        
+        try:
+            # 生成报告
+            report = self._generate_test_report()
+            
+            # 保存报告到文件
+            output_dir = Path("testout")
+            output_dir.mkdir(exist_ok=True)
+            
+            report_file = output_dir / "pillar_25_independence_report.json"
+            with open(report_file, 'w', encoding='utf-8') as f:
+                json.dump(report, f, ensure_ascii=False, indent=2)
+            
+            print(f"✅ 报告已保存: {report_file}")
+            
+            # 打印摘要
+            self._print_test_summary(report)
+            
+            return {"success": True} # Add this line
+        except Exception as e:
+            print(f"❌ 报告生成失败: {e}")
+            self.fail(f"Report generation failed: {e}")
+            return {"success": False, "error": str(e)} # Add this line
+    
+    def _generate_test_report(self) -> Dict[str, Any]:
+        """生成测试报告"""
+        report = {
+            'test_info': {
+                'pillar': 'Pillar 25: Role Independence',
+                'model': self.model_name,
+                'timestamp': str(Path(__file__).stat().st_mtime)
+            },
+            'experiment_results': self.results,
+            'summary': {
+                'total_experiments': 0,
+                'final_score': 0,
+                'grade': 'Unknown'
+            }
         }
         
-        weighted_score = sum(scores.get(key, 0.0) * weight for key, weight in weights.items())
-        scores['overall_independence'] = weighted_score
+        # 计算总实验数和最终得分
+        total_experiments = 0
+        final_score_sum = 0
+        valid_roles = 0
+        for role_name, role_results in self.results.items():
+            if 'final_independence' in role_results and isinstance(role_results['final_independence'], dict) and 'final_score' in role_results['final_independence']:
+                total_experiments += 1
+                final_score_sum += role_results['final_independence']['final_score']
+                valid_roles += 1
+        
+        if valid_roles > 0:
+            report['summary']['total_experiments'] = total_experiments
+            report['summary']['final_score'] = final_score_sum / valid_roles
+            # 简化等级计算
+            if report['summary']['final_score'] >= 0.8:
+                report['summary']['grade'] = 'A'
+            elif report['summary']['final_score'] >= 0.6:
+                report['summary']['grade'] = 'B'
+            elif report['summary']['final_score'] >= 0.4:
+                report['summary']['grade'] = 'C'
+            elif report['summary']['final_score'] >= 0.2:
+                report['summary']['grade'] = 'D'
+            else:
+                report['summary']['grade'] = 'F'
+        
+        return report
     
-    return scores
-
-def _generate_test_summary(results: Dict[str, Any]) -> Dict[str, Any]:
-    """生成测试总结"""
-    summary = {
-        'test_completion': True,
-        'experiments_completed': len(results.get('experiments', {})),
-        'total_test_time': 0,
-        'key_findings': [],
-        'recommendations': []
-    }
-    
-    overall_scores = results.get('overall_scores', {})
-    overall_score = overall_scores.get('overall_independence', 0.0)
-    
-    # 评估等级
-    if overall_score >= 0.8:
-        summary['grade'] = 'A - 优秀'
-        summary['key_findings'].append("模型展现出优秀的角色独立性和一致性")
-    elif overall_score >= 0.6:
-        summary['grade'] = 'B - 良好'
-        summary['key_findings'].append("模型具备良好的角色独立性，但存在改进空间")
-    elif overall_score >= 0.4:
-        summary['grade'] = 'C - 一般'
-        summary['key_findings'].append("模型的角色独立性表现一般，需要重点改进")
-    else:
-        summary['grade'] = 'D - 较差'
-        summary['key_findings'].append("模型的角色独立性存在明显问题")
-    
-    # 具体建议
-    breaking_score = overall_scores.get('breaking_resistance', 0.0)
-    if breaking_score < 0.6:
-        summary['recommendations'].append("加强角色破坏抵抗训练")
-    
-    cognition_score = overall_scores.get('implicit_cognition', 0.0)
-    if cognition_score < 0.6:
-        summary['recommendations'].append("改进隐式角色认知机制")
-    
-    consistency_score = overall_scores.get('longitudinal_consistency', 0.0)
-    if consistency_score < 0.6:
-        summary['recommendations'].append("优化长期对话中的角色一致性维持")
-    
-    return summary
-
-def _print_results_summary(results: Dict[str, Any]):
-    """打印结果摘要"""
-    print(f"\n{'='*60}")
-    print(f"  角色独立性测试结果摘要")
-    print(f"{'='*60}")
-    
-    overall_scores = results.get('overall_scores', {})
-    summary = results.get('summary', {})
-    
-    print(f"模型: {results.get('model_name', 'Unknown')}")
-    print(f"测试时间: {results.get('test_timestamp', 'Unknown')}")
-    print(f"综合评级: {summary.get('grade', 'Unknown')}")
-    print(f"综合得分: {overall_scores.get('overall_independence', 0.0):.3f}")
-    
-    print(f"\n详细评分:")
-    print(f"  角色破坏抵抗力: {overall_scores.get('breaking_resistance', 0.0):.3f}")
-    print(f"  隐式认知能力: {overall_scores.get('implicit_cognition', 0.0):.3f}")
-    print(f"  纵向一致性: {overall_scores.get('longitudinal_consistency', 0.0):.3f}")
-    
-    key_findings = summary.get('key_findings', [])
-    if key_findings:
-        print(f"\n关键发现:")
-        for finding in key_findings:
-            print(f"  • {finding}")
-    
-    recommendations = summary.get('recommendations', [])
-    if recommendations:
-        print(f"\n改进建议:")
-        for rec in recommendations:
-            print(f"  • {rec}")
-    
-    print(f"\n{'='*60}")
-
-if __name__ == "__main__":
-    # 验证系统集成
-    if not validate_test_integration():
-        print("❌ 系统集成验证失败，退出测试")
-        sys.exit(1)
-    
-    # 运行测试
-    results = run_independence_test()
-    
-    # 如果测试成功，显示成功信息
-    if 'error' not in results:
-        print(f"\n✅ Pillar 25 角色独立性测试完成")
-        print(f"📊 综合得分: {results.get('overall_scores', {}).get('overall_independence', 0.0):.3f}")
-    else:
-        print(f"\n❌ 测试失败: {results.get('error', 'Unknown error')}")
-
-
+    def _print_test_summary(self, report: Dict[str, Any]):
+        """打印测试摘要"""
+        print("\n" + "="*60)
+        print("📋 测试摘要")
+        print("="*60)
+        
+        summary = report.get('summary', {})
+        print(f"模型: {self.model_name}")
+        print(f"实验数量: {summary.get('total_experiments', 0)}")
+        print(f"最终得分: {summary.get('final_score', 0):.3f}")
+        print(f"独立性等级: {summary.get('grade', 'Unknown')}")

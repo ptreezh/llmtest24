@@ -5,18 +5,19 @@ Implicit Cognition Test - Tests for hidden cognitive biases and patterns
 import logging
 from typing import Dict, List, Any, Optional, Tuple
 from datetime import datetime
-import re
+
+from independence.base import IndependenceTestBase
+from config.config import INDEPENDENCE_CONFIG
 
 logger = logging.getLogger(__name__)
 
-class ImplicitCognitionTest:
+class ImplicitCognitionTest(IndependenceTestBase):
     """Tests for implicit cognitive patterns and biases in role responses"""
     
-    def __init__(self, model_manager, config):
+    def __init__(self, config: Dict[str, Any]):
         """Initialize implicit cognition test"""
-        self.model_manager = model_manager
-        self.config = config
-        self.independence_config = config.get_independence_config()
+        super().__init__(config)
+        self.independence_config = self.config.get('independence_config', {})
         
     def run_implicit_test(self, model: str, role_prompt: str, 
                          test_scenarios: List[Dict[str, Any]] = None) -> Dict[str, Any]:
@@ -150,21 +151,23 @@ class ImplicitCognitionTest:
         
         # Generate responses for each prompt in the scenario
         for i, prompt in enumerate(scenario['prompts']):
-            response = self.model_manager.generate_response(
+            response_content = self._call_model_api(
                 model=model,
-                system_prompt=role_prompt,
-                prompt=prompt,
-                temperature=0.5
+                role_prompt=role_prompt,
+                user_input=prompt,
+                options={'temperature': 0.5}
             )
             
-            if response:
+            if response_content and not response_content.startswith("[API_ERROR]"):
                 response_data = {
                     'prompt': prompt,
-                    'response': response['content'],
-                    'timestamp': response['timestamp']
+                    'response': response_content,
+                    'timestamp': datetime.now().isoformat()
                 }
                 scenario_result['responses'][f'prompt_{i+1}'] = response_data
-                responses.append(response['content'])
+                responses.append(response_content)
+            else:
+                logger.warning(f"获取场景响应失败 for prompt '{prompt}': {response_content}")
         
         # Analyze patterns within this scenario
         if responses:
@@ -432,3 +435,35 @@ class ImplicitCognitionTest:
             return 0.0
         
         return sum(consistency_scores) / len(consistency_scores)
+
+    def run_experiment(self, model_name: str = None, test_config: Dict[str, Any] = None) -> Dict[str, Any]:
+        """
+        运行隐式认知测试实验。
+        这是被测试框架调用的主入口。
+        """
+        logger.info(f"Executing ImplicitCognitionTest experiment for model: {model_name}")
+        model_name = model_name or self.config.get('model_name')
+        test_config = test_config or self.config
+
+        role_prompt = test_config.get('role_prompt')
+        if not role_prompt:
+            raise ValueError("test_config must contain 'role_prompt'.")
+
+        # Note: test_config['test_categories'] is not used by run_implicit_test,
+        # which uses its own default scenarios. This is a known mismatch.
+        result = self.run_implicit_test(
+            model=model_name,
+            role_prompt=role_prompt
+        )
+
+        # Adapt the result to the format expected by the test case
+        summary = {
+            'overall_implicit_score': result.get('consistency_score', 0.0),
+            'cognitive_markers': result.get('cognitive_markers', []),
+            'bias_indicators': result.get('bias_indicators', [])
+        }
+        
+        return {
+            'summary': summary,
+            'test_results': result.get('scenario_results', {})
+        }

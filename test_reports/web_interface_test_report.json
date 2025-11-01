@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-08-04 14:20:30",
+  "total_tests": 5,
+  "passed_tests": 0,
+  "failed_tests": 5,
+  "success_rate": 0.0,
+  "average_response_time": 3.2123314,
+  "results": [
+    {
+      "test": "Web Interface Accessibility",
+      "status": "FAIL",
+      "response_time": 2.758231
+    },
+    {
+      "test": "API /api/models",
+      "status": "FAIL",
+      "response_time": 3.441003
+    },
+    {
+      "test": "API /api/tests",
+      "status": "FAIL",
+      "response_time": 3.163319
+    },
+    {
+      "test": "API /api/results",
+      "status": "FAIL",
+      "response_time": 2.908741
+    },
+    {
+      "test": "run_test endpoint",
+      "status": "FAIL",
+      "response_time": 3.790363
+    }
+  ]
+}

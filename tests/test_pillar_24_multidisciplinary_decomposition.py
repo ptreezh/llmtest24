@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
+import sys
+import os
+
+# Add project root to Python path to ensure imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # -*- coding: utf-8 -*-
 """
 Pillar 24: 复杂综合多学科任务分解能力测试
 测试模型在跨学科知识整合、复杂系统分解和多领域协同方面的能力
 """
 
-import ollama
 import sys
 import os
 import json
 import time
 import re
 from typing import Dict, List, Any
-from utils import call_qiniu_deepseek, run_single_test
+from utils import run_single_test
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 try:
     from config import MODEL_TO_TEST
 except ImportError:
@@ -28,7 +32,14 @@ class MultidisciplinaryDecompositionTest:
         os.makedirs(self.model_dir, exist_ok=True)
 
     def call_model(self, prompt, options=None):
-        return run_single_test("Pillar 24: Multidisciplinary Decomposition", prompt, self.model_name, options or {}, messages=[], test_script_name="test_pillar_24_multidisciplinary_decomposition.py")[0]
+        content, _ = run_single_test(
+            pillar_name="Pillar XX: Auto-Detected", # Placeholder
+            prompt=prompt,
+            model=self.model_name,
+            options=options or {},
+            test_script_name=os.path.basename(__file__)
+        )
+        return content
     
     def test_smart_city_transformation(self) -> Dict[str, Any]:
         """测试智慧城市转型的多学科综合分解"""

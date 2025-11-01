@@ -1,0 +1,46 @@
+# Implementation Plan: Visual Test Interface
+
+This is a step-by-step implementation plan for the visual test interface, based on the approved requirements and design. Each task is a discrete coding step that builds upon the previous ones.
+
+- [ ] 1. Set up the Streamlit application and create the main structure
+  - Create a new Python file `visual_test_interface.py` in the project root.
+  - Import necessary libraries: `streamlit as st`, `subprocess`, `os`, `json`, `re`, `time`.
+  - Define the main function and use `st.set_page_config` to set the page title and layout.
+  - Create the initial layout with three main sections: "Model & Test Selection", "Live Test Output", and "Results Dashboard".
+  - References: None (Foundation task)
+- [ ] 2. Implement the model selector component
+  - Create a function `get_available_models()` that reads the `scripts/utils/cloud_services.py` file.
+  - Parse the file to extract the `AVAILABLE_MODELS` dictionary and return a list of model names.
+  - Use `st.selectbox` to display the model list in the "Model & Test Selection" section.
+  - Add error handling with a try-except block and display an error message if the file cannot be read.
+  - References: 1.1, 1.2, 1.3
+- [ ] 3. Implement the test selector component
+  - Create a function `discover_tests()` that scans the `tests/` directory for files matching `test_pillar_*.py`.
+  - Group the discovered tests into categories (e.g., "基础能力测试" for pillars 01-08, "高级能力测试" for 09-19, "前沿能力测试" for 20-24) based on the filename.
+  - Return a dictionary with category names as keys and lists of test file paths as values.
+  - In the "Model & Test Selection" section, use `st.checkbox` to create a hierarchical selection interface for categories and individual tests.
+  - Implement logic so that checking a category checks all its tests, and unchecking a test unchecks its parent category if no other tests are selected.
+  - References: 2.1, 2.2, 2.3, 2.4, 2.5
+- [ ] 4. Implement the test runner and real-time monitor
+  - Create a function `run_test_script(script_path, model_name)` that uses `subprocess.Popen` to execute a test script with the model name as an argument.
+  - Capture the `stdout` and `stderr` streams and read them line by line in a loop.
+  - Use `st.empty()` to create a placeholder in the "Live Test Output" section and update it with each new line of output, ensuring the view scrolls to the bottom.
+  - Display a spinner or progress bar while the test is running and disable the "Run Tests" button to prevent duplicate runs.
+  - After the process completes, re-enable the "Run Tests" button.
+  - References: 3.1, 3.2, 3.3, 4.1, 4.2, 4.3, 4.4
+- [ ] 5. Implement the results dashboard and charting
+  - Create a function `parse_latest_results()` that finds the most recent JSON file in the `testout/` directory and parses it.
+  - Create functions to generate Plotly charts:
+    - `create_success_rate_chart(results)`: Creates a bar chart of success rates per test pillar.
+    - `create_overall_pie_chart(results)`: Creates a pie chart of total pass/fail ratio.
+    - `create_response_time_chart(results)`: Creates a line chart of response times (if available).
+  - In the "Results Dashboard" section, use `st.plotly_chart` to display the generated charts.
+  - If parsing fails, display an error message and show the raw JSON content in a code block.
+  - References: 5.1, 5.2, 5.3, 5.4
+- [ ] 6. Integrate all components and finalize the UI
+  - Add a "Run Tests" button that triggers the test execution when clicked, provided a model and at least one test are selected.
+  - Ensure the application state is managed correctly using `st.session_state` to handle concurrent operations.
+  - Style the UI for better user experience (e.g., use columns, add section headers, improve layout).
+  - Add a history panel to list previous test runs from the `testout/` directory, allowing users to reload and view old results.
+  - Verify that the application meets all requirements in the `requirements.md` document.
+  - References: 3.1, 3.2, 5.3, 6.1, 6.2

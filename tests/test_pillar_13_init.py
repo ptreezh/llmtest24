@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
+import sys
+import os
+
+# Add project root to Python path to ensure imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 import os
 import subprocess
 from pathlib import Path
 import json
 import sys
+# 添加项目根目录到Python路径
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 from utils import run_single_test, print_assessment_criteria, setup_test_environment, cleanup_test_environment, save_file, execute_bash_script
 from config import MODEL_TO_TEST, DEFAULT_OPTIONS_DETERMINISTIC

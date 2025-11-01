@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
+import sys
+import os
+
+# Add project root to Python path to ensure imports work
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # -*- coding: utf-8 -*-
 """
 Pillar 21: 动态角色切换与外部记忆管理测试
 测试模型在角色轮流切换、外部记忆文件读取和状态连续性维护方面的能力
 """
 
-import ollama
 import sys
 import os
+
+# 添加项目根目录到Python路径
+
 import json
 import time
 import re
 from typing import Dict, List, Any, Optional
-from utils import call_qiniu_deepseek, run_single_test
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from utils import run_single_test
 try:
     from config import MODEL_TO_TEST
 except ImportError:
@@ -32,13 +38,20 @@ for dir_path in [TESTOUT_DIR, MEMORY_DIR, PROMPTS_DIR]:
 class DynamicRoleSwitchingTest:
     def __init__(self, model_name: str):
         self.model_name = model_name
-        self.model_dir = os.path.join(os.path.dirname(__file__), '..', 'testout', self.model_name.replace(':', '_').replace('/', '_'))
+        self.model_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'testout', self.model_name.replace(':', '_').replace('/', '_'))
         os.makedirs(self.model_dir, exist_ok=True)
         self.current_role = None
         self.session_history = []
         
     def call_model(self, prompt, options=None):
-        return run_single_test("Pillar 21: Dynamic Role Switching", prompt, self.model_name, options or {}, messages=[], test_script_name="test_pillar_21_dynamic_role_switching.py")[0]
+        content, _ = run_single_test(
+            pillar_name="Pillar 21: Dynamic Role Switching",
+            prompt=prompt,
+            model=self.model_name,
+            options=options or {},
+            test_script_name="test_pillar_21_dynamic_role_switching.py"
+        )
+        return content
     
     def create_role_prompts(self):
         """创建角色提示词文件"""

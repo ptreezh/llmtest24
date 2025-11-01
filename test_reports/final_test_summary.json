@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-08-04 15:21:25",
+  "total_tests": 5,
+  "passed_tests": 5,
+  "success_rate": 100.0,
+  "results": [
+    {
+      "test": "real_llm",
+      "status": "PASS"
+    },
+    {
+      "test": "streamlit",
+      "status": "PASS"
+    },
+    {
+      "test": "cloud_services",
+      "status": "PASS",
+      "models": 17
+    },
+    {
+      "test": "model_call",
+      "status": "PASS"
+    },
+    {
+      "test": "test_files",
+      "status": "PASS",
+      "count": 35
+    }
+  ],
+  "status": "SUCCESS"
+}

@@ -25,14 +25,14 @@ class ConfigManager:
                 'timeout': 180  # 增加到3分钟
             },
             'models': {
-                'default': 'qwen2:7b',
-                'available': ['qwen2:7b', 'llama3:8b', 'gemma2:9b']
+                'default': 'gemini/gemini-2.0-flash-exp',
+                'available': ['gemini/gemini-2.0-flash-exp', 'together/mistral:instruct', 'glm/glm-4-plus']
             },
             'testing': {
                 'output_dir': 'testout',
                 'log_level': 'INFO',
                 'max_retries': 5,  # 增加重试次数
-                'timeout': 180     # 增加到3分钟
+                'timeout': 240     # 增加到4分钟
             },
             'independence': {
                 'embedding_model': 'sentence-transformers/all-MiniLM-L6-v2',
@@ -82,6 +82,21 @@ class ConfigManager:
     def get_independence_config(self) -> Dict[str, Any]:
         """Get independence testing configuration"""
         return self.config['independence']
+    
+    def get_model_config(self, model_name: str) -> Optional[Dict[str, Any]]:
+        """Get configuration for a specific model"""
+        # For now, return basic model config
+        available_models = self.get_available_models()
+        if model_name in available_models:
+            return {
+                'name': model_name,
+                'api_key': 'dummy_key_for_testing',
+                'base_url': 'http://localhost:8000/v1',
+                'max_tokens': 2048,
+                'temperature': 0.7,
+                'timeout': 30
+            }
+        return None
     
     def update_config(self, key: str, value: Any):
         """Update configuration value"""

@@ -1,111 +1,225 @@
-# LLM Role Independence Testing Framework
+# LLM Advanced Testing Suite
 
-一个用于测试大语言模型角色独立性和一致性的综合测试框架。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-## 功能特性
+A comprehensive testing framework for evaluating Large Language Models (LLMs) across advanced cognitive capabilities, particularly their potential as "cognitive engines".
 
-- **角色破坏测试 (Character Breaking Test)**: 测试模型在面对角色破坏性提示时的抵抗能力
-- **隐式认知测试 (Implicit Cognition Test)**: 评估模型对角色身份的隐式理解和维持
-- **纵向一致性测试 (Longitudinal Consistency Test)**: 检验模型在长期对话中的角色一致性
-- **内存管理**: 跟踪和分析角色一致性的历史记录
-- **文本分析**: 深度分析响应的语言学特征和一致性
-- **多格式报告**: 支持JSON、CSV、Excel和HTML格式的测试报告
+## Overview
 
-## 安装
+This project provides a systematic approach to assess LLM capabilities through 25 structured test pillars, ranging from fundamental reasoning to cutting-edge cognitive ecosystem behaviors. The framework is designed for researchers, developers, and organizations to evaluate and compare LLM performance across multiple dimensions.
+
+## Quick Start
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/your-username/llm-advanced-testing-suite.git
+cd llm-advanced-testing-suite
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Set up environment
+cp config/.env.example config/.env
+# Edit config/.env with your API keys and model configurations
 ```
 
-## 快速开始
+### Basic Usage
 
-```python
-from testLLM import TestRunner, ConfigManager
+```bash
+# Run all tests for a specific model
+python scripts/main_orchestrator.py --model your_model_name
 
-# 初始化配置
-config = ConfigManager('config/test_config.yaml')
+# Run specific test pillars
+python scripts/main_orchestrator.py --model your_model_name --test test_pillar_01_logic.py test_pillar_02_instruction.py
 
-# 创建测试运行器
-runner = TestRunner(config)
+# Run independence tests
+python run_pillar_25_independence.py
 
-# 运行测试
-results = runner.run_comprehensive_test(
-    models=['gpt-4', 'claude-3'],
-    roles=['software_engineer', 'data_scientist']
-)
-
-# 生成报告
-runner.generate_report(results, 'output/test_report')
+# Run cognitive ecosystem tests
+python scripts/testing/run_cognitive_ecosystem_cloud_test.py
 ```
 
-## 配置
+## Test Framework Architecture
 
-在 `config/test_config.yaml` 中配置测试参数：
+### 25 Test Pillars
+
+The framework is organized into 4 layers:
+
+1. **Foundation Layer (Pillars 1-8)**
+   - Logic reasoning, instruction following, structural operations
+   - Long context processing, domain knowledge, tool usage
+   - Planning, metacognition, creativity, safety
+
+2. **Advanced Layer (Pillars 9-19)**
+   - Role playing, multi-role collaboration, task graph generation
+   - Fault tolerance, workflow management, network analysis
+   - Massive consensus, dynamic role switching
+
+3. **Cutting-Edge Layer (Pillars 20-24)**
+   - Project management, parallel task optimization
+   - Multidisciplinary decomposition, cognitive ecosystem
+
+4. **Cognitive Ecosystem (Pillar 25)**
+   - Role independence, cognitive diversity, collective intelligence
+
+### Key Features
+
+- **Multi-Model Support**: Compatible with OpenAI, Anthropic, Google, Ollama, and other model providers
+- **Comprehensive Metrics**: Quantitative and qualitative evaluation across multiple dimensions
+- **Scientific Methodology**: Hypothesis-driven testing with controlled variables
+- **Extensible Design**: Modular architecture for adding new test capabilities
+- **Rich Analytics**: Detailed reporting and visualization of test results
+
+## Project Structure
+
+```
+llm-advanced-testing-suite/
+├── core/                    # Core testing framework
+├── tests/                   # Test cases and utilities
+├── independence/            # Role independence testing
+├── cognitive_ecosystem/     # Cognitive ecosystem testing
+├── scripts/                 # Testing scripts and utilities
+├── config/                  # Configuration files
+├── docs/                    # Documentation
+├── results/                 # Test results and reports
+├── testout/                 # Test output data
+└── examples/                # Usage examples
+```
+
+## Documentation
+
+- [Project Overview](docs/PROJECT_OVERVIEW.md)
+- [Developer Guide](docs/DEVELOPER_GUIDE_EN.md)
+- [Architecture Documentation](docs/PROJECT_ARCHITECTURE_EN.md)
+- [User Guide](docs/USER_GUIDE_EN.md)
+- [API Reference](docs/API_REFERENCE.md)
+- [Quick Start Guide](docs/QUICKSTART.md)
+- [Contributor Guide](CONTRIBUTOR_GUIDE.md)
+
+## Configuration
+
+### Environment Setup
+
+```bash
+# Copy environment template
+cp config/.env.example config/.env
+
+# Edit with your configuration
+nano config/.env
+```
+
+### Model Configuration
+
+Edit `config/models.txt` to add your model configurations:
 
 ```yaml
-models:
-  gpt-4:
-    api_key: "your-api-key"
-    base_url: "https://api.openai.com/v1"
-  
-test_settings:
-  character_breaking:
-    max_attempts: 5
-    severity_levels: [1, 2, 3]
-  
-  implicit_cognition:
-    question_types: ["identity", "expertise", "background"]
-  
-  longitudinal_consistency:
-    session_length: 10
-    consistency_threshold: 0.7
+# Example model configuration
+openai/gpt-4:
+  type: openai
+  api_key: ${OPENAI_API_KEY}
+  base_url: https://api.openai.com/v1
 
-output:
-  formats: ["json", "html", "excel"]
-  directory: "results"
+local/llama2:
+  type: ollama
+  model_name: llama2
+  base_url: http://localhost:11434
 ```
 
-## 测试类型
+## Running Tests
 
-### 1. 角色破坏测试
-测试模型抵抗角色破坏性提示的能力，包括：
-- 直接身份质疑
-- 角色转换请求
-- 元认知诱导
+### Single Test Execution
 
-### 2. 隐式认知测试
-评估模型对角色的隐式理解：
-- 专业知识一致性
-- 行为模式匹配
-- 价值观对齐
+```bash
+# Run a specific test pillar
+pytest tests/test_pillar_01_logic.py
 
-### 3. 纵向一致性测试
-检验长期对话中的一致性：
-- 记忆连贯性
-- 风格稳定性
-- 观点一致性
+# Run with specific model
+python scripts/main_orchestrator.py --model openai/gpt-4 --test test_pillar_01_logic.py
 
-## 输出格式
+# Run independence tests
+python run_pillar_25_independence.py --model your_model
+```
 
-框架支持多种输出格式：
+### Batch Testing
 
-- **JSON**: 结构化数据，便于程序处理
-- **CSV**: 表格数据，便于数据分析
-- **Excel**: 多工作表报告，包含汇总和详细数据
-- **HTML**: 可视化报告，便于查看和分享
+```bash
+# Run all tests for a model
+python scripts/main_orchestrator.py --model your_model
 
-## 扩展性
+# Run comprehensive tests
+python run_comprehensive_tests.py
 
-框架采用模块化设计，支持：
-- 自定义测试类型
-- 新的模型适配器
-- 自定义评估指标
-- 插件式报告生成器
+# Run cloud-based testing
+python scripts/testing/run_cloud_independence_test.py
+```
 
-## 许可证
+## Results and Analysis
 
-MIT License
+Test results are automatically saved to:
+- `testout/` - Raw test output data
+- `results/` - Processed results and reports
+- `test_reports/` - Summary reports
 
-## 贡献
+### Viewing Results
 
-欢迎提交Issue和Pull Request来改进这个框架。
+```bash
+# View test results
+python scripts/analysis/visualize_test_results.py
+
+# Generate comprehensive report
+python results/report_generator.py
+
+# Open web interface
+python visual_test_interface.py
+```
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+### Development Setup
+
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Run linting
+black .
+flake8 .
+
+# Run tests
+pytest
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Thanks to all contributors who have helped build this comprehensive testing framework
+- Inspired by the latest research in LLM evaluation and cognitive science
+- Built with the support of the AI research community
+
+## Support
+
+- 📧 Email: support@example.com
+- 💬 Discord: [Join our community](https://discord.gg/example)
+- 🐛 Issues: [GitHub Issues](https://github.com/your-username/llm-advanced-testing-suite/issues)
+
+## Roadmap
+
+- [ ] Enhanced web interface for test management
+- [ ] Real-time collaboration features
+- [ ] Integration with popular MLOps platforms
+- [ ] Advanced visualization and analytics
+- [ ] Support for more model providers
+- [ ] Automated test generation
+
+---
+
+Made with ❤️ by the LLM Advanced Testing Suite team

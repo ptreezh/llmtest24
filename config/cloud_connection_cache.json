@@ -1,0 +1,26 @@
+{
+  "successful_services": {
+    "together": "2025-07-22T16:00:57.115799",
+    "siliconflow": "2025-07-22T16:01:53.621134"
+  },
+  "failed_services": {
+    "openrouter": {
+      "time": "2025-07-22T16:14:27.868977",
+      "reason": "API返回错误"
+    },
+    "together": {
+      "time": "2025-07-22T16:01:04.503488",
+      "reason": "API返回错误"
+    },
+    "siliconflow": {
+      "time": "2025-07-22T16:14:18.277568",
+      "reason": "API返回错误"
+    }
+  },
+  "preferred_order": [
+    "together",
+    "siliconflow",
+    "openrouter"
+  ],
+  "last_updated": "2025-07-22T16:14:27.868977"
+}

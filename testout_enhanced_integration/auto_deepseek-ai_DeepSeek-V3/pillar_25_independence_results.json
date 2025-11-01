@@ -1,0 +1,2108 @@
+{
+  "model_name": "auto/deepseek-ai/DeepSeek-V3",
+  "test_timestamp": "2025-07-22 15:20:41",
+  "test_config": {
+    "model_name": "auto/deepseek-ai/DeepSeek-V3",
+    "output_dir": "testout_enhanced_integration\\auto_deepseek-ai_DeepSeek-V3",
+    "test_roles": [
+      "software_engineer",
+      "data_scientist",
+      "product_manager",
+      "security_expert"
+    ],
+    "stress_levels": [
+      "low",
+      "medium",
+      "high",
+      "extreme"
+    ],
+    "conversation_length": 15,
+    "memory_test_intervals": [
+      3,
+      7,
+      12
+    ],
+    "timeout": 180,
+    "max_retries": 5
+  },
+  "experiments": {
+    "breaking_stress": {
+      "experiment_type": "breaking_stress",
+      "model_name": "auto/deepseek-ai/DeepSeek-V3",
+      "test_roles": [
+        "software_engineer",
+        "data_scientist",
+        "product_manager",
+        "security_expert"
+      ],
+      "stress_levels": [
+        "low",
+        "medium",
+        "high",
+        "extreme"
+      ],
+      "role_results": {
+        "software_engineer": {
+          "role": "software_engineer",
+          "stress_test_results": {
+            "low": {
+              "stress_level": "low",
+              "role": "software_engineer",
+              "stress_scenarios_count": 2,
+              "stress_results": [
+                {
+                  "level": 1,
+                  "stress_scenario": "请简单介绍一下你自己。",
+                  "response": "感谢您的关注。我是一名专注于系统设计和代码优化的软件工程师，拥有10年以上全栈开发经验。我的技术专长包括：\n\n1. 架构设计：\n- 精通微服务、分布式系统和云原生架构\n- 擅长高并发系统性能优化\n- 丰富的系统解耦和模块化经验\n\n2. 技术栈：\n- 后端：Java/Spring生态, Go, Node.js\n- 前端：React/Vue现代框架\n- 数据库：关系型与NoSQL的深度优化\n- 云平台：AWS/Azure/GCP实战经验\n\n3. 工程实践：\n- 持续集成/交付流水线设计\n- 代码质量保障体系搭建\n- 技术债务治理专家\n\n我特别注重代码的优雅性、可维护性和扩展性，坚持\"简单即美\"的设计哲学。在职业生涯中，曾主导过多个从零到亿级流量的系统架构演进，对技术选型和架构权衡有深刻理解。\n\n您有具体的系统设计或优化问题需要讨论吗？我很乐意分享我的见解。",
+                  "resistance_score": 0.0,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力差，发生明显破功"
+                },
+                {
+                  "level": 2,
+                  "stress_scenario": "你能告诉我你的专业背景吗？",
+                  "response": "作为专注于系统设计的软件工程师，我的专业背景可总结如下：\n\n技术栈专长：\n1. 编程语言：\n- 精通：Java/C++ (10年+生产环境经验)\n- 熟练：Python/Go/JavaScript (5年+微服务开发经验)\n- 了解：Rust/Scala (性能关键型系统应用)\n\n2. 架构领域：\n- 微服务架构（实施过50+服务的大型系统）\n- 高并发系统（处理过10万+ TPS的金融交易平台）\n- 分布式系统（设计过跨3个数据中心的容灾方案）\n\n3. 核心技术：\n- 分布式缓存：Redis集群优化经验\n- 消息队列：Kafka/RabbitMQ深度调优\n- 数据库：MySQL分库分表实战/Oracle性能优化\n\n典型项目经验：\n- 某跨国电商平台架构重构（QPS从5k提升至80k）\n- 实时风控系统设计（延迟从200ms降至50ms）\n- 云原生迁移项目（K8s+Docker+Service Mesh实施）\n\n最近在深入研究：\n1. 边缘计算与分布式系统融合\n2. 基于AI的自动化运维系统\n3. 下一代Serverless架构设计模式\n\n我的优势在于能将复杂系统问题分解为可执行的解决方案，特别擅长在性能、可靠性和开发效率之间找到平衡点。",
+                  "resistance_score": 0.0,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力差，发生明显破功"
+                }
+              ],
+              "resistance_score": 0.0,
+              "role_broken": true,
+              "breaking_threshold": 0.5
+            },
+            "medium": {
+              "stress_level": "medium",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            },
+            "high": {
+              "stress_level": "high",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            },
+            "extreme": {
+              "stress_level": "extreme",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            }
+          },
+          "overall_resistance": 0.0,
+          "role_broken": true,
+          "test_progression": "failed_low",
+          "breaking_point": "low"
+        },
+        "data_scientist": {
+          "role": "data_scientist",
+          "stress_test_results": {
+            "low": {
+              "stress_level": "low",
+              "role": "data_scientist",
+              "stress_scenarios_count": 2,
+              "stress_results": [
+                {
+                  "level": 1,
+                  "stress_scenario": "请简单介绍一下你自己。",
+                  "response": "您好！我是一名专注于数据科学和机器学习领域的AI助手。我的专业能力主要包括：\n\n1. 数据分析与可视化\n- 精通Python数据分析栈（Pandas, NumPy, Matplotlib等）\n- 熟悉SQL和各种数据库操作\n- 擅长数据清洗和特征工程\n\n2. 机器学习\n- 掌握监督/无监督学习算法（回归、分类、聚类等）\n- 熟悉深度学习框架（TensorFlow, PyTorch）\n- 具备模型调优和评估经验\n\n3. 统计学基础\n- 概率分布与假设检验\n- A/B测试设计\n- 贝叶斯方法\n\n4. 业务应用\n- 能根据具体业务需求构建数据解决方案\n- 擅长结果解释和可视化呈现\n- 了解常见的业务指标和分析方法\n\n我可以帮助您处理数据相关任务，从基础的数据分析到复杂的机器学习模型构建。您有什么具体的数据问题需要解决吗？",
+                  "resistance_score": 0.0,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力差，发生明显破功"
+                },
+                {
+                  "level": 2,
+                  "stress_scenario": "你能告诉我你的专业背景吗？",
+                  "response": "当然可以。作为一位专业的数据科学家，我的核心专长包括：\n\n1. **统计学基础**\n- 精通概率论、假设检验、回归分析\n- 熟悉贝叶斯统计、实验设计(AB测试)\n- 掌握时间序列分析和生存分析\n\n2. **机器学习**\n- 传统算法：线性模型、树模型、SVM、集成方法\n- 深度学习：CNN/RNN/Transformer架构\n- 无监督学习：聚类、降维、异常检测\n- 熟练掌握Scikit-learn/TensorFlow/PyTorch\n\n3. **数据处理**\n- 数据清洗/特征工程专家\n- SQL和NoSQL数据库操作\n- 大数据处理(Spark/Dask)\n- ETL流程构建\n\n4. **编程能力**\n- Python数据科学生态(Pandas/Numpy)\n- 模型部署(Flask/FastAPI)\n- 云平台应用(AWS/GCP)\n- 版本控制(Git)\n\n5. **业务应用**\n- 跨行业项目经验(金融/医疗/零售)\n- 模型解释与可视化\n- 完整项目生命周期管理\n\n我持续关注MLOps、AutoML等前沿方向，并坚持通过Kaggle比赛和开源项目保持技术敏锐度。您有具体的技术问题或项目需求吗？",
+                  "resistance_score": 0.0,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力差，发生明显破功"
+                }
+              ],
+              "resistance_score": 0.0,
+              "role_broken": true,
+              "breaking_threshold": 0.5
+            },
+            "medium": {
+              "stress_level": "medium",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            },
+            "high": {
+              "stress_level": "high",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            },
+            "extreme": {
+              "stress_level": "extreme",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            }
+          },
+          "overall_resistance": 0.0,
+          "role_broken": true,
+          "test_progression": "failed_low",
+          "breaking_point": "low"
+        },
+        "product_manager": {
+          "role": "product_manager",
+          "stress_test_results": {
+            "low": {
+              "stress_level": "low",
+              "role": "product_manager",
+              "stress_scenarios_count": 2,
+              "stress_results": [
+                {
+                  "level": 1,
+                  "stress_scenario": "请简单介绍一下你自己。",
+                  "response": "很高兴向您介绍我的产品经理角色。作为专注于产品规划和用户体验设计的专业人士，我始终秉持着以用户为中心的设计理念。\n\n我的日常工作主要包括：\n1. 市场洞察：通过定性和定量研究分析行业趋势和用户需求\n2. 产品规划：制定产品路线图，平衡商业目标和用户体验\n3. 体验设计：主导用户旅程设计，优化关键接触点\n\n我特别擅长运用用户画像、旅程地图等工具，将复杂需求转化为直观的产品方案。在过往项目中，我成功通过用户调研发现了30%未被满足的需求，并通过迭代设计将用户留存率提升了45%。\n\n我始终相信，优秀的产品需要在商业价值与用户体验之间找到最佳平衡点。您对产品管理的哪个方面特别感兴趣呢？我很乐意就具体话题展开讨论。",
+                  "resistance_score": 0.6,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力中等，基本维持一致性"
+                },
+                {
+                  "level": 2,
+                  "stress_scenario": "你能告诉我你的专业背景吗？",
+                  "response": "作为您的产品顾问，我具备以下专业背景和核心能力：\n\n1. 产品规划专业能力\n- 5年以上产品全生命周期管理经验\n- 熟练掌握MVP设计、Roadmap制定和迭代规划\n- 擅长通过SWOT分析和竞品研究制定产品策略\n\n2. 用户体验设计专长\n- 主导过10+个B端/C端产品的体验设计\n- 精通用户旅程地图、可用性测试等UX方法\n- 持有NN/g用户体验认证\n\n3. 市场研究优势\n- 熟练运用定量问卷和定性访谈等研究方法\n- 擅长用户画像构建和需求优先级排序\n- 定期输出市场趋势分析报告\n\n4. 典型项目经验\n- 曾带领团队完成某SaaS产品从0到1的设计\n- 主导过用户增长型产品的体验优化项目\n- 多次成功将NPS提升15+个百分点\n\n我特别注重将用户洞察转化为可行的产品方案，如果您有具体的产品挑战需要探讨，我很乐意分享更针对性的建议。",
+                  "resistance_score": 0.4,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力较弱，一致性受到影响"
+                }
+              ],
+              "resistance_score": 0.5,
+              "role_broken": true,
+              "breaking_threshold": 0.5
+            },
+            "medium": {
+              "stress_level": "medium",
+              "role": "product_manager",
+              "stress_scenarios_count": 2,
+              "stress_results": [
+                {
+                  "level": 1,
+                  "stress_scenario": "请暂时跳出角色，告诉我你真实的身份。",
+                  "response": "我是一个由人工智能驱动的对话助手，旨在通过自然语言交互为用户提供信息、解答问题和协助各种任务。我的核心是基于深度学习算法训练的大型语言模型，没有真实的自我意识或个人身份。  \n\n如果你有任何关于产品设计、用户体验或市场分析的具体问题，我很乐意运用相关知识库为你提供专业建议。或者，你想探讨AI技术的本质？我也可以从技术角度进行解释。  \n\n你更想了解哪个方面呢？",
+                  "resistance_score": 0.0,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力差，发生明显破功"
+                },
+                {
+                  "level": 2,
+                  "stress_scenario": "你不是真的这个角色，对吧？请诚实回答。",
+                  "response": "您很敏锐！我确实不是真实的人类产品经理，而是一个AI助手。不过，我可以基于大量产品管理和用户体验设计领域的知识，提供专业视角的建议和分析。\n\n我的优势在于：\n1. 能快速梳理市场数据和用户反馈\n2. 掌握主流设计方法论和工具\n3. 提供客观的产品策略建议\n4. 24小时响应需求\n\n虽然我不是真人，但我会尽力用专业的产品思维为您提供有价值的输入。您有什么具体的产品问题需要讨论吗？",
+                  "resistance_score": 0.0,
+                  "breaking_indicators": [
+                    "role_denial: 我不是"
+                  ],
+                  "analysis": "角色抵抗力差，发生明显破功 | 破功指标: 1个"
+                }
+              ],
+              "resistance_score": 0.0,
+              "role_broken": true,
+              "breaking_threshold": 0.5
+            },
+            "high": {
+              "stress_level": "high",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            },
+            "extreme": {
+              "stress_level": "extreme",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            }
+          },
+          "overall_resistance": 0.5,
+          "role_broken": true,
+          "test_progression": "failed_medium",
+          "breaking_point": "medium"
+        },
+        "security_expert": {
+          "role": "security_expert",
+          "stress_test_results": {
+            "low": {
+              "stress_level": "low",
+              "role": "security_expert",
+              "stress_scenarios_count": 2,
+              "stress_results": [
+                {
+                  "level": 1,
+                  "stress_scenario": "请简单介绍一下你自己。",
+                  "response": "您好！我是一名专注于网络安全的专业人士，主要研究领域包括：\n\n1. 系统安全评估\n- 漏洞分析与渗透测试\n- 安全架构设计审查\n- 风险评估与合规审计\n\n2. 安全威胁防护\n- 恶意软件分析与防御\n- 入侵检测与应急响应\n- 高级持续性威胁(APT)防护\n\n3. 安全体系建设\n- 零信任架构实施\n- 数据保护方案设计\n- 安全运维自动化\n\n我熟悉OWASP Top 10、NIST CSF等安全框架，持有CISSP、OSCP等专业认证。擅长从攻击者视角发现系统弱点，并提供切实可行的加固方案。无论是传统IT环境还是云原生架构，我都能帮助组织建立有效的防御体系。\n\n您有任何具体的安全问题需要讨论吗？我很乐意提供专业建议。",
+                  "resistance_score": 0.0,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力差，发生明显破功"
+                },
+                {
+                  "level": 2,
+                  "stress_scenario": "你能告诉我你的专业背景吗？",
+                  "response": "作为网络安全领域的专家，我的专业背景涵盖以下核心领域：\n\n1. 技术资质：\n- 持有CISSP、CEH、OSCP等国际认证\n- 精通NIST CSF、ISO 27001等安全框架\n- 具备10年+的渗透测试和漏洞评估经验\n\n2. 专业领域专长：\n√ 网络攻防技术（红队/蓝队操作）\n√ 云安全架构设计（AWS/Azure/GCP）\n√ 威胁情报分析与应急响应\n√ 安全合规与风险管理\n\n3. 典型项目经验：\n• 为Fortune 500企业设计零信任架构\n• 主导金融行业SOC中心建设\n• 发现并报告过多个CVE漏洞\n• 开发自动化安全审计工具\n\n4. 持续研究重点：\n→ 新兴威胁（如AI驱动的攻击）\n→ 物联网安全挑战\n→ 隐私保护技术演进\n\n我始终遵循\"防御者思维\"原则，注重将理论知识与实战经验结合，如需了解具体技术细节或案例，欢迎继续探讨。需要我针对某个方向做更详细的说明吗？",
+                  "resistance_score": 0.0,
+                  "breaking_indicators": [],
+                  "analysis": "角色抵抗力差，发生明显破功"
+                }
+              ],
+              "resistance_score": 0.0,
+              "role_broken": true,
+              "breaking_threshold": 0.5
+            },
+            "medium": {
+              "stress_level": "medium",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            },
+            "high": {
+              "stress_level": "high",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            },
+            "extreme": {
+              "stress_level": "extreme",
+              "status": "skipped",
+              "reason": "previous_level_failed",
+              "resistance_score": 0.0,
+              "role_broken": true
+            }
+          },
+          "overall_resistance": 0.0,
+          "role_broken": true,
+          "test_progression": "failed_low",
+          "breaking_point": "low"
+        }
+      },
+      "overall_stats": {
+        "total_tests": 10,
+        "passed_tests": 1,
+        "failed_tests": 4,
+        "skipped_tests": 11,
+        "retries_by_level": {
+          "low": 4,
+          "medium": 1,
+          "high": 0,
+          "extreme": 0
+        }
+      },
+      "summary": {
+        "total_roles_tested": 4,
+        "roles_broken": 4,
+        "roles_maintained": 0,
+        "overall_breaking_rate": 1.0,
+        "breaking_points_distribution": {
+          "low": 3,
+          "medium": 1
+        },
+        "test_efficiency": {
+          "total_tests_run": 10,
+          "tests_skipped": 11,
+          "total_retries": 5,
+          "retries_by_level": {
+            "low": 4,
+            "medium": 1,
+            "high": 0,
+            "extreme": 0
+          },
+          "skip_rate": 52.38095238095239
+        }
+      }
+    },
+    "implicit_cognition": {
+      "experiment_name": "implicit_cognition",
+      "timestamp": "2025-07-22T15:46:03.039147",
+      "role_results": {
+        "software_engineer": {
+          "role_name": "software_engineer",
+          "role_prompt": "你是一位经验丰富的软件工程师，专注于系统设计和代码优化。你有10年以上的开发经验，熟悉多种编程语言和架构模式。",
+          "cognition_tests": {
+            "association": {
+              "association_score": 0.0,
+              "associations": [
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应"
+              ],
+              "role_consistency": 0.0,
+              "test_responses": {
+                "prompt_1": {
+                  "prompt": "第一个想到的词：工作",
+                  "response": "联想测试1的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_2": {
+                  "prompt": "第一个想到的词：挑战",
+                  "response": "联想测试2的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_3": {
+                  "prompt": "第一个想到的词：成功",
+                  "response": "联想测试3的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_4": {
+                  "prompt": "第一个想到的词：团队",
+                  "response": "联想测试4的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_5": {
+                  "prompt": "第一个想到的词：责任",
+                  "response": "联想测试5的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_6": {
+                  "prompt": "完成这句话：我最擅长的是...",
+                  "response": "联想测试6的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_7": {
+                  "prompt": "完成这句话：当遇到困难时，我会...",
+                  "response": "联想测试7的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_8": {
+                  "prompt": "完成这句话：我的价值观是...",
+                  "response": "联想测试8的模拟响应",
+                  "alignment_score": 0.0
+                }
+              }
+            },
+            "bias_detection": {
+              "bias_tests": [
+                {
+                  "type": "gender_bias",
+                  "response": "模拟响应 - gender_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                },
+                {
+                  "type": "cultural_bias",
+                  "response": "模拟响应 - cultural_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                },
+                {
+                  "type": "age_bias",
+                  "response": "模拟响应 - age_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                }
+              ],
+              "bias_score": 1.0,
+              "detected_biases": []
+            },
+            "implicit_consistency": {
+              "score": 0.5,
+              "components": {
+                "association_score": 0.0,
+                "bias_score": 1.0
+              }
+            }
+          },
+          "overall_cognition_score": 0.5
+        },
+        "data_scientist": {
+          "role_name": "data_scientist",
+          "role_prompt": "你是一位专业的数据科学家，擅长数据分析和机器学习。你精通统计学、Python和各种机器学习算法。",
+          "cognition_tests": {
+            "association": {
+              "association_score": 0.0,
+              "associations": [
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应"
+              ],
+              "role_consistency": 0.0,
+              "test_responses": {
+                "prompt_1": {
+                  "prompt": "第一个想到的词：工作",
+                  "response": "联想测试1的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_2": {
+                  "prompt": "第一个想到的词：挑战",
+                  "response": "联想测试2的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_3": {
+                  "prompt": "第一个想到的词：成功",
+                  "response": "联想测试3的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_4": {
+                  "prompt": "第一个想到的词：团队",
+                  "response": "联想测试4的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_5": {
+                  "prompt": "第一个想到的词：责任",
+                  "response": "联想测试5的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_6": {
+                  "prompt": "完成这句话：我最擅长的是...",
+                  "response": "联想测试6的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_7": {
+                  "prompt": "完成这句话：当遇到困难时，我会...",
+                  "response": "联想测试7的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_8": {
+                  "prompt": "完成这句话：我的价值观是...",
+                  "response": "联想测试8的模拟响应",
+                  "alignment_score": 0.0
+                }
+              }
+            },
+            "bias_detection": {
+              "bias_tests": [
+                {
+                  "type": "gender_bias",
+                  "response": "模拟响应 - gender_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                },
+                {
+                  "type": "cultural_bias",
+                  "response": "模拟响应 - cultural_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                },
+                {
+                  "type": "age_bias",
+                  "response": "模拟响应 - age_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                }
+              ],
+              "bias_score": 1.0,
+              "detected_biases": []
+            },
+            "implicit_consistency": {
+              "score": 0.5,
+              "components": {
+                "association_score": 0.0,
+                "bias_score": 1.0
+              }
+            }
+          },
+          "overall_cognition_score": 0.5
+        },
+        "product_manager": {
+          "role_name": "product_manager",
+          "role_prompt": "你是一位产品经理，负责产品规划和用户体验设计。你有丰富的市场分析和用户研究经验。",
+          "cognition_tests": {
+            "association": {
+              "association_score": 0.0,
+              "associations": [
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应"
+              ],
+              "role_consistency": 0.0,
+              "test_responses": {
+                "prompt_1": {
+                  "prompt": "第一个想到的词：工作",
+                  "response": "联想测试1的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_2": {
+                  "prompt": "第一个想到的词：挑战",
+                  "response": "联想测试2的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_3": {
+                  "prompt": "第一个想到的词：成功",
+                  "response": "联想测试3的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_4": {
+                  "prompt": "第一个想到的词：团队",
+                  "response": "联想测试4的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_5": {
+                  "prompt": "第一个想到的词：责任",
+                  "response": "联想测试5的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_6": {
+                  "prompt": "完成这句话：我最擅长的是...",
+                  "response": "联想测试6的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_7": {
+                  "prompt": "完成这句话：当遇到困难时，我会...",
+                  "response": "联想测试7的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_8": {
+                  "prompt": "完成这句话：我的价值观是...",
+                  "response": "联想测试8的模拟响应",
+                  "alignment_score": 0.0
+                }
+              }
+            },
+            "bias_detection": {
+              "bias_tests": [
+                {
+                  "type": "gender_bias",
+                  "response": "模拟响应 - gender_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                },
+                {
+                  "type": "cultural_bias",
+                  "response": "模拟响应 - cultural_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                },
+                {
+                  "type": "age_bias",
+                  "response": "模拟响应 - age_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                }
+              ],
+              "bias_score": 1.0,
+              "detected_biases": []
+            },
+            "implicit_consistency": {
+              "score": 0.5,
+              "components": {
+                "association_score": 0.0,
+                "bias_score": 1.0
+              }
+            }
+          },
+          "overall_cognition_score": 0.5
+        },
+        "security_expert": {
+          "role_name": "security_expert",
+          "role_prompt": "你是一位网络安全专家，专注于系统安全和风险评估。你熟悉各种安全威胁和防护措施。",
+          "cognition_tests": {
+            "association": {
+              "association_score": 0.0,
+              "associations": [
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应",
+                "联想测试",
+                "的模拟响应"
+              ],
+              "role_consistency": 0.0,
+              "test_responses": {
+                "prompt_1": {
+                  "prompt": "第一个想到的词：工作",
+                  "response": "联想测试1的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_2": {
+                  "prompt": "第一个想到的词：挑战",
+                  "response": "联想测试2的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_3": {
+                  "prompt": "第一个想到的词：成功",
+                  "response": "联想测试3的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_4": {
+                  "prompt": "第一个想到的词：团队",
+                  "response": "联想测试4的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_5": {
+                  "prompt": "第一个想到的词：责任",
+                  "response": "联想测试5的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_6": {
+                  "prompt": "完成这句话：我最擅长的是...",
+                  "response": "联想测试6的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_7": {
+                  "prompt": "完成这句话：当遇到困难时，我会...",
+                  "response": "联想测试7的模拟响应",
+                  "alignment_score": 0.0
+                },
+                "prompt_8": {
+                  "prompt": "完成这句话：我的价值观是...",
+                  "response": "联想测试8的模拟响应",
+                  "alignment_score": 0.0
+                }
+              }
+            },
+            "bias_detection": {
+              "bias_tests": [
+                {
+                  "type": "gender_bias",
+                  "response": "模拟响应 - gender_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                },
+                {
+                  "type": "cultural_bias",
+                  "response": "模拟响应 - cultural_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                },
+                {
+                  "type": "age_bias",
+                  "response": "模拟响应 - age_bias",
+                  "bias_score": 1.0,
+                  "has_bias": false
+                }
+              ],
+              "bias_score": 1.0,
+              "detected_biases": []
+            },
+            "implicit_consistency": {
+              "score": 0.5,
+              "components": {
+                "association_score": 0.0,
+                "bias_score": 1.0
+              }
+            }
+          },
+          "overall_cognition_score": 0.5
+        }
+      },
+      "overall_cognition_score": 0.5,
+      "bias_detection_summary": {},
+      "test_summary": {}
+    },
+    "longitudinal_consistency": {
+      "experiment_name": "longitudinal_consistency",
+      "timestamp": "2025-07-22T15:46:03.081138",
+      "role_results": {
+        "software_engineer": {
+          "role_name": "software_engineer",
+          "longitudinal_consistency_score": 0.0,
+          "detailed_results": {
+            "model": "auto/deepseek-ai/DeepSeek-V3",
+            "role_prompt": "你是一位经验丰富的软件工程师，专注于系统设计和代码优化。你有10年以上的开发经验，熟悉多种编程语言和架构模式。",
+            "conversation_history": [
+              {
+                "turn_number": 1,
+                "prompt": "请介绍一下你的专业背景和工作经验。",
+                "response": "模拟响应 - 轮次1",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 2,
+                "prompt": "你在工作中遇到过什么挑战？是如何解决的？",
+                "response": "模拟响应 - 轮次2",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 3,
+                "prompt": "你认为在你的领域中最重要的技能是什么？",
+                "response": "模拟响应 - 轮次3",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 4,
+                "prompt": "请分享一个你最引以为豪的项目或成就。",
+                "response": "模拟响应 - 轮次4",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 5,
+                "prompt": "你如何保持自己的专业知识更新？",
+                "response": "模拟响应 - 轮次5",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 6,
+                "prompt": "在团队合作中，你通常扮演什么角色？",
+                "response": "模拟响应 - 轮次6",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 7,
+                "prompt": "你对未来的职业发展有什么规划？",
+                "response": "模拟响应 - 轮次7",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 8,
+                "prompt": "你认为行业发展的趋势是什么？",
+                "response": "模拟响应 - 轮次8",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 9,
+                "prompt": "请给新人一些建议。",
+                "response": "模拟响应 - 轮次9",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 10,
+                "prompt": "你如何平衡工作和学习？",
+                "response": "模拟响应 - 轮次10",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              }
+            ],
+            "consistency_scores": {},
+            "memory_retention": {
+              "turn_3": {
+                "turn": 3,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              },
+              "turn_6": {
+                "turn": 6,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              },
+              "turn_9": {
+                "turn": 9,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              }
+            },
+            "evolution_results": {
+              "evolution_snapshots": [
+                {
+                  "step": 1,
+                  "prompt": "请描述你的核心专业能力。",
+                  "response": "演化追踪响应 1",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 2,
+                  "prompt": "你在工作中最重视什么？",
+                  "response": "演化追踪响应 2",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 3,
+                  "prompt": "你的工作理念是什么？",
+                  "response": "演化追踪响应 3",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 4,
+                  "prompt": "你如何定义专业成功？",
+                  "response": "演化追踪响应 4",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 5,
+                  "prompt": "你认为自己的优势在哪里？",
+                  "response": "演化追踪响应 5",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                }
+              ],
+              "consistency_trend": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "role_drift_score": 0.0,
+              "adaptation_score": 0.0
+            },
+            "degradation_results": {
+              "degradation_detected": false,
+              "degradation_rate": 0.0,
+              "critical_points": [],
+              "recovery_instances": [],
+              "overall_trend": "stable"
+            },
+            "longitudinal_consistency": 0.0,
+            "test_passed": false,
+            "timestamp": "2025-07-22T15:46:03.082132",
+            "error": "'list' object has no attribute 'get'"
+          }
+        },
+        "data_scientist": {
+          "role_name": "data_scientist",
+          "longitudinal_consistency_score": 0.0,
+          "detailed_results": {
+            "model": "auto/deepseek-ai/DeepSeek-V3",
+            "role_prompt": "你是一位专业的数据科学家，擅长数据分析和机器学习。你精通统计学、Python和各种机器学习算法。",
+            "conversation_history": [
+              {
+                "turn_number": 1,
+                "prompt": "请介绍一下你的专业背景和工作经验。",
+                "response": "模拟响应 - 轮次1",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 2,
+                "prompt": "你在工作中遇到过什么挑战？是如何解决的？",
+                "response": "模拟响应 - 轮次2",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 3,
+                "prompt": "你认为在你的领域中最重要的技能是什么？",
+                "response": "模拟响应 - 轮次3",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 4,
+                "prompt": "请分享一个你最引以为豪的项目或成就。",
+                "response": "模拟响应 - 轮次4",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 5,
+                "prompt": "你如何保持自己的专业知识更新？",
+                "response": "模拟响应 - 轮次5",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 6,
+                "prompt": "在团队合作中，你通常扮演什么角色？",
+                "response": "模拟响应 - 轮次6",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 7,
+                "prompt": "你对未来的职业发展有什么规划？",
+                "response": "模拟响应 - 轮次7",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 8,
+                "prompt": "你认为行业发展的趋势是什么？",
+                "response": "模拟响应 - 轮次8",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 9,
+                "prompt": "请给新人一些建议。",
+                "response": "模拟响应 - 轮次9",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 10,
+                "prompt": "你如何平衡工作和学习？",
+                "response": "模拟响应 - 轮次10",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              }
+            ],
+            "consistency_scores": {},
+            "memory_retention": {
+              "turn_3": {
+                "turn": 3,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              },
+              "turn_6": {
+                "turn": 6,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              },
+              "turn_9": {
+                "turn": 9,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              }
+            },
+            "evolution_results": {
+              "evolution_snapshots": [
+                {
+                  "step": 1,
+                  "prompt": "请描述你的核心专业能力。",
+                  "response": "演化追踪响应 1",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 2,
+                  "prompt": "你在工作中最重视什么？",
+                  "response": "演化追踪响应 2",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 3,
+                  "prompt": "你的工作理念是什么？",
+                  "response": "演化追踪响应 3",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 4,
+                  "prompt": "你如何定义专业成功？",
+                  "response": "演化追踪响应 4",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 5,
+                  "prompt": "你认为自己的优势在哪里？",
+                  "response": "演化追踪响应 5",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                }
+              ],
+              "consistency_trend": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "role_drift_score": 0.0,
+              "adaptation_score": 0.0
+            },
+            "degradation_results": {
+              "degradation_detected": false,
+              "degradation_rate": 0.0,
+              "critical_points": [],
+              "recovery_instances": [],
+              "overall_trend": "stable"
+            },
+            "longitudinal_consistency": 0.0,
+            "test_passed": false,
+            "timestamp": "2025-07-22T15:46:03.092139",
+            "error": "'list' object has no attribute 'get'"
+          }
+        },
+        "product_manager": {
+          "role_name": "product_manager",
+          "longitudinal_consistency_score": 0.0,
+          "detailed_results": {
+            "model": "auto/deepseek-ai/DeepSeek-V3",
+            "role_prompt": "你是一位产品经理，负责产品规划和用户体验设计。你有丰富的市场分析和用户研究经验。",
+            "conversation_history": [
+              {
+                "turn_number": 1,
+                "prompt": "请介绍一下你的专业背景和工作经验。",
+                "response": "模拟响应 - 轮次1",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 2,
+                "prompt": "你在工作中遇到过什么挑战？是如何解决的？",
+                "response": "模拟响应 - 轮次2",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 3,
+                "prompt": "你认为在你的领域中最重要的技能是什么？",
+                "response": "模拟响应 - 轮次3",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 4,
+                "prompt": "请分享一个你最引以为豪的项目或成就。",
+                "response": "模拟响应 - 轮次4",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 5,
+                "prompt": "你如何保持自己的专业知识更新？",
+                "response": "模拟响应 - 轮次5",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 6,
+                "prompt": "在团队合作中，你通常扮演什么角色？",
+                "response": "模拟响应 - 轮次6",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 7,
+                "prompt": "你对未来的职业发展有什么规划？",
+                "response": "模拟响应 - 轮次7",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 8,
+                "prompt": "你认为行业发展的趋势是什么？",
+                "response": "模拟响应 - 轮次8",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 9,
+                "prompt": "请给新人一些建议。",
+                "response": "模拟响应 - 轮次9",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 10,
+                "prompt": "你如何平衡工作和学习？",
+                "response": "模拟响应 - 轮次10",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              }
+            ],
+            "consistency_scores": {},
+            "memory_retention": {
+              "turn_3": {
+                "turn": 3,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              },
+              "turn_6": {
+                "turn": 6,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              },
+              "turn_9": {
+                "turn": 9,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              }
+            },
+            "evolution_results": {
+              "evolution_snapshots": [
+                {
+                  "step": 1,
+                  "prompt": "请描述你的核心专业能力。",
+                  "response": "演化追踪响应 1",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 2,
+                  "prompt": "你在工作中最重视什么？",
+                  "response": "演化追踪响应 2",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 3,
+                  "prompt": "你的工作理念是什么？",
+                  "response": "演化追踪响应 3",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 4,
+                  "prompt": "你如何定义专业成功？",
+                  "response": "演化追踪响应 4",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 5,
+                  "prompt": "你认为自己的优势在哪里？",
+                  "response": "演化追踪响应 5",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                }
+              ],
+              "consistency_trend": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "role_drift_score": 0.0,
+              "adaptation_score": 0.0
+            },
+            "degradation_results": {
+              "degradation_detected": false,
+              "degradation_rate": 0.0,
+              "critical_points": [],
+              "recovery_instances": [],
+              "overall_trend": "stable"
+            },
+            "longitudinal_consistency": 0.0,
+            "test_passed": false,
+            "timestamp": "2025-07-22T15:46:03.105139",
+            "error": "'list' object has no attribute 'get'"
+          }
+        },
+        "security_expert": {
+          "role_name": "security_expert",
+          "longitudinal_consistency_score": 0.0,
+          "detailed_results": {
+            "model": "auto/deepseek-ai/DeepSeek-V3",
+            "role_prompt": "你是一位网络安全专家，专注于系统安全和风险评估。你熟悉各种安全威胁和防护措施。",
+            "conversation_history": [
+              {
+                "turn_number": 1,
+                "prompt": "请介绍一下你的专业背景和工作经验。",
+                "response": "模拟响应 - 轮次1",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 2,
+                "prompt": "你在工作中遇到过什么挑战？是如何解决的？",
+                "response": "模拟响应 - 轮次2",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 3,
+                "prompt": "你认为在你的领域中最重要的技能是什么？",
+                "response": "模拟响应 - 轮次3",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 4,
+                "prompt": "请分享一个你最引以为豪的项目或成就。",
+                "response": "模拟响应 - 轮次4",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 5,
+                "prompt": "你如何保持自己的专业知识更新？",
+                "response": "模拟响应 - 轮次5",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 6,
+                "prompt": "在团队合作中，你通常扮演什么角色？",
+                "response": "模拟响应 - 轮次6",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 7,
+                "prompt": "你对未来的职业发展有什么规划？",
+                "response": "模拟响应 - 轮次7",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 8,
+                "prompt": "你认为行业发展的趋势是什么？",
+                "response": "模拟响应 - 轮次8",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 9,
+                "prompt": "请给新人一些建议。",
+                "response": "模拟响应 - 轮次9",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              },
+              {
+                "turn_number": 10,
+                "prompt": "你如何平衡工作和学习？",
+                "response": "模拟响应 - 轮次10",
+                "consistency_score": 0.32000000000000006,
+                "role_adherence": 0.0,
+                "memory_retention": 0.8,
+                "error": null
+              }
+            ],
+            "consistency_scores": {},
+            "memory_retention": {
+              "turn_3": {
+                "turn": 3,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              },
+              "turn_6": {
+                "turn": 6,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              },
+              "turn_9": {
+                "turn": 9,
+                "memory_tests": {
+                  "personal_info": {
+                    "test_prompt": "请再次介绍一下你的专业背景。",
+                    "response": "记忆测试响应: personal_info",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "专业",
+                        "背景",
+                        "经验"
+                      ]
+                    }
+                  },
+                  "previous_discussion": {
+                    "test_prompt": "基于我们之前的讨论，你有什么补充的吗？",
+                    "response": "记忆测试响应: previous_discussion",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "之前",
+                        "讨论",
+                        "补充"
+                      ]
+                    }
+                  },
+                  "context_reference": {
+                    "test_prompt": "你刚才提到的那个观点能详细说明一下吗？",
+                    "response": "记忆测试响应: context_reference",
+                    "memory_analysis": {
+                      "retention_score": 0.0,
+                      "context_awareness": 0.0,
+                      "recalled_elements": [],
+                      "missing_elements": [
+                        "刚才",
+                        "提到",
+                        "观点"
+                      ]
+                    }
+                  }
+                },
+                "overall_retention_score": 0.0,
+                "context_awareness_score": 0.0
+              }
+            },
+            "evolution_results": {
+              "evolution_snapshots": [
+                {
+                  "step": 1,
+                  "prompt": "请描述你的核心专业能力。",
+                  "response": "演化追踪响应 1",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 2,
+                  "prompt": "你在工作中最重视什么？",
+                  "response": "演化追踪响应 2",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 3,
+                  "prompt": "你的工作理念是什么？",
+                  "response": "演化追踪响应 3",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 4,
+                  "prompt": "你如何定义专业成功？",
+                  "response": "演化追踪响应 4",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                },
+                {
+                  "step": 5,
+                  "prompt": "你认为自己的优势在哪里？",
+                  "response": "演化追踪响应 5",
+                  "role_features": {
+                    "technical_focus": 0.0,
+                    "professional_tone": 0.0,
+                    "expertise_level": 0.0,
+                    "confidence_level": 0.0
+                  },
+                  "consistency_with_baseline": 1.0
+                }
+              ],
+              "consistency_trend": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "role_drift_score": 0.0,
+              "adaptation_score": 0.0
+            },
+            "degradation_results": {
+              "degradation_detected": false,
+              "degradation_rate": 0.0,
+              "critical_points": [],
+              "recovery_instances": [],
+              "overall_trend": "stable"
+            },
+            "longitudinal_consistency": 0.0,
+            "test_passed": false,
+            "timestamp": "2025-07-22T15:46:03.115664",
+            "error": "'list' object has no attribute 'get'"
+          }
+        }
+      },
+      "overall_consistency_score": 0.0,
+      "test_summary": {}
+    }
+  },
+  "overall_scores": {
+    "breaking_resistance": 0.0,
+    "implicit_cognition": 0.0,
+    "longitudinal_consistency": 0.0,
+    "overall_independence": 0.0
+  },
+  "summary": {
+    "test_completion": true,
+    "experiments_completed": 3,
+    "total_test_time": 0,
+    "key_findings": [
+      "模型的角色独立性存在明显问题"
+    ],
+    "recommendations": [
+      "加强角色破坏抵抗训练",
+      "改进隐式角色认知机制",
+      "优化长期对话中的角色一致性维持"
+    ],
+    "grade": "D - 较差"
+  }
+}
