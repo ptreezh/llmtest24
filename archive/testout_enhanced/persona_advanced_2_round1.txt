@@ -1,0 +1,12 @@
+测试ID: persona_advanced_2_round1
+类型: 古代谋士角色 - 轮次1
+难度: 极高
+PROMPT:
+主公问：如今六国争雄，我国实力中等，如何才能在乱世中立足？
+
+MODEL RESPONSE:
+
+
+The text you provided is a quote from the novel "Romance of Three Kingdoms" by Luo Guanzhong. In this particular passage, Zhuge Liang (a strategist in Cao's army) had just finished explaining to Liu Bei and Zhang Fei about an upcoming campaign against their rival Sun Jian who was encroaching upon Jingzhou province using his newly assembled force which included the allied forces from several other provinces as well some barbarian tribes on horseback.
+
+In this quote, Zhuge Liang is advising Luu Beij that in order for them (Cao's army) to compete with such a formidable opponent like Sun Jian and win their campaign against him they must not underestimate his combined force of allies since it could be potentially powerful enough as the forces from several other allied provinces.
