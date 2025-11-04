@@ -71,6 +71,39 @@
             font-size: 2rem;
         }
 
+        /* 新增汉字图标样式 */
+        .text-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .features .text-icon {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 1.5rem;
+            background-color: var(--primary-color);
+            margin: 0 auto 1rem;
+        }
+
+        .users .text-icon {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            font-size: 2rem;
+            background-color: var(--accent-color);
+            margin: 0 auto 1rem;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -172,17 +205,12 @@
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             border-top: 4px solid var(--primary-color);
+            text-align: center;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
         }
 
         .feature-card h3 {
@@ -316,12 +344,6 @@
             transform: translateY(-5px);
         }
 
-        .user-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
         .user-card h3 {
             margin-bottom: 1rem;
         }
@@ -401,7 +423,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <span class="logo-icon">🧠</span>
+                    <span class="text-icon">测</span>
                     LLM高级能力测评套件
                 </div>
                 <nav>
@@ -436,22 +458,22 @@
             </div>
             <div class="features">
                 <div class="feature-card">
-                    <div class="feature-icon">🧪</div>
+                    <div class="text-icon">析</div>
                     <h3>25个测试支柱</h3>
                     <p>从基础能力到前沿能力，系统化评估LLM在不同维度的表现，覆盖逻辑推理、角色扮演、认知生态系统等。</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🧩</div>
+                    <div class="text-icon">维</div>
                     <h3>多维度评估</h3>
                     <p>结合定量和定性指标，全面分析模型性能，包括成功率、响应时间、一致性、创新性等。</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔬</div>
+                    <div class="text-icon">科</div>
                     <h3>科学方法论</h3>
                     <p>采用假设驱动的测试方法，控制变量，确保评估结果的科学性和可重复性。</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
+                    <div class="text-icon">扩</div>
                     <h3>可扩展架构</h3>
                     <p>模块化设计，支持添加新的测试能力和模型提供商，适应不断发展的LLM技术。</p>
                 </div>
@@ -616,8 +638,8 @@
                     <div class="step-content">
                         <h3>获取项目</h3>
                         <p>从GitHub克隆项目到本地：</p>
-                        <pre><code>git clone https://github.com/your-username/llm-advanced-testing-suite.git
-cd llm-advanced-testing-suite</code></pre>
+                        <pre><code>git clone https://github.com/ptreezh/llmtest24.git
+cd llmtest24</code></pre>
                     </div>
                 </div>
                 <div class="step">
@@ -741,22 +763,22 @@ ollama pull gemma:7b</code></pre>
             </div>
             <div class="user-container">
                 <div class="user-card">
-                    <div class="user-icon">🧑‍🔬</div>
+                    <div class="text-icon">研</div>
                     <h3>AI研究人员</h3>
                     <p>评估LLM认知能力，验证新模型性能，推动AI技术发展</p>
                 </div>
                 <div class="user-card">
-                    <div class="user-icon">💻</div>
+                    <div class="text-icon">开</div>
                     <h3>开发者</h3>
                     <p>选择最适合应用场景的LLM模型，优化系统设计</p>
                 </div>
                 <div class="user-card">
-                    <div class="user-icon">🏢</div>
+                    <div class="text-icon">企</div>
                     <h3>企业技术团队</h3>
                     <p>评估AI解决方案，确保技术选型符合业务需求</p>
                 </div>
                 <div class="user-card">
-                    <div class="user-icon">🎓</div>
+                    <div class="text-icon">学</div>
                     <h3>学术机构</h3>
                     <p>进行LLM能力研究，发表学术论文，推动学科发展</p>
                 </div>
@@ -810,7 +832,7 @@ ollama pull gemma:7b</code></pre>
                 <div class="footer-section">
                     <h3>项目链接</h3>
                     <ul>
-                        <li><a href="https://github.com/your-username/llm-advanced-testing-suite">GitHub仓库</a></li>
+                        <li><a href="https://github.com/ptreezh/llmtest24">GitHub仓库</a></li>
                         <li><a href="#">问题反馈</a></li>
                         <li><a href="#">贡献指南</a></li>
                     </ul>

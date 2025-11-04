@@ -38,8 +38,8 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/llm-advanced-testing-suite.git
-cd llm-advanced-testing-suite
+git clone https://github.com/ptreezh/llmtest24.git
+cd llmtest24
 
 # Create virtual environment
 python -m venv venv
@@ -98,7 +98,7 @@ pytest tests/test_pillar_01_logic.py::test_logic_evaluation
 ## Project Structure
 
 ```
-llm-advanced-testing-suite/
+llmtest24/
 ├── core/                    # Core testing framework
 ├── tests/                   # Test cases
 ├── independence/            # Role independence testing

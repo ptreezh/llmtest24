@@ -3,8 +3,8 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "llm-advanced-testing-suite"
-version = "1.0.0"
+name = "llmtest24"
+version = "1.0.1"
 description = "A comprehensive testing framework for evaluating Large Language Models across advanced cognitive capabilities"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -61,11 +61,11 @@ visualization = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-username/llm-advanced-testing-suite"
-Documentation = "https://llm-advanced-testing-suite.readthedocs.io"
-Repository = "https://github.com/your-username/llm-advanced-testing-suite"
-Issues = "https://github.com/your-username/llm-advanced-testing-suite/issues"
-Changelog = "https://github.com/your-username/llm-advanced-testing-suite/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/ptreezh/llmtest24"
+Documentation = "https://llmtest24.readthedocs.io"
+Repository = "https://github.com/ptreezh/llmtest24"
+Issues = "https://github.com/ptreezh/llmtest24/issues"
+Changelog = "https://github.com/ptreezh/llmtest24/blob/main/CHANGELOG.md"
 
 [project.scripts]
 llm-test = "scripts.main_orchestrator:main"

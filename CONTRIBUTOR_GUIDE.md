@@ -1,254 +1,194 @@
-#ContributorGuideThisguidehelpsdeveloperscontributetotheLLMAdvancedTestingSuite.
+# Contributor Guide
 
-##DevelopmentSetup###Prerequisites-Python3.8orhigher-Git-Virtualenvironment(recommended)
+This guide helps developers contribute to the LLM Advanced Testing Suite.
 
-###InitialSetup```bash#Forkandclonerepositorygitclonehttps://github.com/your-username/llm-advanced-testing-suite.gitcdllm-advanced-testing-suite#Createvirtualenvironmentpython-mvenvvenvsourcevenv/bin/activate#OnWindows:venv\Scripts\activate#Installdependenciespipinstall-rrequirements.txtpipinstall-rrequirements-dev.txt#Installpre-commithookspre-commitinstall```
+## Development Setup
 
-##CodeQuality###CodeStyle-UseBlackforcodeformattingwith88characterrunlength-UseFlake8forlinting-UseMyPyfortypechecking-FollowPEP8conventions-UseGoogle-styledocstrings
+### Prerequisites
+- Python 3.8 or higher
+- Git
+- Virtual environment (recommended)
 
-###Formatting```bash#Formatcodeblack.#Checkformattingblack--check.#Formatonlychangedfilesblack$(gitdiff--name-only--diff-filter=ACMRTUXBHEAD)```
+### Initial Setup
 
-###Linting```bash#Runlintingflake8.--max-line-length=88--extend-ignore=E203,W503#Runtypecheckingmypy.--ignore-missing-imports.--strict-optional.--no-strict-optional.--warn-redundant-casts.--warn-unused-ignores.--warn-no-return.--warn-unreachable.--strict-equality```
+```bash
+# Fork and clone repository
+git clone https://github.com/ptreezh/llmtest24.git
+cd llmtest24
 
-###Testing-Writeunittestsfornewfeatures-Maintaintestcoverageabove80%
--Usepytestfortesting-Testbothsuccessandfailurecases
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Linux/macOS
+# On Windows:
+# venv\Scripts\activate
 
-```bash#Runalltestspytest#Runwithcoveragepytest--cov=.--cov-report=html#Runspecificpytesttests/test_pillar_01_logic.py#Runwithpytest-xdistforparalleltestingpytest-n4```
+# Install dependencies
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
-##ProjectStructure###DirectoryStructure```
-llm-advanced-testing-suite/
-├──core/#Coreframework├──tests/#Testcases├──independence/#Independencetesting├──cognitive_ecosystem/#Cognitiveecosystem├──scripts/#Utilityscripts├──config/#Configuration├──docs/#Documentation├──results/#Results├──examples/#Examples└──tools/#Utilitytools```
-
-###CoreFramework(`core/`)-`framework.py`:MainTestFrameworkclass-`test_orchestrator.py`:Testorchestration-`config_manager.py`:Configurationmanagement
-
-###TestCases(`tests/`)-`test_pillar_XX.py`:Individualtestpillars-`utils.py`:Testutilities-`composite_scenarios/`:Compositetestscenarios
-
-###IndependenceTesting(`independence/`)-`base.py`:Baseclassesforindependencetests-`character_breaking.py`:Stresstests-`implicit_cognition.py`:Implicitcognitiontests-`longitudinal_consistency.py`:Longitudinaltests-`metrics/`:Independencemetrics
-
-###CognitiveEcosystem(`cognitive_ecosystem/`)-`core/`:Coreecosystemengine-`detectors/`:Variousdetectors-`analyzers/`:Analysiscomponents-`baselines/`:Baselinecomparisons
-
-##AddingNewTests###TestStructureEachnewtestshouldfollowthisstructure:
-
-```python#tests/test_pillar_xx_name.pyimportpytestfromtests.utilsimportrun_single_test,print_assessment_criteriadeftest_name_evaluation():
-"""Testdescription"""
-pillar_name="pillar_xx"
-prompt="Testprompt"
-model="test_model"
-#Runthetestresult=run_single_test(pillar_name,prompt,model)
-#Assertresultsassertresult['success']isTrueassertresult['score']>0.5
+# Install pre-commit hooks
+pre-commit install
 ```
 
-###TestConfigurationAddthetestconfigurationto`config/test_config.yaml`:
+## Code Quality
 
-```yamltest_pillar_xx:
-description:"Testdescription"
-criteria:
--criterion_1-criterion_2weights:
-criterion_1:0.5criterion_2:0.5
+### Code Style
+- Use Black for code formatting with 88 character run length
+- Use Flake8 for linting
+- Use MyPy for type checking
+- Follow PEP 8 conventions
+- Use Google-style docstrings
+
+### Formatting
+
+```bash
+# Format code
+black .
+
+# Check formatting
+black --check .
+
+# Format only changed files
+black $(git diff --name-only --diff-filter=ACMRTUXB HEAD)
 ```
 
-###TestImplementationImplementthetestlogicintheappropriatepillarfile:
+### Linting
 
-```python#tests/test_pillar_xx_name.pydefrun_test(pillar_name,prompt,model_name,**kwargs):
-"""Runthetest"""
-#Implementtestlogic
-return{
-"success":True,
-"score":calculated_score,
-"details":{
-"response_quality":response_quality,
-"accuracy":accuracy,
-"completeness":completeness
-},
-"metadata":{
-"test_duration":duration,
-"tokens_used":tokens_used,
-"model_response":model_response
-}
-}
+```bash
+# Run linting
+flake8 . --max-line-length=88 --extend-ignore=E203,W503
+
+# Run type checking
+mypy . --ignore-missing-imports --strict-optional --no-strict-optional --warn-redundant-casts --warn-unused-ignores --warn-no-return --warn-unreachable --strict-equality
 ```
 
-##AddingNewModels###ModelServiceStructureCreateanewmodelservice:
+### Testing
+- Write unit tests for new features
+- Maintain test coverage above 80%
+- Use pytest for testing
+- Test both success and failure cases
 
-```python#services/new_model_service.pyfromservices.base_serviceimportBaseServiceclassNewModelService(BaseService):
-def__init__(self,api_key,base_url,**kwargs):
-super().__init__(api_key,base_url,**kwargs)
-self.model_name=kwargs.get('model','default_model')defgenerate_response(self,prompt,**kwargs):
-"""Generatearesponsetotheprompt"""
-#Implementmodel-specificlogic
-response=self.client.generate(
-prompt=prompt,
-max_tokens=kwargs.get('max_tokens',1000),
-temperature=kwargs.get('temperature',0.7)
-)
-returnresponse['text']
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=. --cov-report=html
+
+# Run specific tests
+pytest tests/test_pillar_01_logic.py
+
+# Run with pytest-xdist for parallel testing
+pytest -n 4
 ```
 
-###ModelConfigurationAddthemodelconfigurationto`config/models.txt`:
+## Project Structure
 
-```yamlnew_model/model_name:
-type:new_model
-api_key:${NEW_MODEL_API_KEY}
-base_url:${NEW_MODEL_BASE_URL}
-model:model_name
-max_tokens:4000
-temperature:0.7
+### Directory Structure
+
+```
+llmtest24/
+├── core/                    # Core framework
+├── tests/                   # Test cases
+├── independence/            # Independence testing
+├── cognitive_ecosystem/     # Cognitive ecosystem
+├── scripts/                 # Utility scripts
+├── config/                  # Configuration
+├── docs/                    # Documentation
+├── results/                 # Results
+├── examples/                # Examples
+└── tools/                   # Utility tools
 ```
 
-##AddingNewWorkflows###WorkflowStructureCreateanewworkflow:
+### Core Framework (`core/`)
+- `framework.py`: Main Test Framework class
+- `test_orchestrator.py`: Test orchestration
+- `config_manager.py`: Configuration management
 
-```python#scripts/workflows/new_workflow.pydefrun_new_workflow(model_name,**kwargs):
-"""Runanewworkflow"""
-#Implementworkflowlogic
-results=[]
-#Addteststotheresultslist
-return{
-"workflow_name":"new_workflow",
-"model_name":model_name,
-"results":results,
-"summary":generate_summary(results)
-}
+### Test Cases (`tests/`)
+- `test_pillar_XX.py`: Individual test pillars
+- `utils.py`: Test utilities
+- `composite_scenarios/`: Composite test scenarios
+
+### Independence Testing (`independence/`)
+- `base.py`: Base classes for independence tests
+- `character_breaking.py`: Stress tests
+- `implicit_cognition.py`: Implicit cognition tests
+- `longitudinal_consistency.py`: Longitudinal tests
+- `metrics/`: Independence metrics
+
+### Cognitive Ecosystem (`cognitive_ecosystem/`)
+- `core/`: Core ecosystem engine
+- `detectors/`: Various detectors
+- `analyzers/`: Analysis components
+- `baselines/`: Baseline comparisons
+
+## Adding New Tests
+
+### Test Structure
+
+Each new test should follow this structure:
+
+```python
+# tests/test_pillar_xx_feature.py
+import pytest
+from core.framework import BaseTestPillar
+
+class TestPillarXXFeature(BaseTestPillar):
+    """Test pillar for XX feature."""
+    
+    def __init__(self):
+        super().__init__(
+            name="Pillar XX: Feature Name",
+            description="Description of the test pillar",
+            dependencies=["required", "pillars"],
+            metrics=["metric1", "metric2"]
+        )
+    
+    def run_test(self, model, config):
+        """Execute the test."""
+        # Test implementation
+        pass
 ```
 
-###WorkflowRegistrationRegistertheworkflowin`scripts/main_orchestrator.py`:
+### Test Guidelines
 
-```pythonWORKFLOWS={
-"new_workflow":run_new_workflow,
-#existingworkflows...
-}
-```
+1. Keep tests focused on a single capability or behavior
+2. Use descriptive names for test methods
+3. Include comprehensive assertions
+4. Handle model errors gracefully
+5. Document test assumptions and limitations
 
-##Documentation###DocumentationStandards-UseMarkdownformat-Followexistingstructure-Includecodeexamples-Keepdocumentationupdated
+## Pull Request Process
 
-###DocumentationFiles-`README.md`:Projectoverview-`docs/`:Detaileddocumentation-`CONTRIBUTING.md`:Contributionguidelines-`API_REFERENCE.md`:APIdocumentation
+1. Create a feature branch from the main branch
+2. Add tests for new functionality
+3. Update documentation as needed
+4. Ensure all tests pass
+5. Submit pull request with clear description
 
-###WritingDocumentation-Useclearandconciselanguage-Includeexamplesforcomplexfeatures-Documentbothusageandimplementationdetails-Updatedocumentationwhenchangingcode
+## Code Review Guidelines
 
-##ReleaseProcess###VersioningFollowsemanticversioning:
--`MAJOR`:Breakingchanges
--`MINOR`:Newfeatures
--`PATCH`:Bugfixes
+- Check code follows established patterns
+- Verify tests are comprehensive
+- Confirm documentation is clear
+- Ensure performance considerations are addressed
+- Validate error handling
 
-###ReleaseChecklist1.Updateversionin`pyproject.toml`
-2.Update`CHANGELOG.md`
-3.Runalltestsandensuretheypass
-4.Updatedocumentation
-5.Createreleasebranch
-6.Tagtherelease
-7.PushtoGitHub
-8.CreateGitHubrelease
+## Maintainer Guidelines
 
-###ChangelogFormatFollowKeepaChangelogformat:
+### Issue Triage
+- Label issues appropriately
+- Respond to questions within 48 hours
+- Close irrelevant issues respectfully
 
-```markdown##[Unreleased]###Added-Newfeature-Newtest###Changed-Improvement###Fixed-Bugfix##[1.0.0]-2025-01-15###Added-Initialrelease
-```
+### Release Process
+1. Update version in `pyproject.toml`
+2. Update changelog
+3. Run full test suite
+4. Create release tag
+5. Publish to PyPI
 
-##CodeReview###ReviewProcess1.Allcodechangesrequireareview
-2.Usepullrequestsforchanges
-3.Addressreviewcommentsbeforemerging
-4.Keepchangesfocusedandatomic
+## Questions?
 
-###ReviewCriteria-Codequalityandstyle
--Testcoverage
--Documentation
--Performanceimpact
--Securityconsiderations
--Backwardcompatibility
-
-###PullRequestTemplate```markdown##DescriptionBriefdescriptionofthechanges.
-
-##ChangesListofchangesmade.
-
-##Testing-Testscoversnewfeatures
--Existingtestsstillpass
--Integrationtestspass
-
-##Documentation-Updatedrelevantdocumentation
--Addedexamplesifneeded
-
-##BreakingChanges-Listanybreakingchanges
--Providemigrationguideifneeded
-
-##Screenshots(ifapplicable)Addscreenshotsifvisualchangesweremade.
-```
-
-##Community###CommunicationChannels-GitHubIssues:Bugreportsandfeaturerequests
--GitHubDiscussions:Generaldiscussion
--Email:support@example.com
-
-###CodeofConduct-Berespectfulandinclusive
--Focusonconstructivefeedback
--Helpotherslearnandcontribute
--Followthecodeofconduct
-
-###GettingHelp-Readthedocumentationfirst
--Searchexistingissues
--AskinGitHubDiscussions
--Contactmaintainers
-
-##Performance###OptimizationTips-Profilecodebeforeoptimizing
--Useappropriatealgorithms
--MinimizeI/Ooperations
--Usecachingwhereappropriate
--Optimizememoryusage
-
-###PerformanceTesting-Uselocaltestingforperformance
--Useappropriatedatasets
--Monitorresourceusage
--Compareperformancebeforeandafterchanges
-
-##Security###SecurityBest Practices-Validateallinputs
--Useparameterizedqueries
--Handleerrorsappropriately
--Logsecurity-relevantevents
--Usesecuredependencies
-
-###DependencyManagement-Regularlyupdatedependencies
--Checkforvulnerabilities
--Useversionpinningforcriticaldependencies
--Reviewdependenciesbeforeadding
-
-##Troubleshooting###CommonIssues-Importerrors:CheckPythonpath
--Modulenotfound:Checkdependencies
--Testfailures:Checktestenvironment
--Performanceissues:Profilecode
-
-###DebuggingTips-Useloggingfordebugging
--Adddebugstatementscarefully
--Usedebuggersforcomplexissues
--Isolateproblemsbeforefixing
-
-##ContributorRecognition###ContributorLevels-**Contributor**:Regularcontributions
--**Maintainer**:Activecodecontributions
--**CoreTeam**:Projectleadership
-
-###RecognitionMethods-ContributorlistinREADME
--Recognitioninreleases
--Shoutoutsincommunitychannels
--Opportunitiesforleadershiproles
-
-##FinalChecklistBeforeSubmitting###CodeQuality-[]Codefollowsprojectstyleguidelines
--[]Alltestsarepassing
--[]Codeisproperlydocumented
--[]Nosecurityvulnerabilities
--[]Performanceimpactisconsidered
-
-###Documentation-[]Documentationisupdated
--[]Examplesareprovided
--[]APIdocumentationisupdated
--[]READMEisupdatedifneeded
-
-###Testing-[]Newfeaturesaretested
--[]Existingfunctionalityisnotbroken
--[]Integrationtestsarepassing
--[]Edgecasesarecovered
-
-###Release-[]Versionnumberisupdated
--[]Changelogisupdated
--[]Releasebranchiscreated
--[]Pullrequestiscreated
--[]Reviewcommentsareaddressed
-
----
-
-ThankyouforcontributingtotheLLMAdvancedTestingSuite!🎉
+If you have questions about contributing, feel free to open an issue or reach out to the maintainers.

@@ -245,7 +245,7 @@ python scripts/testing/run_cognitive_ecosystem_cloud_test.py --model your_model
 #### 1. Import Errors
 ```bash
 # Ensure you're in the right directory
-cd /path/to/llm-advanced-testing-suite
+cd /path/to/llmtest24
 
 # Activate virtual environment
 source venv/bin/activate  # Linux/macOS
@@ -291,8 +291,8 @@ python scripts/main_orchestrator.py --model your_model --batch-size 1
 - [User Guide](docs/USER_GUIDE_EN.md)
 
 ### 2. Join the Community
-- GitHub Discussions: [Join discussions](https://github.com/your-username/llm-advanced-testing-suite/discussions)
-- Issues: [Report bugs](https://github.com/your-username/llm-advanced-testing-suite/issues)
+- GitHub Discussions: [Join discussions](https://github.com/ptreezh/llmtest24/discussions)
+- Issues: [Report bugs](https://github.com/ptreezh/llmtest24/issues)
 
 ### 3. Contribute
 - Read [Contributing Guidelines](CONTRIBUTING.md)

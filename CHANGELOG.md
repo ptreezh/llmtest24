@@ -7,23 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-- Cognitive ecosystem testing framework
-- Role independence testing suite
-- Enhanced visual test interface
-- Comprehensive scoring system
-- Multi-model support (OpenAI, Anthropic, Google, Ollama, etc.)
+## [1.0.1] - 2025-11-04
 
 ### Changed
-- Improved test orchestration system
-- Enhanced result analysis and visualization
-- Better error handling and logging
-- Optimized performance for large-scale testing
+- Replaced all character icons with CSS汉字替代方案 in the documentation
+- Updated all repository links from template placeholders to actual repository URL (ptreezh/llmtest24)
+- Fixed formatting issues in CONTRIBUTOR_GUIDE.md
 
 ### Fixed
-- Memory management issues in long-running tests
-- Model connection timeout handling
-- Test result consistency across different environments
+- Corrected repository URL placeholders throughout the project
+- Resolved formatting issues in documentation files
 
 ## [1.0.0] - 2025-01-15
 
@@ -133,6 +126,6 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html):
 ## Support
 
 For questions or issues, please:
-- Check the [documentation](https://llm-advanced-testing-suite.readthedocs.io)
-- Search existing [GitHub issues](https://github.com/your-username/llm-advanced-testing-suite/issues)
+- Check the [documentation](https://llmtest24.readthedocs.io)
+- Search existing [GitHub issues](https://github.com/ptreezh/llmtest24/issues)
 - Create a new issue if needed

@@ -16,8 +16,8 @@ This project provides a systematic approach to assess LLM capabilities through 2
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/llm-advanced-testing-suite.git
-cd llm-advanced-testing-suite
+git clone https://github.com/ptreezh/llmtest24.git
+cd llmtest24
 
 # Install dependencies
 pip install -r requirements.txt
@@ -77,7 +77,7 @@ The framework is organized into 4 layers:
 ## Project Structure
 
 ```
-llm-advanced-testing-suite/
+llmtest24/
 ├── core/                    # Core testing framework
 ├── tests/                   # Test cases and utilities
 ├── independence/            # Role independence testing
@@ -209,7 +209,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 📧 Email: support@example.com
 - 💬 Discord: [Join our community](https://discord.gg/example)
-- 🐛 Issues: [GitHub Issues](https://github.com/your-username/llm-advanced-testing-suite/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/ptreezh/llmtest24/issues)
 
 ## Roadmap
 
@@ -219,6 +219,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Advanced visualization and analytics
 - [ ] Support for more model providers
 - [ ] Automated test generation
+
+## Version History
+
+- 1.0.1 (2025-11-04)
+  - Replaced all character icons with CSS汉字替代方案 in the documentation
+  - Updated all repository links from template placeholders to actual repository URL
+  - Fixed formatting issues in CONTRIBUTOR_GUIDE.md
+
+- 1.0.0 (2025-01-15)
+  - Initial release
+  - 25 structured test pillars for LLM evaluation
+  - Cognitive ecosystem testing framework
+  - Role independence testing suite
 
 ---
 

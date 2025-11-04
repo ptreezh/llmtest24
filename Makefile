@@ -87,14 +87,14 @@ deploy:  ## Deploy to production
 	@echo "2. Documentation is built"
 	@echo "3. Docker image is built"
 	@read -p "Press Enter to continue or Ctrl+C to abort..."
-	docker build -t llm-advanced-testing-suite:latest .
-	docker push llm-advanced-testing-suite:latest
+	docker build -t llmtest24:latest .
+	docker push llmtest24:latest
 
 docker-build:  ## Build Docker image
-	docker build -t llm-advanced-testing-suite:latest .
+	docker build -t llmtest24:latest .
 
 docker-run:  ## Run Docker container
-	docker run -p 8501:8501 -v $(PWD)/testout:/app/testout -v $(PWD)/results:/app/results llm-advanced-testing-suite:latest
+	docker run -p 8501:8501 -v $(PWD)/testout:/app/testout -v $(PWD)/results:/app/results llmtest24:latest
 
 docker-compose-up:  ## Start Docker Compose
 	docker-compose up -d

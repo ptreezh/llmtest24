@@ -40,8 +40,8 @@ This project provides a systematic approach to assess LLM capabilities through 2
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/llm-advanced-testing-suite.git
-cd llm-advanced-testing-suite
+git clone https://github.com/ptreezh/llmtest24.git
+cd llmtest24
 
 # Install dependencies
 pip install -r requirements.txt
@@ -101,7 +101,7 @@ The framework is organized into 4 layers:
 ## Project Structure
 
 ```
-llm-advanced-testing-suite/
+llmtest24/
 ├── core/                    # Core testing framework
 ├── tests/                   # Test cases and utilities
 ├── independence/            # Role independence testing
@@ -233,7 +233,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 📧 Email: support@example.com
 - 💬 Discord: [Join our community](https://discord.gg/example)
-- 🐛 Issues: [GitHub Issues](https://github.com/your-username/llm-advanced-testing-suite/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/ptreezh/llmtest24/issues)
 
 ## Roadmap
 
@@ -330,8 +330,8 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/llm-advanced-testing-suite.git
-cd llm-advanced-testing-suite
+git clone https://github.com/ptreezh/llmtest24.git
+cd llmtest24
 
 # Create virtual environment
 python -m venv venv
@@ -390,7 +390,7 @@ pytest tests/test_pillar_01_logic.py::test_logic_evaluation
 ## Project Structure
 
 ```
-llm-advanced-testing-suite/
+llmtest24/
 ├── core/                    # Core testing framework
 ├── tests/                   # Test cases
 ├── independence/            # Role independence testing
@@ -784,8 +784,8 @@ This project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html):
 ## Support
 
 For questions or issues, please:
-- Check the [documentation](https://llm-advanced-testing-suite.readthedocs.io)
-- Search existing [GitHub issues](https://github.com/your-username/llm-advanced-testing-suite/issues)
+- Check the [documentation](https://llmtest24.readthedocs.io)
+- Search existing [GitHub issues](https://github.com/ptreezh/llmtest24/issues)
 - Create a new issue if needed
 """
     
@@ -1228,7 +1228,7 @@ CMD ["python", "visual_test_interface.py"]
 
 services:
   llm-testing-suite:
-    image: llm-advanced-testing-suite:latest
+    image: llmtest24:latest
     container_name: llm-testing-suite
     environment:
       - PYTHONPATH=/app
@@ -1246,7 +1246,7 @@ services:
     restart: unless-stopped
 
   llm-testing-suite-api:
-    image: llm-advanced-testing-suite:latest
+    image: llmtest24:latest
     container_name: llm-testing-suite-api
     environment:
       - PYTHONPATH=/app
@@ -1263,7 +1263,7 @@ services:
     restart: unless-stopped
 
   llm-testing-suite-worker:
-    image: llm-advanced-testing-suite:latest
+    image: llmtest24:latest
     container_name: llm-testing-suite-worker
     environment:
       - PYTHONPATH=/app
@@ -1506,8 +1506,8 @@ jobs:
         context: .
         push: true
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/llm-advanced-testing-suite:latest
-          ${{ secrets.DOCKERHUB_USERNAME }}/llm-advanced-testing-suite:${{ github.sha }}
+          ${{ secrets.DOCKERHUB_USERNAME }}/llmtest24:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/llmtest24:${{ github.sha }}
 
   security-scanning:
     runs-on: ubuntu-latest
@@ -1518,7 +1518,7 @@ jobs:
       uses: aquasecurity/trivy-action@master
       with:
         scan-type: image
-        input-ref: ${{ secrets.DOCKERHUB_USERNAME }}/llm-advanced-testing-suite:latest
+        input-ref: ${{ secrets.DOCKERHUB_USERNAME }}/llmtest24:latest
         format: sarif
         output: trivy-results.sarif
     
@@ -1946,14 +1946,14 @@ deploy:  ## Deploy to production
 	@echo "2. Documentation is built"
 	@echo "3. Docker image is built"
 	@read -p "Press Enter to continue or Ctrl+C to abort..."
-	docker build -t llm-advanced-testing-suite:latest .
-	docker push llm-advanced-testing-suite:latest
+	docker build -t llmtest24:latest .
+	docker push llmtest24:latest
 
 docker-build:  ## Build Docker image
-	docker build -t llm-advanced-testing-suite:latest .
+	docker build -t llmtest24:latest .
 
 docker-run:  ## Run Docker container
-	docker run -p 8501:8501 -v $(PWD)/testout:/app/testout -v $(PWD)/results:/app/results llm-advanced-testing-suite:latest
+	docker run -p 8501:8501 -v $(PWD)/testout:/app/testout -v $(PWD)/results:/app/results llmtest24:latest
 
 docker-compose-up:  ## Start Docker Compose
 	docker-compose up -d
